@@ -1,0 +1,21 @@
+<a href="#" id="UserMenu-btn" class="">
+ <div class="user_thumb squarebox">
+  {% if user.avater_img_url %}
+  <img class="img_resize" src="{{ user.avater_img_url }}">
+  {% else %}
+  <img class="img_resize" src="{{ asset('images/user_default.png') }}">
+  {% endif %}
+
+ </div><!--//user_thumb-->
+</a>
+
+<div id="UserMenu" class="UserMenu_panel panl_theme">
+ <ul>
+
+  <li><a href="{{ url('/user/garage/' ~ user.id) }}">My GARAGe</a></li>
+  <li><a href="{{ url('/item/register') }}">アイテム登録</a></li>
+  <li><a href="{{ url('/user/setting') }}">アカウント設定</a></li>
+  <li><a href="{{ url('/auth/logout') }}">ログアウト</a></li>
+
+ </ul>
+</div><!--//panel2-->

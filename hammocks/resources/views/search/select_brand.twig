@@ -1,0 +1,44 @@
+{% extends "templates/common/base.twig" %}
+{% block title %}「{{ brands.name }}」のアウトドアギア一覧{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/pages/selected_item.css') }}" media="all" />
+{% endblock stylesheets %}
+
+
+{% block contents %}
+
+<h2 class="title">{{ brands.name }}</h2>
+
+{% embed "partial/common/input/sort_area.twig" %}
+{# {% block SortItem %}{% endblock SortItem %} #}
+{% endembed %}
+
+{% include 'partial/common/card/publicItem.twig' %}
+
+{% endblock contents %}
+
+
+{% block bottom_js %}
+<script src="{{ asset('js/vendor/remodal.min.js') }}" ></script>
+<script src="{{ asset('js/list.js') }}" ></script>
+<script src="{{ asset('js/tmpPublicItemList.js') }}" ></script>
+<script src="{{ asset('js/counter.js') }}" ></script>
+<script>
+function getBrandsId() {
+    return "{{ brands.id }}";
+}
+ var list = new List("#tmp_list_0", {
+  url : getDomain() + consUrlJs.listPath[0],
+  brands_id : "{{ brands.id }}",
+  templete_id : 0,
+  onEventFilter : 1,
+  onEventSort : 1,
+  filterElement : "#is_store",
+  sortElement : "#sort",
+  sortCategory : "master_item",
+  eventType : "change"
+ });
+ list.get();
+</script>
+{% endblock bottom_js %}

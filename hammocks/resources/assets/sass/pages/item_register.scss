@@ -1,0 +1,126 @@
+//******************************* impoprt setting /
+@import "compass";
+@import "../core/color";
+@import "../core/variables";
+@import "../core/mixin";
+
+//******************************* impoprt partial /
+//@import "../partial/item_card";
+
+@import "../partial/cards";
+@import "../partial/ui-autocomplete";
+@import "../partial/form/pictselect";
+@import "../partial/form/dropzone";
+@import "../partial/listbox";
+
+.item_register{
+
+ .formcontents{
+
+  input[type="text"]{
+  // width: 500px;
+   width: 100%;
+  }
+ }//formcontents
+
+  .flex_container{
+   justify-content: space-between;
+   flex-wrap: wrap;
+   .selectform{
+    width: 49%;
+    @include flex_item();
+    margin: 0;
+    margin-bottom: 20px;
+   }//.selectform
+  }//flex_container
+
+  .statuscheck{
+   text-align: center;
+   label{
+    width: 100px;
+    margin-right: 20px;
+    img{width: 48px;}
+   }
+  }//statuscheck
+
+  .card{
+  // max-width: 120px;
+   max-width: 100%;
+   width: 100%;
+   text-align: left;
+   .card_name{
+    font-size: 16px;
+    margin-top: 0px;
+   }
+  }
+
+  .publicitemcard{
+   .squarebox2{
+    width: 100px;
+    height: 100px;
+   }
+   .pubitempic{
+    padding: 20px;
+    margin: auto;
+    display: inline-block;
+   }
+
+   .card_infomation{
+    display: inline-block;
+   }
+  }
+
+
+ #brand-other:checked ~ #add_brand {
+  display: inline-block;
+ }
+ #add_brand{display: none;}
+
+
+ .pictselect,.pictup,.titleblock{
+  text-align: left;
+ }
+
+//#########################################################
+
+ .regist-error{
+  color: $warning-color;
+  margin-top: -20px;
+  display: inline-block;
+ }//regist-error
+
+
+
+
+ //breakpoints -------------------------------
+ @include MQ(maxL) { }//breakpoints (maxL) -------------------------
+
+ @include MQ(M) { }//breakpoints (M) -------------------------
+
+ @include MQ(S) { }//breakpoints (S) -------------------------
+
+} //item_register
+
+
+
+.mobile { //mobile setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //mobile end **********************************
+
+.tablet { //tablet setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //tablet end **********************************

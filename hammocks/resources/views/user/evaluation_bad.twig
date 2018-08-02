@@ -1,0 +1,49 @@
+{% extends "templates/common/user_garage.twig" %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+{% block top_js %}{% endblock top_js %}
+
+{% block contents %}
+
+<h2>投稿一覧</h2>
+
+<section class="article_all">
+
+ <div class="card_flex">
+  {% include 'partial/common/card/articlecard.twig' %}
+  {% include 'partial/common/card/articlecard.twig' %}
+  {% include 'partial/common/card/articlecard.twig' %}
+  {% include 'partial/common/card/articlecard.twig' %}
+ </div><!--//card_flex-->
+
+</section><!--//article_all-->
+
+
+<!--Modal set //-->
+{% embed "partial/common/modal/modal-articlepreview.twig" %}
+{% endembed %}
+
+{% embed "partial/common/modal/modal-cliptocontainer.twig" %}
+{% endembed %}
+
+{% embed "partial/common/modal/modal-share.twig" %}
+{% endembed %}
+
+{% embed "partial/common/modal/modal-ban.twig" %}
+{% endembed %}
+
+{% embed "partial/common/modal/modal-edit-article.twig" %}
+{% endembed %}
+<!--//-->
+
+{% endblock contents %}
+
+
+{% block bottom_js %}
+<script src="{{ asset('js/vendor/remodal.min.js') }}" ></script>
+<script src="{{ asset('js/jquery.anystretch.js') }}" ></script>
+<script>
+ console.log('[anystretch]');
+ $('.profcover').anystretch("http://hanmmocks.com/images/user_cover.jpg");
+</script>
+{% endblock bottom_js %}

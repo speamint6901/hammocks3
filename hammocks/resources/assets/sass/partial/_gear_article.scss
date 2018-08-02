@@ -1,0 +1,157 @@
+.gear_article{
+ width: $articlecontents;
+ margin: auto;
+
+
+ .sale_flag{
+  background-color: $main-color;
+  color:$base-color;
+ }
+
+ .article-header,.article-footer{
+  text-align: center;
+  margin: 80px auto;
+  padding-top: 80px;
+  border-top: 1px solid $line-color;
+
+  .brand_name,.card_name{ margin: 0 auto; }
+  .user_thumb{  max-width: 60px; }
+  .authority_stamp{
+   margin: auto;
+   .name{
+    margin-left: 30px;
+   }//name
+  }//authority_stamp
+  .card_status{margin-top: 20px;}
+  .status_icon,.gear_rating{
+   margin: 20px auto;
+  }
+
+  .tag_nav{
+   i{
+    float: none;
+    display: inline-block;
+   }
+   ul{display: inline-block;}
+  }
+
+ }//article-footer
+
+ .article-header{
+  padding-top: 0;
+  margin-top: 60px;
+  border: none;
+  .gear_name{
+   width: 60%;
+   margin: auto;
+   text-align: left;
+   position: relative;
+   .sale_flag{
+    position: absolute;
+    right: 0;
+    top:0;
+   }
+  }
+ }//article-header
+
+ article{
+  margin-bottom: 120px;
+  header{
+   text-align: center;
+  }
+  .title{
+   margin: 20px auto;
+   max-width: 100%;
+  }
+  time{
+   @include fontsize(18);
+  }
+
+  .paragraph{
+   text-align: left;
+   margin-bottom: $common_mr-bt *2;
+  }//paragraph
+
+  .article_img{
+   //width: 80%;
+   margin: 20px auto;
+   display: block;
+   img{
+    //width: auto;
+    max-width: 100%;
+    margin: auto;
+    display: block;
+   }//v
+  }//article_img
+
+  p{
+   img{width: auto;}
+  }
+
+ }//article
+
+ .paragraph-footer{
+  .tagarea{overflow: hidden;}
+  .tag_nav{
+   ul{
+    display: inline-block;
+    text-align: left;
+    margin-left: 15px;
+    float: left;
+    width: calc(100% - 42px);//iのサイズとマージンの和
+   }
+  }//tag_nav
+ }//paragraph-footer
+
+ //breakpoints -------------------------------
+ @include MQ(maxL) {}//breakpoints (maxL) -------------------------
+
+ @include MQ(M) {
+  width: 100%;
+  .article_img{   width: 100%;  }
+ }//breakpoints (M) -------------------------
+
+ @include MQ(S) {
+  .article-header{
+   .gear_name{ width: 100%; }
+   .title{ text-align: left }
+   time{}
+  }//article-header
+
+  .article-footer{
+   .tagarea{
+    overflow: hidden;
+    text-align: left;
+   }//tagarea
+
+   .tag_nav{
+    i{float: left;}
+    ul{    float: left; width: Calc(100% - 27px);}
+   }
+  }//article-footer
+
+ }//breakpoints (S) -------------------------
+
+}//.gear_artilce
+
+
+.mobile { //mobile setting **********************
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+} //mobile end **********************************
+
+
+
+.tablet { //tablet setting **********************
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+} //tablet end **********************************
+

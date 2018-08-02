@@ -1,0 +1,158 @@
+input, button, textarea, select {
+ //font-family: $base_fontfam;
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ appearance: none;
+ border: none;
+}
+input[type="button"],
+input[type="submit"],
+input[type="reset"]{
+ -webkit-appearance: none;
+ border: none;
+ //ここまでsmartphoneフォーム要素のデフォルトスタイルを削除
+
+ margin: 0;
+ padding: 0;
+ background: none;
+ border: none;
+ border-radius: 0;
+ outline: none;
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ appearance: none;
+}
+
+
+//IEのinput要素に出てくるマークを消去
+//* text */
+input::-ms-clear { visibility: hidden;}
+//* password */
+input::-ms-reveal { visibility: hidden;}
+
+
+input,textarea,select{
+ //width:100%;
+ @include common_radius;
+ border: 1px solid $line-color;
+ padding: 0.5em 1em;
+ color: $text-color;
+ background-color: transparent;
+ margin: auto;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus{
+ outline:none;
+ background-color:rgba(238,238,238,0.6);
+}
+
+::disabled{  cursor: not-allowed; }
+
+input[type="submit"],input[type="button"],input[type="reset"]
+{
+ @include common_radius;
+ padding: 6px 20px;
+ border: 1px solid $main-color;
+ background-color: transparent;
+ cursor: pointer;
+ &:hover{
+  opacity:0.7;
+  filter:alpha(opacity=70);
+  -ms-filter: “alpha( opacity=70 )”;
+ }
+}
+
+input[type=date]{
+ //* スピンボタン（上下ボタン）を非表示 */
+ &::-webkit-inner-spin-button { -webkit-appearance: none;}
+ //* 無入力時の 年/月/日 を / / にする */
+ &::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+ &::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+ &::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+  color: transparent;
+ }
+ //* clearボタンの非表示 */
+ &::-webkit-clear-button {  -webkit-appearance: none; }
+ //* カレンダーのインジケータ（▼）を非表示 */
+ &::-webkit-calendar-picker-indicator {
+  color: #000;
+  position: relative;
+
+  &:before {
+   color: #000;
+   font-family: FontAwesome;
+   content: "\f073";
+   position: absolute;
+   left: -5px;
+   top: -5px;
+  }
+
+ }//calendar-picker-indicator
+}//type=date
+
+
+input{
+ &:placeholder{
+  color:aquamarine;
+ }
+}
+
+label.titleblock{
+ display: block;
+text-align: left;
+}
+
+
+@import "form/input";
+@import "form/textarea";
+@import "form/select";
+@import "form/radiobutton";
+@import "form/checkbox";
+@import "form/togglebtn";
+
+
+//Layout
+select,
+textarea,
+input{
+ &.form_size-S{width: 25%;}
+ &.form_size-M{width: 50%;}
+ &.form_size-L{ width: 100%;}
+}
+input[type="radio"],input[type="checkbox"]{
+ &.form_size-S{width: auto;}
+ &.form_size-M{width: auto;}
+ &.form_size-L{ width: auto;}
+}
+
+
+
+@include MQ(maxL) { //----------------------
+}//breakpoints (maxL) ----------------------
+
+@include MQ(M) { //-------------------------
+}//breakpoints (M) -------------------------
+
+@include MQ(S) { //-------------------------
+ select,textarea,input{
+  &.form_size-S{
+   width: 100%;
+   max-width: 280px;
+  }
+ }
+ select,textarea,input{
+  &.form_size-M{
+   width: 100%;
+   max-width: 280px;
+  }
+ }
+ select,textarea,input{
+  &.form_size-L{
+   //max-width: 280px;
+  }
+ }
+}//breakpoints (S) -------------------------
+

@@ -1,0 +1,72 @@
+.modal-sns_share{
+
+ ul{
+  @include flex_container();
+  -webkit-flex-wrap: wrap;
+  flex-wrap:wrap;
+  -webkit-justify-content: space-between; /* Safari */
+  justify-content:         space-between;
+
+  max-width: $formcontents;
+  margin: 150px auto;
+  li{
+   @include flex_item();
+   font-size: 40px;
+   text-align: center;
+   width: 100%;
+   margin-bottom: $common_mr-bt *2;
+   a{
+    color: $text-color;
+    width: 100px;
+    text-align: left;
+    display: inline-block;
+    &:hover{color: $link-color;}
+   }//a
+   span{
+    font-size: 10px;
+    color: $text-color;
+   }//span
+  }//li
+ }//ul
+
+ @include MQ(maxL) { //----------------------
+ }//breakpoints (maxL) ----------------------
+
+ @include MQ(M) { //-------------------------
+ }//breakpoints (M) -------------------------
+
+ @include MQ(S) { //-------------------------
+  ul{
+   //margin: 150px auto;
+   li{
+    width: 100%;
+    margin-bottom: 50px;
+   }//li
+  }//ul
+
+
+ }//breakpoints (S) -------------------------
+
+
+}//modal-sns_share
+
+.mobile { //mobile setting **********************
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+} //mobile end **********************************
+
+
+
+.tablet { //tablet setting **********************
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+} //tablet end **********************************
+

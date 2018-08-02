@@ -1,0 +1,139 @@
+.listbox{
+ $thum_size:60px;
+ width: 100%;
+ border: 1px solid $line-color;
+ display: flex;
+ align-items: center;
+ padding: 20px;
+ margin: auto;
+ margin-bottom: $common_mr-bt;
+ position: relative;
+ max-width: $formcontents;
+ .user_thumb {
+  max-width: $thum_size;
+  margin: auto;
+ }
+
+ .left_area{
+  width: 20%;
+  text-align: center;
+ }//.left_area
+ .right_area{
+  margin-left: 20px;
+  .card_name{
+   margin: auto;
+  }//.card_name
+ }//.right_area
+
+ .badge{
+  min-width: 24px;
+  min-height: 24px;
+  right: -8px;
+  top: -8px;
+ }//badge
+
+ .label_mark{
+  &.label_sale{}//label_sale
+  &.label_purchase{}//label_purchase
+ }
+
+
+ &.list-user{
+  justify-content: center;
+  height: 100px;
+  .left_area{}
+  .right_area{
+   margin-left: $thum_size;
+   .name{    padding-right: $thum_size;}
+  }//right_area
+ }//list-user
+
+ &.list-user_rating{
+  max-width: $textcontents;
+  .right_area{
+   .upper_area{
+    display: flex;
+    justify-content: space-between;
+   }//upper_area
+  }//right_area
+
+  .label_mark{
+   @include common_radius;
+   margin-top: 10px;
+   &.label_purchase{
+    background-color: $main-color;
+    color: $base-color;
+   }//label_purchase
+   &.label_sale{
+    color: $main-color;
+    border: 1px solid $main-color;
+   }//label_sale
+  }//label_mark
+
+  time{color: $main-color;}
+
+  @include MQ(M) {
+   .left_area{   width: 50%;   }//.left_area
+  }//breakpoints (M) -------------------------
+
+  @include MQ(S) {
+   .left_area{   width: 100%;   }//.left_area
+  }//breakpoints (S) -------------------------
+
+ }//list-user_rating
+
+ &.list-gear{
+  max-width: 480px;
+  .left_area{
+   width: auto;
+  }//.left_area
+  .card_infomation{
+   margin-left: 20px;
+   text-align: left;
+   .card_name{
+    margin: auto;
+   }//.card_name
+   .status{
+    text-align: center;
+    border: 1px solid;
+    //@include common_radius;
+    border-radius: 20px;
+    padding: 0 10px;
+    color: $main-color;
+   }//status
+   .btn_icon{
+    cursor: pointer;
+    position: absolute;
+    $width01:30px;
+    $width02:$width01 / 2;
+    //width: $width01;
+    //border: 1px solid $main-color;
+    //border-radius: 100%;
+    //padding: 5px;
+    right: 25px;
+    top: calc(50% - #{$width02});
+   }//btn_icon
+  }//.card_infomation
+ }//.list-gear
+
+ &.list-gear_rating{
+  justify-content: space-around;
+  .right_area{
+   margin-left: 0;
+  }//right_area
+  .rate_result{
+   width: 145px;
+  }
+ }//.list-gear_rating
+
+}//.listbox
+
+
+
+//リストによる切り替えの準備
+
+ .list-gear{
+  .btn_icon{display: none;}
+  .price{display: none;}
+ }
+

@@ -1,0 +1,38 @@
+<div class="remodal" data-remodal-id="ItemEdit-pict" data-remodal-options="hashTracking:false">
+
+ <button data-remodal-action="close" class="remodal-close"></button>
+
+ {% block ItemEditpict_Contents %}
+ <section>
+  <h2>画像を変更する</h2>
+
+  <div class="madalformcontents">
+  <form method="post" id="img_uploader_form">
+
+  <div class="pictup_way comon_layout">
+
+   <input type="radio" id="pictselect01" class="radiobtn" name="pictup" value="www">
+   <label for="pictselect01"><img src="{{ asset('images/ico-www.svg') }}" type="image/svg+xml"></label>
+
+   <input type="radio" id="pictselect02" class="radiobtn" name="pictup" value="img">
+   <label for="pictselect02"><img src="{{ asset('images/ico-img-white.svg') }}" type="image/svg+xml"></label>
+
+   <div id="pictselect01_check" class="pictup comon_layout">
+    {% include 'partial/common/input/pict-select-url.twig' %}
+   </div>
+
+   <div id="pictselect02_check" class="pictup comon_layout">
+    {% include 'partial/common/input/pict-select.twig' %}
+   </div>
+  </div><!--//pictup_way-->
+
+   </form>
+  </div><!--//madalformcontents-->
+ </section>
+
+ <div class="modalbtn_set">
+  <button data-remodal-action="cancel" class="button btn_size-M reset_cancell-b">Cancel</button>
+  <button data-remodal-action="confirm" id="pict_edit_btn" class="button btn_size-M">更新</button>
+ </div><!--//modalbtn_set-->
+ {% endblock %}
+</div><!-- //remodal -->

@@ -1,0 +1,9 @@
+<form role="search" method="post" id="searchform" action="{{ url("/") }}">
+ <div class="searchbar">
+  <label class="screen-reader-text" for="s">
+   <input type="text" value="{{ word }}" name="s" id="s" placeholder="keyword search">
+   <input type="hidden" value="{{ filter_id }}" id="filter_id" name="filter_id">
+   <input type="submit" id="searchsubmit" value="&#xf002;"  />
+  </label>
+ </div><!--//searchbar-->
+</form>

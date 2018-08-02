@@ -1,0 +1,173 @@
+//******************************* impoprt setting /
+@import "compass";
+@import "../core/color";
+@import "../core/variables";
+@import "../core/mixin";
+
+//******************************* impoprt partial /
+@import "../partial/item_card";
+@import "../partial/cards";
+@import "../partial/gear_rating";
+@import "../partial/status_icon-itemcard";
+@import "../partial/listbox";
+@import "../partial/gear_article";
+@import "../partial/articlepreview";
+
+.master {
+
+ .masteritemNav{
+ ul{
+  display: flex;
+  justify-content: center;
+  li{
+   text-align: center;
+   margin: 0 20px 60px 20px;
+   svg{
+    width: 48px;
+    height: 48px;
+    color: $text-color;
+    fill: currentColor;
+   }
+  }
+ }
+ img{
+  max-width: 48px;//40px;
+ }//img
+
+ }//masteritemNav
+
+.public_comment{
+ //max-width: 900px;
+ margin: 100px auto 0 auto;
+ .user_comment{
+  width: 100%;
+  border: 1px solid $text-color;
+  padding: 10px 40px;
+  margin-bottom: 40px;
+
+
+
+ }//user_comment
+ .upperinfo{
+  display: flex;
+  //justify-content: center;
+ }//upperinfo
+ .user_thumb {
+  max-width: 40px;
+  margin-right: 20px;
+ }//user_thumb
+ .comment{
+  max-width: 800px;
+ }//comment
+ .footerinfo{
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  .putcontainer{margin-right: 40px;}
+  .rating{
+   max-width: 180px;
+   i {
+    margin-right: -10px;
+   }
+  }//rating
+ }//footerinfo
+}//public_comment
+
+ &.comment{
+  .publicitemNav{
+   li:first-child{
+   }
+  }//.publicitemNav
+ }//comment
+
+ .rating_list{
+  a{
+   //display: block;
+   //max-width: 540px;
+   //margin: auto;
+   color: $text-color;
+  }
+ }//rating_list
+
+ //アイコンカラー切り替え
+ //----base
+
+ &.item .active_base{
+  color: $main-color;
+  svg{
+   color: $main-color;
+  }
+ }//.active_base
+ &.item.rating{
+  .active_rating{
+   color: $main-color;
+   svg{
+    color: $main-color;
+   }
+  }//.active_rating
+
+  .active_base{
+   color: $text-color;
+   svg{    color: $text-color;   }//svg
+  }
+ }
+ &.item.photo{
+  .active_photo{
+   color: $main-color;
+   svg{
+    color: $main-color;
+   }
+  }//.active_photo
+
+  .active_base{
+   color: $text-color;
+   svg{    color: $text-color;   }//svg
+  }
+ }
+ &.item.sale{
+  .active_sale{
+   color: $main-color;
+   svg{
+    color: $main-color;
+   }
+  }//.active_sale
+
+  .active_base{
+   color: $text-color;
+   svg{    color: $text-color;   }//svg
+  }
+ }
+
+
+ //breakpoints -------------------------------
+ @include MQ(maxL) { }//breakpoints (maxL) -------------------------
+
+ @include MQ(M) { }//breakpoints (M) -------------------------
+
+ @include MQ(S) { }//breakpoints (S) -------------------------
+
+} //master item
+
+
+
+.mobile { //mobile setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //mobile end **********************************
+
+.tablet { //tablet setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //tablet end **********************************

@@ -1,0 +1,132 @@
+{% spaceless %}
+{% include 'templates/const.twig' %}
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>hammocks|{% block title %}アウトドアギア{% endblock %}</title>
+
+  {% include 'templates/common/lib/meta.twig' %}
+  {% block metadescription %}
+  <meta name="description" content="hammocksは自分の持っているキャンプ、アウトドアのギアを管理して、いらなくなったギアは欲しい人に販売！！自分の欲しいものを見つけたら購入できるサービスです。">
+  {% endblock %}
+
+  {% include 'templates/common/lib/ogp.twig' %}
+  {% block ogp %}
+  <meta property="og:title" content="ogpのタイトル. <title>と文章も文字数も同じにする。"/>
+  <meta property="og:description" content="hammocksは自分の持っているキャンプ、アウトドアのギアを管理して、いらなくなったギアは欲しい人に販売！！自分の欲しいものを見つけたら購入できるサービスです。" />
+  <meta property="og:image" content="http://ogimage.tsmallfield.com/img/ogp_1200x630.png" />
+  <meta property="og:url" content="http://dev.thehammocks.camp/" />
+  {% endblock %}
+
+
+  {% include 'templates/common/lib/link.twig' %}
+  {% block link %}{% endblock %}
+
+  {% include 'templates/common/lib/css.twig' %}
+  <link rel="stylesheet" href="{{ asset('css/pages/transaction.css') }}" media="all" />
+  {% block stylesheets %}{% endblock %}
+
+  {% include 'templates/common/lib/analyticstracking.twig' %}
+
+  {% block top_js %}{% endblock %}
+ </head>
+
+
+ {% block Body_class %}
+ <body class="{{ route_class }}">
+ {% endblock Body_class %}
+
+    <div class="fakeloader"></div>
+  <article class="container" id="container">
+
+      {% include 'partial/'~user_agent~'/header.twig' %}
+
+   <div class="contents">
+    <div class="transaction textcontents">
+
+
+     <h2 class="transaction_status1st">
+      {% block status1st %}
+      第1ステータス
+      {% endblock %}
+     </h2>
+
+     <div class="linebox">
+
+      <div class="top-border left"></div>
+      <div class="top-border right"></div>
+
+      <h3 class="transaction_status2nd linebox_title">
+       {% block status2nd %}
+       第2ステータス
+       {% endblock %}
+      </h3>
+
+
+    <div class="transaction_details">
+
+      {% block announce1 %}
+      {% endblock %}
+
+     <div class="listbox list-gear">
+
+      {% block gear_detail %}
+      <div class="left_area">
+       <a href="{{url('user/item/1')}}">
+        <div class="pic squarebox">
+         <img class="img_resize" src="http://placehold.it/500x500">
+        </div><!--//pic-->
+       </a>
+      </div><!--//left_area-->
+
+      <div class="right_area card_infomation">
+       <p class="brand_name">ANONYM CRAFTSMAN DESIGN</p><!--//brand_name-->
+       <h1 class="card_name">胸ポケTシャツ　タイガーカモ　黒</h1><!--//card_name-->
+      </div><!--/.card_infomation-->
+      {% endblock %}
+
+     </div><!-- /.list-gear -->
+
+     <div class="announcement">
+      {% block announce %}
+      <p>合計金額<span class="price">¥20,600</span></p>
+      <p class="limit">支払期限9月14日</p>
+      {% endblock %}
+     </div><!-- /.announcement -->
+
+    </div><!-- /.transaction_details -->
+     </div><!-- /.linebox -->
+
+    <a class="button btn_size-M">取引情報</a>
+     <a class="button btn_size-M" data-remodal-target="CommentList">メッセージ</a>
+    <a class="button btn_size-M">運営事務局へお問い合わせ</a>
+
+
+    </div><!--//transaction-->
+   </div><!--//contents-->
+
+   {% include 'partial/'~user_agent~'/footer.twig' %}
+
+   {% embed "partial/common/modal/modal-comment.twig" %}
+   {% endembed %}
+
+   {% block UniqueModal %}
+   {% endblock %}
+
+  </article><!--//container-->
+
+  {% if user_agent == "sp" %}
+  {% include 'templates/sp/base_modal.twig' %}
+  {% endif %}
+
+
+  {% include 'templates/common/lib/js.twig' %}
+  <script src="{{ asset('js/paging.js') }}" ></script>
+  <script src="{{ asset('js/vendor/remodal.min.js') }}" ></script>
+  {% block bottom_js %}{% endblock %}
+
+ </body>
+</html>
+{% endspaceless %}

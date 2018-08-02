@@ -1,0 +1,52 @@
+.footer {
+ @include liquidsize;
+ padding-top: 40px;
+ text-align: center;
+ //position: fixed;
+ bottom: 0;
+ //background-color: $base-color;
+/*
+ @include sgradient($colors:(
+  (rgba(255, 255, 255, 0), 0%),
+  ($base-color, 100%)
+  ));
+*/
+
+ .copyright {
+  text-align: center;
+  font-size: 1rem;
+  width: 100%;
+  clear: both;
+ }
+
+ .branding{
+margin-bottom: 40px;
+ }
+
+}//.footer
+
+
+
+
+.mobile { //mobile setting **********************
+ .footer {
+  padding-top: 20px;
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+ }//.footer
+} //mobile end **********************************
+
+
+
+.tablet { //tablet setting **********************
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+} //tablet end **********************************

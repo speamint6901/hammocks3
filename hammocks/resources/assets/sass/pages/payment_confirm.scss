@@ -1,0 +1,114 @@
+//******************************* impoprt setting /
+@import "compass";
+@import "../core/color";
+@import "../core/variables";
+@import "../core/mixin";
+
+//******************************* impoprt partial /
+
+@import "../partial/listbox";
+
+
+.payment_confirm {
+
+ .table_layout{
+  display: table;
+  width: 100%;
+
+  margin-bottom:  $common_mr-bt;
+  border-bottom: 1px solid $line-color;
+  padding-bottom:  $common_mr-bt;
+
+  dt,dd{
+   display: table-cell;
+   vertical-align: middle;
+   word-break: break-all;
+  }
+  dt{
+   font-family: mplus-1c-regular;
+   width: 160px;
+  }//dt
+  dd{
+   //width: 50%;
+  }
+  .table__col--s{   width: 240px;  }
+ }//table_layout
+
+
+ .customerinfo{
+  width: 100%;
+  padding: $common_mr-bt 0;
+  margin-bottom:  $common_mr-bt;
+  .btn_size-S.button{margin: 10px 0 10px auto;}
+
+ }//customerinfo
+
+ .shipping_info{
+  width: 100%;
+  padding: 60px  $common_mr-bt;
+  margin-bottom:  $common_mr-bt;
+  border: 1px solid $line-color;
+ }//
+
+
+ .total_price{
+  text-align: center;
+ .price{
+  display: inline-block;
+  color: $text-color;
+  margin-bottom:  $common_mr-bt;
+  &:before {display: none;}
+  span{
+   color: $main-color;
+   margin-left: $common_mr-bt;
+  }
+ }
+ }//total_price
+
+
+
+ //Modal
+ .remodal{
+  .payment_method{
+   text-align: left;
+   .cnter{margin-bottom: $common_mr-bt * 2}
+   .title{
+    font-family: mplus-1c-regular;
+   }
+   .common_bottom{margin-bottom: $common_mr-bt * 2 }
+   input.radiobtn + label{margin-right: $common_mr-bt;}
+  }//payment_method
+ }//remodal
+
+ //breakpoints -------------------------------
+ @include MQ(maxL) { }//breakpoints (maxL) -------------------------
+
+ @include MQ(M) { }//breakpoints (M) -------------------------
+
+ @include MQ(S) { }//breakpoints (S) -------------------------
+
+} //payment_confirm
+
+
+
+.mobile { //mobile setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //mobile end **********************************
+
+.tablet { //tablet setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //tablet end **********************************

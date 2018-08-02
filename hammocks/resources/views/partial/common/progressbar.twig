@@ -1,0 +1,37 @@
+<div class="progressbar">
+ <ul class="progress-indicator">
+  {% block Step %}
+
+  <!--//ノーマルの表示-->
+
+  <li class="">
+   <span class="bubble"></span>
+   <i class="fa fa-check-circle"></i>
+   Step 1.
+  </li>
+
+  <!--//済んだページ-->
+  <li class="completed">
+   <span class="bubble"></span>
+   <i class="fa fa-check-circle"></i>
+   Step 2.
+  </li>
+
+  <!--//現在のページ-->
+  <li class="active">
+   <span class="bubble"></span>
+   Step 3.
+  </li>
+
+  <!--//stepにリンクがつく場合-->
+   <li class="">
+    <a href="register2">
+    <span class="bubble"></span>
+    </a>
+    Step 4.
+   </li>
+
+
+  {% endblock Step %}
+ </ul>
+</div><!--//.progressbar-->

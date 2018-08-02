@@ -1,0 +1,377 @@
+//ここで全てのfont設定を管理します。多分ね。
+//絶対に守って欲しいのはfont-sizeをここ以外で指定しない事！！
+//必ず以下の mixin から include して使用
+//ex. @include txt-01;
+
+
+//*******************************web font load /
+@import "fonts/mplus";
+//@import "fonts/Noto_Sans";
+//@import "fonts/Icons";
+@import url('http://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css');
+@import "fonts/hammocksfont/fontinc";
+@import "layout/decoration";
+
+//*******************************font set full /
+//ゴシック体
+$fontfull-gothic:Verdana, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Meiryo UI, "メイリオ", Meiryo, sans-serif;
+//明朝
+$fontfull-mincho:"Times New Roman", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+//等幅書体
+$fontfull-monospace:"Osaka－等幅", Osaka-mono, "ＭＳ ゴシック", "MS Gothic", monospace;
+
+//*******************************font set mini /
+//ゴシック体
+$font-gothic:Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+//明朝
+$font-mincho:"Times New Roman", "游明朝", YuMincho, "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+//等幅書体
+$font-monospace:Osaka-mono, "MS Gothic", monospace;
+
+//*******************************original set /
+//M+ Regular
+$fontfull-gothic-origin: mplus-1c-light, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Meiryo UI, "メイリオ", Meiryo, sans-serif;
+
+//******************************* Base Font /
+$root_fontsize:62.5%;
+$base_fontfam : $fontfull-gothic-origin; //上のフォントセットから指定
+
+@mixin txt-01{@include fontsize(10); @include lineheight(14);}
+@mixin txt-02{@include fontsize(11); @include lineheight(22);}
+@mixin txt-03{@include fontsize(12); @include lineheight(24);}
+@mixin txt-04{@include fontsize(14); @include lineheight(26);}
+@mixin txt-05{@include fontsize(16); @include lineheight(26);}
+@mixin txt-06{@include fontsize(18); @include lineheight(25);}
+@mixin txt-07{@include fontsize(24); @include lineheight(36);}
+
+
+html{
+ font-family: $base_fontfam;
+ font-size: $root_fontsize;
+ color: $text-color;
+}
+
+body{
+ @include txt-03;
+ word-break: normal;
+ text-align: justify;
+ letter-spacing: 0.05rem;
+}
+
+.heading1{
+
+ @include fontsize(10);
+ @include lineheight(12);
+}
+.heading2{
+ @include fontsize(16);
+ @include lineheight(30);
+ text-align: center;
+ margin-bottom: $common_mr-bt;
+}
+.heading3{
+ @include fontsize(16);
+ @include lineheight(30);
+ margin-bottom: 10px;
+ border-bottom: 1px dotted $main-color;
+ color: $second-color;
+}
+.heading4{
+ @include fontsize(16);
+ @include lineheight(18);
+}
+.heading5{
+ @include fontsize(14);
+ @include lineheight(16);
+}
+
+p{  @include txt-04; }
+
+.center{text-align:center}
+.justify{text-align:justify}
+.srash-a:after {content: '/'; margin: 0 0.5em; }
+.srash-b:before {content: '/'; margin: 0 0.5em; }
+.req{color:$danger-color; }
+.text-overflow {//テキストが表示領域をオーバーフローした際に「…」を表示
+ overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+}
+.required{
+ &::after{
+  content:"必須";
+  color: $main-color;
+  border: 1px solid;
+  border-radius: 20px;
+  @include fontsize(11);
+  padding: 0 5px;
+  margin: 0 0 0 0.5em;
+ }
+}//required
+.font_change{ font-family: mplus-1c-regular;}
+
+.lines-on-sides {
+ display: table;
+ text-align: center;
+ white-space: nowrap;
+ &:after,
+ &:before {
+  content: '';
+  display: table-cell;
+  width: 50%;
+  background: linear-gradient(transparent 50%, currentColor 50%, currentColor calc(50% + 1px), transparent calc(50% + 1px));
+  background-clip: padding;
+ }
+
+ &:after {
+  border-left: 1em solid transparent;
+ }
+
+ &:before {
+  border-right: 1em solid transparent;
+ }
+}//lines-on-sides
+
+.note{
+ width: 100%;
+ background-color:$disable-color;
+ @include common_radius;
+ padding: 10px;
+}//.note
+
+.title{ @include txt-05;}
+.item_name{
+ @include txt-03;
+ overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+}
+.announce{
+ text-align: center;
+ display: block;
+ margin-bottom: 25px;
+ margin-top: -25px;
+ @include txt-04;
+}
+.error_message{
+ color: $default-color;
+ background-color: $warning-color;
+ padding: 0 10px;
+@include common_radius();
+ margin-top: -20px;
+ margin-bottom: 20px;
+}
+
+
+.comment_timeline{ .timeline{ .balloon{ .name{  @include txt-01; }}}}
+.date{@include txt-02;}
+.comment_txt{@include txt-02;}
+.data{@include txt-02;}
+.tag_nav,.category_nav{@include txt-02;}
+.count{ @include txt-04;}
+.titleblock{ @include txt-04; }
+.not_applicable{
+ text-align: center;
+ margin: auto;
+ span{@include txt-06;}
+ p{}
+}
+
+.tabmenu{
+ li{@include txt-04;}
+}
+
+//User
+.name{
+ overflow: hidden;
+ text-overflow: ellipsis;
+}
+
+
+h1{
+ @include txt-05;
+ margin: 0.5em 0;
+}
+h2 {
+ @include txt-04;
+ width: auto;
+ max-width: 400px;
+ margin: auto;
+ margin-bottom: 80px;
+ @extend .has-lines;
+}
+h3{
+ @include txt-04;
+ text-align: center;
+ margin: 80px 0;
+}
+.price{
+color: $main-color;
+ @include txt-07;
+ display: flex;
+ align-items: center;
+ text-align: center; /* for no-flexbox browsers */
+
+ &:before {
+  border-top: 1px solid;
+  content: "";
+  display: inline; /* for IE */
+  flex-grow: 1;
+  margin-right: 1.5em;
+ }
+
+ span{
+  &:before {   content: "¥";  }
+ }
+
+}//price
+.gear_rating{
+ p{@include txt-06;}
+}
+.user_comment{
+ .gear_rating{
+  p{@include txt-03;}
+ }
+}
+.quotes{
+color: $text-color;
+}
+
+.brand_name{
+ a{
+  color: $text-color;
+ }
+}//brand_name
+.card_name{
+ a{
+  color: $text-color;
+ }
+}//card_name
+.container_name{
+ @include txt-03;
+ overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+ margin: 12px 0;
+ //margin-top: -0.5em;
+}//container_name
+.item_card{
+ .brand_name{
+  @include fontsize(14);
+  font-family: mplus-1c-regular,mplus-1c-light;
+  margin-top: -0.5em;
+ }//brand_name
+ .card_name{
+  @include fontsize(18);
+  font-family: mplus-1c-regular,mplus-1c-light;
+  margin-bottom: $common_mr-bt;
+ }
+}//item_card
+
+.card{
+ .brand_name{
+  @include txt-02;
+ }//brand_name
+ .card_name{
+  @include txt-03;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0;
+  margin-top: -0.5em;
+ }
+ .price{
+  @include txt-06;
+  display: inline-block;
+  &:before{
+   border: none;
+   margin: auto;
+  }
+ }//price
+}//card
+
+
+.list-gear{
+ .card_infomation{
+ .card_name{
+  @include txt-04;
+  }//.card_name
+ }//.card_infomation
+ .status{
+  @include txt-03;
+ }
+}//list-gear
+.gear_article{
+ .card_name{
+  @include txt-04;
+ }
+}//gear_article
+
+.follow_trend_info{
+ p{
+  @include txt-03;
+  @include lineheight(18);
+ }
+}//follow_trend_info
+
+//article
+ .article-header{
+  .title,time{@include txt-06;}
+ }//.article-header
+.gear_artilce{
+  p{@include txt-04;}
+  .brand_name,.card_name{
+   font-size: 1.2rem;
+  }
+}//gear_artilce
+
+
+//transaction
+.transaction_status2nd{@include txt-07;}
+
+
+//Confiarm
+.total_price{
+ .price{
+  @include txt-04;
+  span{@include txt-07;}
+ }
+}//total_price
+
+//item register
+.result_txt{
+ font-size: 2rem;
+}
+
+//breakpoints -------------------------------
+@include MQ(maxL) { }//breakpoints (maxL) -------------------------
+
+@include MQ(M) { }//breakpoints (M) -------------------------
+
+@include MQ(S) {
+
+ h2{
+  margin-bottom: $common_mr-bt;
+ }
+
+ .item_card{
+  .brand_name{   @include fontsize(12);  }//brand_name
+  .card_name{   @include fontsize(16);   }
+ }//item_card
+
+}//breakpoints (S) -------------------------
+
+
+
+.mobile { //mobile setting **********************
+
+ h1{
+  @include txt-04;
+  margin: 0.7em 0;
+ }
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+} //mobile end **********************************

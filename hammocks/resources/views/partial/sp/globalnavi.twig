@@ -1,0 +1,49 @@
+<nav class="gloval_nav">
+ <ul>
+
+  <li>
+   <a href="{{ url('') }}">
+    <img src="{{ asset('images/ico-sp-gloval-home.svg') }}" type="image/svg+xml">
+   </a>
+  </li>
+
+  <li>
+   {% if user.id %}
+   <a data-remodal-target="Gnav-User">
+    {% else %}
+    <a href="{{ url('/auth/login') }}">
+     {% endif %}
+     <div class="user_thumb squarebox">
+     {% if user.avater_img_url %}
+      <img class="img_resize" src="{{ user.avater_img_url }}">
+     {% else %}
+      <img class="img_resize" src="{{ asset('images/ico-sp-gloval-user.svg') }}" type="image/svg+xml">
+     {% endif %}
+    </div><!--//user_thumb-->
+   </a>
+  </li>
+
+  <li>
+  {% if user.id %}
+  <a href="{{ url('/user/garage/' ~ user.id) }}">
+  {% else %}
+  <a href="{{ url('/auth/login') }}">
+  {% endif %}
+   <img src="{{ asset('images/ico-sp-gloval-garage.svg') }}" type="image/svg+xml">
+   </a>
+  </li>
+
+  <li>
+   <a data-remodal-target="Gnav-Search">
+   <img src="{{ asset('images/ico-sp-gloval-search.svg') }}" type="image/svg+xml">
+   </a>
+  </li>
+
+  <li>
+   <a href="{{ url('/user/watching') }}">
+   <img src="{{ asset('images/ico-watch-off.svg') }}" type="image/svg+xml">
+  </a>
+  </li>
+
+ </ul>
+</nav>

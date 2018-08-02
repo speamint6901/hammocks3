@@ -1,0 +1,32 @@
+{% extends "templates/common/transaction_base.twig" %}
+
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+
+{% block status1st %}
+発送準備中
+{% endblock %}
+
+{% block status2nd %}
+入金が完了しました
+{% endblock %}
+
+
+
+{% block announce %}
+<p class="limit">発送日目安 9月14日〜9月17日</p>
+<p>商品の発送をしてください</p>
+
+<div class="formcontents">
+ <input type="text" id="demo" placeholder="追跡番号入力">
+ <a href="3" class="button btn_size-M">発送完了</a>
+</div>
+
+{% endblock %}
+
+{% block UniqueModal %}
+{% endblock %}
+
+{% block bottom_js %}
+{% endblock bottom_js %}

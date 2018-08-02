@@ -1,0 +1,64 @@
+<div class="remodal" data-remodal-id="CommentList" data-remodal-options="hashTracking:false">
+
+ <button data-remodal-action="close" class="remodal-close"></button>
+
+ {% block Comment_Contents %}
+ <h1>コメント一覧</h1>
+
+ <section class="comment_timeline">
+
+  <div class="balloon-wrapper">
+   <ul class="timeline">
+
+    <li class="balloon-left">
+     <div class="del_btn"></div>
+
+     <div class="author">
+      <div class="user_thumb">
+       <img src="{{ asset('images/user_default.png') }}">
+      </div><!--//user_thumb-->
+     </div><!--//author-->
+
+     <p class="balloon"><span class="name">User Name</span>
+     横型の吹き出し
+     </p>
+
+     <div class="comment_info">
+      <p class="date">2016.07.24.09:00</p>
+     </div><!--//comment_info-->
+
+    </li><!--//balloon-left-->
+
+    <li class="balloon-right">
+     <div class="del_btn"></div>
+
+     <div class="author">
+      <div class="user_thumb">
+       <img src="{{ asset('images/user_default.png') }}">
+      </div><!--//user_thumb-->
+     </div>
+
+     <p class="balloon"><span class="name">User Name</span>
+      横型の吹き出しの反対ver横型の吹き出しの反対ver
+      横型の吹き出しの反対ver
+     </p>
+
+     <div class="comment_info">
+      <p class="date">2016.07.24.24:00</p>
+     </div><!--//comment_info-->
+
+    </li><!--//balloon-right-->
+
+
+   </ul><!--//timeline-->
+  </div><!--//balloon-wrapper-->
+
+
+  <textarea class="autotext" placeholder="コメントを入力"></textarea>
+  <input type="submit" value="Submit" class="button btn_size-M">
+
+ </section>
+
+
+ {% endblock %}
+</div><!-- //remodal -->

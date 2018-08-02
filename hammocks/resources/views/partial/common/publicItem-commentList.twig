@@ -1,0 +1,29 @@
+<div class="user_comment">
+
+ <div class="upperinfo">
+  <div class="user_thumb">
+   <a data-remodal-target="modal">
+    <img src="{{ asset('images/user_default.png') }}">
+   </a>
+  </div><!--//user_thumb-->
+
+  <div class="comment">
+   バス釣りとライフスタイルを融合させ、アングラーのデイリーウエアをファッションとして確立させた「バスブリゲード」とのコラボ第2弾。今回はプレミアムクオリティのボディを使ったTシャツが登場。バス釣りとライフスタイルを融合させ、アングラーのデイリーウエアをファッションとして確立させた「バスブリゲード」とのコラボ第2弾。今回はプレミアムクオリティのボディを使ったTシャツが登場。バス釣りとライフスタイルを融合させ、アングラーのデイリーウエアをファッションとして確立させた「バスブリゲード」とのコラボ第2弾。今回はプレミアムクオリティのボディを使ったTシャツが登場。
+  </div><!--//comment-->
+ </div><!--//upperinfo-->
+
+ <div class="footerinfo">
+  <p class="putcontainer">put <a href="#">container</a> 2015.10.29</p>
+  <div class="gear_rating">
+   <i class="rate_result">
+    {% if user_item_info.evaluation_average_path %}
+    <img id="thunder_img_icon" src="{{ asset('images/rate/thunder_5set-' ~ user_item_info.evaluation_average_path ~ '.svg') }}" type="image/svg+xml">
+    {% else %}
+    <img id="thunder_img_icon" src="{{ asset('images/rate/thunder_5set-0-0.svg') }}" type="image/svg+xml">
+    {% endif %}
+   </i>
+   <p id="rate_disp_area">{{ user_item_info.evaluation_average }}<span>THUNDER</span></p>
+  </div><!--//rating-->
+ </div><!--//footerinfo-->
+
+</div><!--//user_comment-->

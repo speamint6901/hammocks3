@@ -1,0 +1,35 @@
+<div class="remodal userrating_modal" data-remodal-id="UserRating_input" data-remodal-options="hashTracking:false">
+
+ <button data-remodal-action="close" class="remodal-close"></button>
+
+ {% block RatingComment_Contents %}
+<h2>評価</h2>
+
+ <div class="authority_stamp common_bottom">
+  <div class="user_thumb">
+   <a>
+    {% if user.avater_img_url %}
+    <img src="{{ user.avater_img_url }}">
+    {% else %}
+    <img src="{{ asset('images/user_default.png') }}">
+    {% endif %}
+   </a>
+  </div><!--//user_thumb-->
+  <p class="name">{{ user.name }}</p>
+ </div><!--//authority_stamp-->
+
+<div>
+ <input type="radio" id="radio01" class="radiobtn" name="demo" checked="checked">
+ <label for="radio01">問題なし</label>
+
+ <input type="radio" id="radio02" class="radiobtn" name="demo">
+ <label for="radio02">問題あり</label>
+</div>
+
+
+ <textarea rows="10" placeholder="コメントを入力"></textarea>
+
+ <a class="button btn_size-M" href="4">評価確定</a>
+
+ {% endblock %}
+</div><!-- //remodal -->

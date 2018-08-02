@@ -1,0 +1,188 @@
+.pictselect{
+ margin-top: $common_mr-bt;
+}
+
+.dropzone,.dz-clickable,.dz-max-files-reached{
+
+ > span{
+  position: relative;
+  width: 100%;
+  height: 250px;
+  display: block;
+  text-align: center;
+  border: 1px solid $line-color;
+  @include common_radius;
+ }
+}//my-awesome-dropzone
+
+.dropzone,.dz-clickable,.dz-max-files-reached{
+border: none;
+ background-color: transparent;
+ padding: 0;
+ min-height: auto;
+
+  .fa-image{
+   display: block;
+   margin-top: 80px;
+   &::before{
+    font-size: 80px;
+    color: $line-color;
+   }//before
+   &:after{
+    content: "Drag and drop your files";
+    display: block;
+   }//after
+  }//fa-image
+
+
+ .dz-default{
+  width: 60%;
+  max-width: 300px;
+  border-radius: 20px;
+  padding: 6px 20px;
+  background-color: transparent;
+  color: $main-color;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid $main-color;
+  display: block;//暫定
+  margin: auto;
+  margin: 25px auto;
+ }
+
+.dz-preview{
+ &.dz-image-preview{
+  background-color: transparent;
+ }//.dz-image-preview
+ .dz-remove{
+  //padding: 6px 20px;
+  text-align: center;
+  border: 1px solid $main-color;
+  border-radius: 20px;
+  margin-top: 10px;
+  background-color: transparent;
+
+  font-size: inherit;
+  width: 40%;
+  margin: 10px auto;
+  max-width: 200px;
+ }//.dz-remove
+ }//.dz-preview
+
+ &.dz-drag-hover{
+  border: none;
+  .dz-message{
+   opacity: 1;
+  }
+ }
+
+ .dz-progress{
+  display: none;
+ }
+
+}//.dropzone
+
+#my-preview-dropzone,.previewzone{
+ border: none;
+ min-height: auto;
+ height: auto;
+ text-align: center;
+}
+
+
+.drop_mark{
+ $size:80px;
+
+ width: $size;
+ border-radius: 50%;
+ background-color: $form_base_color;
+ padding: 16px;
+ position: absolute;
+ top: calc(50% - #{$size / 2});
+ left: calc(50% - #{$size / 2});
+}
+
+
+.dz-max-files-reached{//ファイル数Maxのばやい
+ > span{
+  position: relative;
+  background-color: $disable-color;
+  .fa-image{display: none;}
+  &:after{
+   $sizeval:80px;
+   content: "Max Files!!";
+   background-image: url(../img/ico-ban-off.svg);
+   background-repeat: no-repeat;
+   color: #fff;
+   text-align: center;
+   width: $sizeval;
+   height: $sizeval;
+   line-height: $sizeval;
+   display: inline-block;
+   vertical-align: middle;
+   position: absolute;
+   top: calc(50% - #{$sizeval / 2});
+   left: calc(50% - #{$sizeval / 2});
+   }
+ }
+
+ .dz-default{
+  color:$disable-color_quote;
+  background-color: $disable-color;
+  border-color: $disable-color_quote;
+  cursor: not-allowed;
+  pointer-events: none;
+  &:hover {
+   position: relative;
+   top: 0px;
+  }
+ }//.dz-default
+
+}//.dz-max-files-reached
+
+.dz-clickable{
+
+
+
+
+ > span{
+  position: relative;
+  background-color: transparent;
+  .fa-image{
+   display: block;
+   &:after{   }
+  }//fa-image
+  &:after{display: none; }
+ }
+
+ .dz-default{//ファイル数Maxから削除してまた選択できるばやい
+  pointer-events:auto;
+  &:hover {
+  }
+  width: 60%;
+  max-width: 300px;
+  border-radius: 20px;
+  padding: 6px 20px;
+  background-color: transparent;
+  color: $main-color;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid $main-color;
+  display: block;//暫定
+  margin: auto;
+  margin: 25px auto;
+ }//.dz-default
+
+}//.dz-clickable
+
+
+//UserSetting - UserIcon
+.usericon_set{
+ display: flex;
+ flex-direction: row-reverse;
+ align-items: center;
+ .dropzone .dz-preview .dz-image{
+  border-radius: 100%;
+ }
+}
+

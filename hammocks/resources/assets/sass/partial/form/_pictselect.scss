@@ -1,0 +1,137 @@
+//画像アップユニット
+@keyframes show{
+ from{
+  opacity: 0;
+  //margin-top: -1px;
+ }
+ to{
+  // margin-top: 0;
+  opacity: 1;
+ }
+}//keyframes show
+
+#pictselect01:checked ~ #pictselect01_check {
+ animation: show 0.5s ease 0s;
+ display: inline-block;
+}
+#pictselect02:checked ~ #pictselect02_check {
+ animation: show 0.5s ease 0s;
+ display: inline-block;
+}
+#pictselect01_check,
+#pictselect02_check{
+ display: none;
+}
+.pictup {
+ width: 100%;
+ margin-top: 25px;
+}
+.pictup_way{
+ text-align: center;
+ h3{margin-bottom: 20px;}
+ .radiobtn + label{
+  $size:80px;
+  width: $size;
+  border-radius: 50%;
+  background-color: $form_base_color;
+  padding: 16px;
+  margin-left: 10px;
+  &::before,
+  &::after{
+   display: none;
+  }//before,after
+ }//radiobtn + label
+}//pictup_way
+#pictselect01:checked,
+#pictselect02:checked{
+ + label{ background-color: $main-color;}
+}
+#pictselect01,#pictselect02{
+ margin-top: 20px;
+}
+#pictselect01_check{
+ + p{text-align: left;}
+}
+//*****************
+
+
+//Mordal
+
+#modal_pict_select_url_list{
+ ul{
+  @include flex_container();
+  -webkit-flex-wrap: wrap; /* Safari */
+  flex-wrap: wrap;
+  -webkit-align-items: baseline; /* Safari */
+  align-items:baseline;
+  justify-content: space-between;
+ }
+ li{
+  border: 1px solid #ccc;
+  margin: 10px;
+  @include flex_item(1);
+  padding: 10px;
+  cursor: pointer;
+  -webkit-flex: none; /* Safariのみ */
+ }
+ img{
+  width: auto;
+  max-width: 246px;
+ }
+}//#modal_pict_select_url_list
+
+//#########################################################
+//ユニーク微調整
+#add_brand{margin-bottom: 0px;}
+#drop-zone{
+ position: relative;
+ width: 100%;
+ height: 250px;
+ //margin: auto;
+ text-align: center;
+ background: {
+  color: $third-color;
+ }
+ border: 1px solid $text-color;
+ @include common_radius;
+}
+.drop_mark{
+ $size:80px;
+
+ width: $size;
+ border-radius: 50%;
+ background-color: $form_base_color;
+ padding: 16px;
+ position: absolute;
+ top: calc(50% - #{$size / 2});
+ left: calc(50% - #{$size / 2});
+}
+.set_brand{
+ //border: 1px solid;
+ //@imclude common_radius;
+ span{
+  // border-radius: 20px;
+  color: $main-color;
+  //border: 1px solid;
+  //padding: 0 20px;
+
+  font-size: 16px;
+  border-bottom: 1px solid;
+ }
+}
+#print_img canvas {
+ width: 100%;
+}
+
+
+//breakpoints -------------------------------
+@include MQ(maxL) { }//breakpoints (maxL) -------------------------
+
+@include MQ(M) { }//breakpoints (M) -------------------------
+
+@include MQ(S) {
+ #modal_pict_select_url_list{
+  li{ width: calc(50% - 20px); }
+  img{ max-width: 100%;  }
+ }//#modal_pict_select_url_list
+}//breakpoints (S) -------------------------

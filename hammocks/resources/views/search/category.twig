@@ -1,0 +1,65 @@
+{% extends "templates/common/base.twig" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/pages/category.css') }}" media="all" />
+{% endblock stylesheets %}
+
+
+{% block contents %}
+<h2>CATEGORY</h2>
+
+<ul class="category_name">
+ <li class="big_category_li active" id="cate-1">アウトドアギア</li>
+ <li class="big_category_li" id="cate-2">アパレル</li>
+ <li class="big_category_li" id="cate-3">アクティビティ</li>
+ <li class="big_category_li" id="cate-4">DIY・リメイク</li>
+</ul>
+
+<div class="genre_brand-select">
+ <a class="button" id="category_list_button" data-remodal-target="Category_genre">全て</a>
+ <a class="button" id="brand_list_button" data-remodal-target="Brand_Lsit">全てのブランド</a>
+</div><!--//genre_brand-select-->
+
+<div class="cleafix"></div>
+
+{% embed "partial/common/input/sort_area.twig" %}
+{# {% block SortItem %}{% endblock SortItem %} #}
+{% endembed %}
+
+{% include 'partial/common/card/publicItem.twig' %}
+
+{% embed "partial/common/modal/modal-category_genre.twig" %}
+{# {% block ModalContents %} {% endblock ModalContents %} #}
+{% endembed %}
+
+{% embed "partial/common/modal/modal-brand_lsit.twig" %}
+{# {% block ModalContents %} {% endblock ModalContents %} #}
+{% endembed %}
+
+
+{% endblock contents %}
+
+{% block bottom_js %}
+<script src="{{ asset('js/vendor/remodal.min.js') }}" ></script>
+<script src="{{ asset('js/list.js') }}"></script>
+<script src="{{ asset('js/multiSearchList.js') }}"></script>
+<script src="{{ asset('js/tmpPublicItemList.js') }}"></script>
+<script src="{{ asset('js/modalCategoryList.js') }}"></script>
+<script src="{{ asset('js/counter.js') }}" ></script>
+<script>
+ var list = new MultiSearchlist("#tmp_list_0", {
+  url : getDomain() + consUrlJs.listPath[0],
+  templete_id : 0,
+  onEventFilter : 1,
+  onEventSort : 1,
+  filterElement : "#is_store",
+  sortElement : "#sort",
+  sortCategory : "master_item",
+  eventType : "change",
+  big_category_id : 1
+ }, {
+   event_type : "click"
+ });
+ list.get();
+</script>
+{% endblock bottom_js %}

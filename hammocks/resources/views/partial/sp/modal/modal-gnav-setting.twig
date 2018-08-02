@@ -1,0 +1,32 @@
+<div class="remodal" data-remodal-id="Gnav-Setting" data-remodal-options="hashTracking:false">
+
+ <button data-remodal-action="close" class="remodal-close"></button>
+
+ {% block Ban_Contents %}
+ <section class="settingmenu_panel">
+  <h1></h1>
+
+  <nav class="normal_menulist">
+   <ul class="collapse">
+    <li><a href="">ご利用ガイド</a></li>
+    <li><a href="{{ url('/guide/contact') }}">お問合わせ</a></li>
+    <li><a href="{{ url('/guide/aup') }}">規約</a></li>
+    <li><a href="">禁止行為</a></li>
+    <li><a href="">禁止出品物</a></li>
+    <li><a href="{{ url('/guide/commercial_law') }}">特定商取引に関する表記</a></li>
+    <li><a href="{{ url('/guide/privacy_policy') }}">プライバシーポリシー</a></li>
+    {% if user.id == null %}
+    <li><a href="{{ url('/auth/login') }}">ログイン/新規登録</a></li>
+    {% endif %}
+
+   </ul>
+  </nav>
+
+ </section>
+
+ <div class="modalbtn_set">
+  <button data-remodal-action="cancel" class="button btn_size-M reset_cancell-b">閉じる</button>
+ </div><!--//modalbtn_set-->
+
+ {% endblock %}
+</div><!-- //remodal -->

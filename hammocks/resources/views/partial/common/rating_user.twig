@@ -1,0 +1,10 @@
+<div class="gear_rating">
+  <i class="rate_result">
+   {% if user_item_info.evaluation_average_path %}
+   <img id="thunder_img_icon" src="{{ asset('images/rate/thunder_5set-' ~ user_item_info.evaluation_average_path ~ '.svg') }}" type="image/svg+xml">
+   {% else %}
+   <img id="thunder_img_icon" src="{{ asset('images/rate/thunder_5set-0-0.svg') }}" type="image/svg+xml">
+   {% endif %}
+  </i>
+  <p id="rate_disp_area">{{ user_item_info.evaluation_num }}<span>THUNDER</span></p>
+ </div><!--//rating-->

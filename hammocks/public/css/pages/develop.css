@@ -1,0 +1,42 @@
+.modal-sns_share ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+  /* Safari */
+  justify-content: space-between;
+  max-width: 540px;
+  margin: 150px auto;
+}
+.modal-sns_share ul li {
+  -webkit-box-flex: none;
+  -webkit-flex: none;
+  flex: none;
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+.modal-sns_share ul li a {
+  color: #95989A;
+  width: 100px;
+  text-align: left;
+  display: inline-block;
+}
+.modal-sns_share ul li a:hover {
+  color: #4EB5A2;
+}
+.modal-sns_share ul li span {
+  font-size: 10px;
+  color: #95989A;
+}
+@media only screen and (max-width: 480px) {
+  .modal-sns_share ul li {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+}
+
+/*# sourceMappingURL=develop.css.map */

@@ -1,0 +1,57 @@
+<div class="status_icon set_5p common_bottom">
+
+ <div>
+  <img src="{{ asset('images/ico-have-off.svg') }}" type="image/svg+xml">
+  <span class="count">100K</span>
+ </div>
+
+ <div>
+  <img src="{{ asset('images/ico-want-off.svg') }}" type="image/svg+xml">
+  <span class="count">100K</span>
+ </div>
+
+ <div>
+  <a data-remodal-target="ClipToContainer">
+   <img src="{{ asset('images/ico-pick-off.svg') }}" type="image/svg+xml">
+  </a>
+  <span class="count">100K</span>
+ </div>
+
+ <div>
+  <img src="{{ asset('images/ico-share-off.svg') }}" type="image/svg+xml">
+  <span class="count"></span>
+ </div>
+
+ <div data-remodal-target="Ban">
+  <img src="{{ asset('images/ico-ban-off.svg') }}" type="image/svg+xml">
+ </div>
+
+ <div class="fixed_menu">
+  <div class="fixed_menu_contents">
+   <div class="panel-wrap">
+
+    {% if is_myitem %}
+    <div>
+     <a href="#" id="ItemEdit-btn">
+      <img src="{{ asset('images/ico-more.svg') }}" type="image/svg+xml">
+     </a>
+    </div>
+
+    <div id="ItemEditMenu" class="panl_theme">
+     <ul>
+      <li id="item_edit_disp_btn">アイテム編集</li>
+      <li data-remodal-target="ItemEditSale">このアイテムを販売する</li>
+      <li>アイテムの削除</li>
+     </ul>
+    </div><!--//more_panel-->
+    {% endif %}
+
+   </div><!--//panel-wrap-->
+  </div><!--//fixed_menu_contents-->
+ </div><!--//fixed_menu-->
+
+ <!--    <div class="subbtn">
+<img src="{{ asset('images/ico-subbtn.svg') }}" type="image/svg+xml">
+</div>-->
+
+</div><!--//status_icon-->

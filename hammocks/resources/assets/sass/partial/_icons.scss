@@ -1,0 +1,76 @@
+i{
+ display: inline-block;
+
+ &:before{
+ font-family:"FontAwesome";
+ padding: 4px;
+ color:$text-color;
+
+ }
+
+ //service
+ &.fb-i{ &:before{ content:"\f09a";}  }
+ &.isg-i{ &:before{ content:"\f16d";} }
+ &.pyp-i{ &:before{ content:"\f1ed";} }
+ &.skp-i{ &:before{ content:"\f17e";} }
+ &.glp-i{ &:before{ content:"\f0d5";} }
+ &.lkd-i{ &:before{ content:"\f0e1";} }
+ &.ptr-i{ &:before{ content:"\f0d2";} }
+ &.tmb-i{ &:before{ content:"\f173";} }
+ &.twt-i{ &:before{ content:"\f099";} }
+ &.vin-i{ &:before{ content:"\f1ca";} }
+ &.ytb-i{ &:before{ content:"\f167";} }
+ //carier
+ &.adr-i{ &:before{ content:"\f17b";} }
+ &.apl-i{ &:before{ content:"\f1792";} }
+ //cregit
+ &.camx-i{ &:before{ content:"\f1f3";} }
+ &.cdcv-i{ &:before{ content:"\f1f2";} }
+ &.cmst-i{ &:before{ content:"\f1f1";} }
+ &.cpyp-i{ &:before{ content:"\f1f4";} }
+ &.cstp-i{ &:before{ content:"\f1f5";} }
+ &.cvis-i{ &:before{ content:"\f1f0";} }
+ //marks
+ &.bar-i{ &:before{ content:"\f0c9";} }
+ &.ger-i{ &:before{ content:"\f013";} }
+ &.ref-i{ &:before{ content:"\f021";} }
+ &.spi-i{ &:before{ content:"\f110";} }
+ &.cic-i{ &:before{ content:"\f111";} }
+ &.cico-i{ &:before{ content:"\f10c";} }
+ &.cico-d{ &:before{ content:"\f192";} }
+
+
+
+ @include MQ(maxL) { //----------------------
+ }//breakpoints (maxL) ----------------------
+
+ @include MQ(M) { //-------------------------
+ }//breakpoints (M) -------------------------
+
+ @include MQ(S) { //-------------------------
+ }//breakpoints (S) -------------------------
+
+
+}//i
+
+.mobile { //mobile setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //mobile end **********************************
+
+.tablet { //tablet setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //tablet end **********************************

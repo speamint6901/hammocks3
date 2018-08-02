@@ -1,0 +1,68 @@
+{% extends "templates/common/auth_base.twig" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/pages/login.css') }}" media="all" />
+{% endblock %}
+
+
+{% block contents %}
+
+<h2>ユーザーログイン</h2>
+
+<div class="formcontents unit login">
+
+<form method="POST" action="/auth/login">
+ {{ csrf_field() }}
+
+ <span class="announce">
+ {% if app.session.has('flash_message') %}
+    {{ app.session.get('flash_message') }}
+ {% endif %}
+  </span>
+
+  <div class="form_gr common_bottom">
+
+
+  <div class="">
+   <label for="email" class="titleblock">メールアドレス</label>
+   <input name="email" value="{{ old('email') }}" type="email" class="form_size-L">
+   <p class="error_message">{{ errors.first('email') }}</p>
+  </div><!--//inpu_text-->
+
+  <div class="">
+   <label for="password" class="titleblock">パスワード</label>
+   <input name="password" type="password" id="password"  class="form_size-L">
+   <p class="error_message">{{ errors.first('password') }}</p>
+  </div><!--//inpu_text-->
+
+   <div class="common_bottom center">
+    <input type="checkbox" id="remember" name="remember" class="checkbox">
+    <label for="remember">ログインを継続する</label>
+   </div>
+
+   <div>
+    <button type="submit" class="button btn_size-M">ログイン</button>
+   </div>
+
+  </div><!-- /.form_gr -->
+</form>
+
+ <div class="common_bottom"></div>
+
+ <div class="common_bottom">
+
+  {% embed "partial/common/intermission.twig" %} {% endembed %}
+
+  <a class="button btn_size-M" href="{{url('auth/register')}}">新規登録</a>
+
+</div><!--//common_bottom-->
+
+<div id="status">
+</div>
+
+</div><!--//unit-->
+
+{% endblock contents %}
+
+{% block bottom_js %}
+{% endblock bottom_js %}

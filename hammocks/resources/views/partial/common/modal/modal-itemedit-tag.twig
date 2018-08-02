@@ -1,0 +1,20 @@
+<div class="remodal" data-remodal-id="ItemEdit-tag" data-remodal-options="hashTracking:false">
+
+ <button data-remodal-action="close" class="remodal-close"></button>
+
+ {% block ItemEdittag_Contents %}
+ <section>
+  <h2>タグを追加、削除する</h2>
+  <div class="madalformcontents">
+  <form id="tag_edit_form">
+  {% include 'partial/common/input/tag-select.twig' %}
+  </form>
+
+  </div><!--//madalformcontents-->
+ </section>
+
+ <div class="modalbtn_set">
+  <button id="tag_edit_btn" data-remodal-action="confirm" class="button btn_size-M">更新</button>
+ </div><!--//modalbtn_set-->
+ {% endblock %}
+</div><!-- //remodal -->

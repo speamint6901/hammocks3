@@ -1,0 +1,38 @@
+{% extends "templates/common/admin_base.twig" %}
+
+{% block contents %}
+<h2>管理画面 ブランド登録</h2>
+
+<input type="button" onclick="location.href='/3d5sknzygp/brands-register/showBrandsAdd'" value="新規登録" class="button btn_size-M " >
+
+<h3>ブランド 一覧</h3>
+
+
+<div class="textcontents">
+
+<table class="">
+ <thead>
+  <tr>
+   <th>ID</th>
+   <th>ブランド名</th>
+   <th>編集/削除</th>
+  </tr>
+ </thead>
+
+ <tbody>
+  {% for key,value in brands %}
+  <tr class="table-row">
+   <td>{{ value.id }}</td>
+   <td>{{ value.name_display }}</td>
+   <td>
+    <input type="submit" onclick="location.href='/3d5sknzygp/brands-register/showBrandsEdit/{{ value.id }}'" value="編集" class="edit-b">
+    <input type="submit" onclick="location.href='/3d5sknzygp/brands-register/setBrandsDelete/{{ value.id }}'" value="削除" class="delete-b">
+   </td>
+  </tr>
+  {% endfor %}
+ </tbody>
+
+</table>
+
+</div>
+{% endblock contents %}

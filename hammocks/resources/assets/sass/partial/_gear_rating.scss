@@ -1,0 +1,54 @@
+.gear_rating{
+ @include flex_container();
+ align-items: baseline;
+ max-width: 240px;
+
+i {
+ @include flex_item();
+  margin-right: -15px;
+ }
+
+ .rate_result{
+  @include flex_item(2);
+  margin-right: auto;
+  img{max-width: 150px;}
+ }//rate_result
+
+ #rate_disp_area{
+  @include flex_item(1);
+ }//rate_disp_area
+
+
+ @include MQ(maxL) { //----------------------
+ }//breakpoints (maxL) ----------------------
+
+ @include MQ(M) { //-------------------------
+ }//breakpoints (M) -------------------------
+
+ @include MQ(S) { //-------------------------
+ }//breakpoints (S) -------------------------
+
+
+ }//rating
+
+
+
+.mobile { //mobile setting **********************
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+} //mobile end **********************************
+
+
+
+.tablet { //tablet setting **********************
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+} //tablet end **********************************

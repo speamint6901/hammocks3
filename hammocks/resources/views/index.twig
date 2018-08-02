@@ -1,0 +1,84 @@
+{% extends "templates/common/base.twig" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/pages/index.css') }}" media="all" />
+{% endblock stylesheets %}
+
+{% block top_js %}
+
+{% endblock top_js %}
+
+
+{% block contents %}
+
+{% embed "partial/common/input/sort_area.twig" %}
+{% block FilterItem %}
+<option value="0" {% if filter_id == 0 %}selected{% endif %}>All Gear</option>
+<option value="1" {% if filter_id == 1 %}selected{% endif %}>Sale Gear</option>
+<option value="2" {% if filter_id == 2 %}selected{% endif %}>User Log</option>
+{% endblock FilterItem %}
+{% endembed %}
+
+{% include 'partial/common/card/multicard.twig' %}
+
+{% embed "partial/common/modal/modal-articlepreview.twig" %}
+{% endembed %}
+
+ {% embed "partial/common/modal/modal-cliptocontainer.twig" %}
+{# {% block ClipToContainer_Contents %}{% endblock ClipToContainer_Contents %} #}
+ {% endembed %}
+
+{% endblock contents %}
+
+{% block bottom_js %}
+<script src="{{ asset('js/vendor/remodal.min.js') }}" ></script>
+<script src="{{ asset('js/list.js') }}" ></script>
+<script src="{{ asset('js/multiList.js') }}" ></script>
+<script src="{{ asset('js/modalDetail.js') }}" ></script>
+<script src="{{ asset('js/tmpPublicItemList.js') }}" ></script>
+<script src="{{ asset('js/tmpArticleList.js') }}" ></script>
+<script src="{{ asset('js/tmpSaleItemList.js') }}" ></script>
+<script src="{{ asset('js/tmpArticleDetail.js') }}" ></script>
+<script src="{{ asset('js/tmpContainerList.js') }}" ></script>
+<script src="{{ asset('js/counter.js') }}" ></script>
+<script src="{{ asset('js/pick.js') }}" ></script>
+<script>
+var id = "{{ filter_id }}";
+if (id == "") {
+    id = 0;
+}
+var list = new MultiList("#tmp_list_multi", {
+    url : getDomain() + consUrlJs.listPath[id],
+    templete_id : id,
+    method : "post",
+    onEventSort : 1,
+    sortElement : "#sort",
+    eventType : "change",
+    sort_category : "master_item",
+    is_selfuser : 0,
+    search_word : "{{ word }}",
+    per_page : "{{ per_page }}"
+},{
+    // マルチテンプレートパターンオプション
+    event_elem : ["#is_store"],
+    event_type : ["change"],
+    url_list : [getDomain() + consUrlJs.listPath[0],  getDomain() + consUrlJs.listPath[1],  getDomain() + consUrlJs.listPath[2]],
+    templete_ids : [0, 1, 2],
+    param1_keys : ["", "is_store", ""],
+    param1_values : [null, 1, null]
+});
+list.get();
+var modalDetail = new ModalDetail("#tmp_modal_0", {
+    url : getDomain() + consUrlJs.modalDetailPath[0],
+    templete_id : 0,
+    eventElement : ".articleModalBtn",
+    eventType : "click",
+    dataParamKey : "article_id",
+    dataElement : "data-article-id"
+});
+$("#s").change(function(eo) {
+    list.params.search_word = "";
+});
+</script>
+
+{% endblock bottom_js %}

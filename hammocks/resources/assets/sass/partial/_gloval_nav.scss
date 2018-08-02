@@ -1,0 +1,46 @@
+.gloval_nav{
+ flex-grow: 2;
+ ul{display: flex;}
+ li{
+  margin-right: 20px;
+  a{color: $text-color;}
+ }
+}//gloval_nav
+
+
+
+
+.mobile { //mobile setting **********************
+
+ .gloval_nav{
+
+  background-color:rgba(255, 255, 255, 0.9);//$default-color;
+
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+
+  ul{
+   height: 48px;
+   align-items: center;
+   display: flex;
+   justify-content: center;
+   li{
+    @include flex_item();
+    margin: auto;
+    img{
+     width: 30px;
+     height: 30px;
+    }
+   }
+  }
+
+
+
+  //Gyro setting --------------------------------
+  @media screen and (orientation: portrait) { }//portrait
+  @media screen and (orientation: landscape) { }//landscape
+  //end Gyro setting ----------------------------
+
+ }//gloval_nav
+} //mobile end **********************************

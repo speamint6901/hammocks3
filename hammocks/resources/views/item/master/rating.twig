@@ -1,0 +1,36 @@
+{% extends "templates/common/master_item_base.twig" %}
+{% block title %}アウトドアギア{{ item_info.brand_name }}:{{ item_info.name }}の評価一覧{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/pages/master_item.css') }}" media="all" />
+{% endblock %}
+
+{% block top_js %}{% endblock %}
+
+{% block contents %}
+{% embed "partial/common/masteritemNav.twig" %} {% endembed %}
+
+<h2 class="title">{{ item_info.brand_name }}<br>{{ item_info.name }}</h2>
+
+ {% include 'partial/common/list-gear_rating.twig' %}
+
+{% endblock %}
+
+
+{% block bottom_js %}
+<script src="{{ asset('js/list.js') }}" ></script>
+<script src="{{ asset('js/tmpUserRatingList.js') }}" ></script>
+<script type="text/javascript">
+ function getItemsId() {
+  return {{ item_info.items_id }};
+ }
+var list = new List("#tmp_list_7", {
+    url : getDomain() + consUrlJs.listPath[7],
+    method : "post",
+    templete_id : 7,
+    items_id : "{{ item_info.items_id }}"
+});
+list.get();
+</script>
+{% endblock bottom_js %}

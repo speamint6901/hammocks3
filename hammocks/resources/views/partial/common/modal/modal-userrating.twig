@@ -1,0 +1,35 @@
+<div class="remodal" data-remodal-id="UserRating" data-remodal-options="hashTracking:false">
+
+ <button data-remodal-action="close" class="remodal-close"></button>
+
+ {% block RatingComment_Contents %}
+<h2>評価一覧</h2>
+
+ <section class="rating_comment">
+  <div class="tabmenu" id="tab-menu">
+   <ul>
+    <li class="active"><em>問題なし<span>88.8K</span></em></li>
+    <li><em>問題あり<span>88.8K</span></em></li>
+   </ul>
+
+   <!-- タブの中身 -->
+   <div id="tab-box">
+
+    <div class="tab_content active">
+     {% include 'partial/common/dummy/UserComment.twig' %}
+     {% include 'partial/common/dummy/UserComment.twig' %}
+     {% include 'partial/common/dummy/UserComment.twig' %}
+     {% include 'partial/common/dummy/UserComment.twig' %}
+    </div><!--//tab_content-->
+
+    <div class="tab_content">
+     タブ2の中身
+    </div><!--//tab_content-->
+
+   </div><!--//tab-box-->
+  </div><!-- /.tab-menu -->
+ </section><!--//rating_comment-->
+
+
+ {% endblock %}
+</div><!-- //remodal -->

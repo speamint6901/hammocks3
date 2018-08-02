@@ -1,0 +1,50 @@
+//******************************* impoprt setting /
+@import "compass";
+@import "../core/color";
+@import "../core/variables";
+@import "../core/mixin";
+
+//******************************* impoprt partial /
+@import "../partial/tag_nav";
+@import "../partial/cards";
+@import "../partial/gear_article";
+@import "../partial/articlepreview";
+@import "../partial/gear_rating";
+
+
+
+
+
+
+ //breakpoints -------------------------------
+ @include MQ(maxL) { }//breakpoints (maxL) -------------------------
+
+ @include MQ(M) { }//breakpoints (M) -------------------------
+
+ @include MQ(S) { }//breakpoints (S) -------------------------
+
+
+
+
+
+.mobile { //mobile setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //mobile end **********************************
+
+.tablet { //tablet setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //tablet end **********************************

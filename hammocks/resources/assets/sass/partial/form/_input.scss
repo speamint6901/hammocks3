@@ -1,0 +1,55 @@
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"]
+{
+ $input_width:300px;
+
+ margin-bottom:25px;
+ display: inline-block;
+ position: relative;
+ width:$input_width;
+ -webkit-transition: all .2s;
+ transition: all .2s;
+ padding: 0.5em 1em;
+
+ &:focus {
+  padding-left: 0.8em;
+  &:placeholder,
+  &::-webkit-input-placeholder,
+  &::-moz-placeholder,
+  {
+   color: transparent;
+  }
+ }
+ &:disabled {
+  background-color: #eee;
+  cursor: not-allowed;
+ }
+
+ $color:#3498db;
+ @mixin placeholderColor($color) {
+  &:placeholder-shown {color: $color;}
+  &::-webkit-input-placeholder {color:$color;}
+  &:-moz-placeholder { color:$color; opacity: 1;}
+  &::-moz-placeholder { color:$color; opacity: 1;}
+  &:-ms-input-placeholder { color:$color;}
+ }
+
+
+ & + label{
+
+ }//label
+
+}// input[type="text"], input[type="password"]
+
+
+:placeholder-shown { color: $second-color;}
+::-webkit-input-placeholder { color: $second-color;}
+::-moz-placeholder { color: $second-color; opacity: 1;}
+:-ms-input-placeholder { color: $second-color;}
+
+//:focus:placeholder-shown { color: transparent;}
+//:focus::-webkit-input-placeholder { color: transparent;}
+//:focus::-moz-placeholder { color: transparent; opacity: 1;}
+//:focus:-ms-input-placeholder { color: transparent;}

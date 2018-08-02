@@ -1,0 +1,24 @@
+{% extends "templates/common/error_base.twig" %}
+
+{% block Body_class %}
+<body class="error">
+ {% endblock Body_class %}
+
+{% block stylesheets %}
+ <link rel="stylesheet" href="{{ asset('css/pages/error.css') }}" media="all" />
+{% endblock stylesheets %}
+
+{% block top_js %}
+{% endblock top_js %}
+
+{% block contents %}
+ <h2>500 internal server error</h2>
+<p>
+すみません。予期しないエラーが発生しました。<br>
+ 我々は火を眺めることしかできないのかもしれません。
+ </p>
+{% endblock contents %}
+
+
+{% block bottom_js %}
+{% endblock bottom_js %}

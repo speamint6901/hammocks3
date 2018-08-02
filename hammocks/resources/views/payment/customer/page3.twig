@@ -1,0 +1,34 @@
+{% extends "templates/common/transaction_base.twig" %}
+
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+
+{% block status1st %}
+商品運搬中
+{% endblock %}
+
+{% block status2nd %}
+発送が完了しました
+{% endblock %}
+
+
+
+{% block announce %}
+<p>商品到着連絡がくるまでしばらくお待ち下さい</p>
+<span>追跡番号:</span><a href="">2274-9538-1234</a>
+ <p>商品到着後問題なければ評価ににて取引を完了してください</p>
+<p>また、商品が到着するまでは評価しないでください</p>
+
+<a data-remodal-target="UserRating_input" class="button btn_size-M">評価する</a>
+
+
+{% endblock %}
+
+{% block UniqueModal %}
+{% embed "partial/common/modal/modal-userrating_input.twig" %}
+{% endembed %}
+{% endblock %}
+
+{% block bottom_js %}
+{% endblock bottom_js %}

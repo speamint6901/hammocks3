@@ -1,0 +1,126 @@
+<style>
+ .sticker_block{
+  margin: auto;
+  width: 600px;
+ }
+
+ .sticker_block dl{
+  display: flex;
+  margin-bottom: 25px;
+ }
+
+ .sticker_block dt{
+  margin-right: 25px;
+ }
+
+ .sticker_block dt img{
+width: 60px;
+ }
+</style>
+
+
+
+ <div class="manual_icon">
+
+ <h2>ギアを新しく登録する</h2>
+
+ <div class="sticker_block">
+
+  <section class="linebox">
+   <div class="top-border left"></div>
+   <div class="top-border right"></div>
+
+   <h3 class="linebox_title">登録ギア検索</h3>
+
+   <div class="linbox_box common_bottom">
+    <h4 class="font_change">ブランド検索</h4>
+    <p>
+     hammocksにまだ掲載されていないギアを登録するページです。<br>
+     まずはブランド検索で登録したいギアのブランドを探します。<br>
+     検索でブランドが見つからない場合は下の「上記にないブランド」にチェックを入れてください。
+    </p>
+   </div>
+
+   <div class="linbox_box common_bottom">
+    <h4 class="font_change">ギア名</h4>
+    <p>
+     登録したいギアの商品名を入力し検索ボタンを押してください。<br>
+     <br>
+     検索ボタンを押すと入力情報に基づく登録されているギアの候補が表示されます。候補に該当ギアがある場合は登録の必要はありません。<br>
+     候補に無い場合は「検索をやり直す」か「上記にない場合はこちら」を押してギアの登録を行ってください。<br>
+    </p>
+   </div>
+  </section><!--/.linebox-->
+
+
+  <section class="linebox">
+   <div class="top-border left"></div>
+   <div class="top-border right"></div>
+
+   <h3 class="linebox_title">ギア情報入力</h3>
+
+   <div class="linbox_box common_bottom">
+    <h4 class="font_change">画像を登録</h4>
+    <p>
+     登録したいギアの画像を登録してください。<br><br>
+    </p>
+
+
+    <dl>
+     <dt style="background-color: #dddddd;border-radius: 100%;height: 60px;padding: 5px; ">
+      <img src="{{ asset('images/ico-www.svg') }}" type="image/svg+xml" style="width: 50px;height: 50px;">
+     </dt>
+     <dd>
+      URLから画像を登録する方法です。<br>
+      「画像を引用するサイトURLを入力」にURLを入れるとモーダルが開き、入力したサイトにある画像をリストで表示します。<br>
+     表示された画像の中から該当する画像をクリックしてください。
+     </dd>
+    </dl>
+
+    <dl>
+     <dt style="background-color: #dddddd;border-radius: 100%;height: 60px; padding: 5px; ">
+      <img src="{{ asset('images/ico-img-white.svg') }}" type="image/svg+xml" style="width: 50px;height: 50px;">
+     </dt>
+     <dd>
+      ご自身の写真を登録する方法です。<br>
+      「画像を選択」を押すか、アップロードしたい画像を枠の中にドロップしてください。<br>
+     </dd>
+    </dl>
+
+
+   </div>
+
+   <div class="linbox_box common_bottom">
+    <h4 class="font_change">カテゴリを選択</h4>
+    <p>
+     登録したいギアの属すカテゴリを選択してください。<br>
+    面倒なら飛ばしてしまっても大丈夫です。
+    </p>
+   </div>
+
+   <div class="linbox_box common_bottom">
+    <h4 class="font_change">コメント入力</h4>
+    <p>
+     登録したいギアに対する熱い想いや、スペック情報などを書いてください。<br>
+     面倒なら飛ばしてしまっても大丈夫ですが、書いていただくと非常に嬉しいです。
+    </p>
+   </div>
+
+   <div class="linbox_box common_bottom">
+    <h4 class="font_change">ギアを登録する</h4>
+    <p>
+     必要な項目を入力しましたら「ギアを登録する」ボタンが押せるようになりますので、ボタンを押して登録完了です。<br>
+     新たに登録していただいたギアは運営の確認後、問題がなければhammocksに反映いたします。
+    </p>
+   </div>
+
+  </section><!--/.linebox-->
+
+
+
+
+
+ </div><!--//sticker_block-->
+
+
+</div><!--//manual_icon-->

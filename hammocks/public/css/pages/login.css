@@ -1,0 +1,19 @@
+.login .outhlogin a {
+  position: relative;
+}
+.login .outhlogin a i {
+  font-size: 18px;
+  border: 1px solid;
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  padding-left: 3px;
+  position: absolute;
+  left: 8px;
+}
+.login .intermission {
+  margin: 25px auto;
+}
+
+/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,17 @@
+<div class="category_nav common_bottom">
+ <ul>
+  {% block CateList %}
+
+  <li><a href="{{ url('search/select/category/' ~ user_item_info.category_id) }}">{{ user_item_info.category_name }}</a></li>
+
+  {% if user_item_info.genre_name %}
+  <li><a href="{{ url('search/select/genre/' ~ user_item_info.genre_id) }}">{{ user_item_info.genre_name }}</a></li>
+  {% endif %}
+
+  {% if user_item_info.genre_second_name %}
+  <li><a href="{{ url('search/select/genre_second/' ~ user_item_info.genre_second_id) }}">{{ user_item_info.genre_second_name }}</a></li>
+  {% endif %}
+
+  {% endblock CateList %}
+ </ul>
+</div><!--//category_nav-->

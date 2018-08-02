@@ -1,0 +1,213 @@
+{% extends "templates/common/base.twig" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/pages/setting.css') }}" media="all" />
+{% endblock stylesheets %}
+
+
+{% block contents %}
+
+<h2>本人確認書類のアップロード</h2>
+
+<div class="textcontents unit">
+
+<div id="my-awesome-dropzone" class="dropzone">
+ <span>
+  <i class="fa fa-image"></i>
+ </span>
+</div><!--//my-awesome-dropzone-->
+
+<div id="my-preview-dropzone" class="dropzone"></div>
+<input type="hidden" value="0" name="pict-ok" id="pict-ok">
+
+<div class="common_bottom">
+<a class="button btn_size-M" id="setting_identification">アバター更新</a>
+</div>
+
+ <div class="common_bottom">
+  <p>
+   デジタルカメラや携帯電話での撮影、またスキャンした画像データをPCに保存し、アップロードしてください。
+  </p>
+  <p>
+   下記いずれか1点の提示が必要になります。
+   ご提出いただいた書類に、不備、不鮮明な内容がある場合、本ページより再度アップロードをいただく必要があります。
+  </p>
+ </div><!--//gr-->
+
+
+ <div class="common_bottom">
+  <h3>本人確認対象書類</h3>
+  <ul class="object">
+
+   <li>
+    <div class="imgpic">
+     <img src="{{ asset('images/ico-license.svg') }}" type="image/svg+xml">
+    </div><!--//imgpic-->
+    <dl>
+     <dt class="title">運転免許証・運転経歴証明書</dt>
+     <dd>有効期限内のもの</dd>
+     <dd>各都道府県公安委員会発行のもの</dd>
+     <dd>国際免許証は除く</dd>
+     <dd>※ウラ面に住所変更の記載がない場合も両面の送付をお願いいたします。<br>
+      変更後の住所について、ご自身の手書きでの住所変更は認められません。また、公安印が確認できるもののみ有効となります。</dd>
+     <dd>※旧運転経歴証明書は本人確認補助書類が必要</dd>
+    </dl>
+   </li>
+
+   <li>
+    <div class="imgpic">
+     <img src="{{ asset('images/ico-license.svg') }}" type="image/svg+xml">
+    </div><!--//imgpic-->
+    <dl>
+     <dt class="title">個人番号カード</dt>
+     <dd>有効期限内のもの</dd>
+     <dd>表面のみ（個人番号（マイナンバー）の記載された状態でアップロードされた場合は、データを廃棄の上、再度データの上げ直しを依頼します）</dd>
+    </dl>
+   </li>
+
+   <li>
+    <div class="imgpic">
+     <img src="{{ asset('images/ico-passport.svg') }}" type="image/svg+xml">
+    </div><!--//imgpic-->
+    <dl>
+     <dt class="title">日本国パスポート</dt>
+     <dd>有効期限内のもの</dd>
+     <dd>住所の記載があるもの</dd>
+    </dl>
+   </li>
+
+   <li>
+    <div class="imgpic">
+     <img src="{{ asset('images/ico-insurancecard.svg') }}" type="image/svg+xml">
+    </div><!--//imgpic-->
+    <dl>
+     <dt class="title">被保険者証（国民健康保険/健康保険）</dt>
+     <dd>有効期限内のもの</dd>
+     <dd>被扶養者の方はご自身の氏名が記載されている面の画像も必要</dd>
+    </dl>
+   </li>
+
+   <li>
+    <dl>
+     <dt class="title">特別永住者証明書</dt>
+     <dd>有効期限内のもの</dd>
+    </dl>
+   </li>
+
+   <li>
+    <dl>
+     <dt class="title">在留カードまたは外国人登録証明書</dt>
+     <dd>有効期限内のもの</dd>
+    </dl>
+   </li>
+
+   <li>
+    <dl>
+     <dt class="title">住民基本台帳カード</dt>
+     <dd>有効期限内のもの</dd>
+     <dd>顔写真付きカードのみ有効</dd>
+    </dl>
+   </li>
+
+   <li>
+    <dl>
+     <dt class="title">身体障がい者手帳</dt>
+     <dd>有効期限内のもの</dd>
+     <dd>住所の記載があるもの（記載が無い場合は「本人確認補助書類」も必要）</dd>
+    </dl>
+   </li>
+
+   <li>
+    <dl>
+     <dt class="title">精神障がい者保健福祉手帳</dt>
+     <dd>有効期限内のもの</dd>
+    </dl>
+   </li>
+
+   <li>
+    <dl>
+     <dt class="title">療育手帳</dt>
+     <dd>本人確認補助書類が必要</dd>
+    </dl>
+   </li>
+
+  </ul>
+ </div><!--//gr-->
+
+
+ <div class="common_bottom">
+
+  <h3>注意事項</h3>
+
+  <ul>
+   <li>
+    ご登録いただいたユーザー情報と氏名、住所は、本人確認書類の内容と全く同一でなければ、本人確認を非承認とする場合があります。
+   </li>
+   <li>
+    本人確認書類は、一部を隠したり改ざんしたものは無効となります。
+   </li>
+   <li>
+    マイナンバー制度により送付される「通知カード」は本人確認書類としてはご利用いただけません。またマイナンバー法（番号法）に基づき、個人番号（マイナンバー）の記載された住民票は補助書類としてご利用いただけません。住民票を補助書類として利用される場合は、個人番号（マイナンバー）が記載されないよう申請時にご留意ください。
+   </li>
+   <li>
+
+   </li>
+  </ul>
+
+
+  <div>
+   <h4>本人確認書類と現住所が異なる場合</h4>
+   <p>
+    転居などにより本人確認書類と現住所が異なる場合は、上記本人確認書類のどれか1つと、下記のいずれかの補助書類１つをご用意ください。補助書類のみでは本人確認はできません。
+   </p>
+
+   <div>
+    <h4>本人確認補助書類</h4>
+    <dl>
+     <dt>住民票（発行から3ヵ月以内のもの）</dt>
+     <dd>※住民票を取得する際は、個人番号（マイナンバー）を記載しないでください</dd>
+     <dd>※個人番号（マイナンバー）の記載された状態でアップロードされた場合は、データを廃棄の上、再度データの上げ直しを依頼します</dd>
+
+     <dt>公共料金領収書（発行から3ヵ月以内で住所の記載があるもの）</dt>
+     <dd>※電気・都市ガス・水道のみ（プロパンガス領収書などは対象外）</dd>
+    </dl>
+   </div>
+  </div>
+
+ </div><!--//gr-->
+
+
+ <div class="common_bottom">
+  <h3>本人確認書類画像のアップロードについて</h3>
+
+  <h4>アップロード可能な画像ファイルについて</h4>
+  <ul>
+   <li>本人確認書類をスマートフォンや携帯電話、デジタルカメラで撮影またスキャンした画像データをアップロードしてください。</li>
+   <li>書類の記載内容が読みとれる画像であることを確認してください。</li>
+   <li>書類全体が入るように撮影・スキャンしてください。</li>
+   <li>最大5ファイルまでアップロード可能です。</li>
+   <li>アップロード可能な画像のファイル形式はJPEGまたはPINGです。</li>
+   <li>アップロード可能な画像の容量は1ファイル最大3MBまでです。※推奨ファイルサイズは500KBです。</li>
+   <li></li>
+  </ul>
+
+ </div><!--//gr-->
+
+
+</div><!--//textcontents-->
+{% endblock contents %}
+{% block bottom_js %}
+ <script src="{{ asset('js/dropzone.js') }}"></script>
+ <script src="{{ asset('js/imageUploader.js') }}" ></script>
+ <script>
+var dropzone = myAwesomeDropzone("#my-awesome-dropzone", "#my-preview-dropzone", "identification", 4);
+$(document).on("click", "#setting_identification", function() {
+    var url = getDomain() + consUrlJs.identificationPath;
+    $.post(url, {"type" : "identification"}, function(data, status) {
+        if (data.message !== undefined) {
+            alert(data.message);
+        }
+    });
+});
+ </script>
+{% endblock bottom_js %}

@@ -1,0 +1,43 @@
+<div class="remodal" data-remodal-id="ItemEdit-rate" data-remodal-options="hashTracking:false">
+
+ <button data-remodal-action="close" class="remodal-close"></button>
+
+ {% block ItemEditrate_Contents %}
+ <section>
+  <h2>評価する</h2>
+  <div class="madalformcontents">
+  <form  id="rate_form">
+
+   <div class="rating-edit" id="UserItemRating">
+    <input type="radio" id="rate5" name="rate" value="5.0">
+    <label for="rate5"></label>
+    <span class="gear_rating"><p>5THUNDER</p></span>
+
+    <input type="radio" id="rate4" name="rate" value="4.0">
+    <label for="rate4"></label>
+    <span class="gear_rating"><p>4THUNDER</p></span>
+
+    <input type="radio" id="rate3" name="rate" value="3.0">
+    <label for="rate3"></label>
+    <span class="gear_rating"><p>3THUNDER</p></span>
+
+    <input type="radio" id="rate2" name="rate" value="2.0">
+    <label for="rate2"></label>
+    <span class="gear_rating"><p>2THUNDER</p></span>
+
+    <input type="radio" id="rate1" name="rate" value="1.0">
+    <label for="rate1"></label>
+    <span class="gear_rating"><p>1THUNDER</p></span>
+   </div><!--//rating-edit-->
+
+   </form>
+
+  </div><!--//madalformcontents-->
+ </section>
+
+ <div class="modalbtn_set">
+  <button data-remodal-action="cancel" class="button btn_size-M reset_cancell-b">Cancel</button>
+  <button data-remodal-action="confirm" id="rate_execute_btn" class="button btn_size-M">更新</button>
+ </div><!--//modalbtn_set-->
+ {% endblock %}
+</div><!-- //remodal -->

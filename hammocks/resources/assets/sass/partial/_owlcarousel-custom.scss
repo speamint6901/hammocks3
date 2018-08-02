@@ -1,0 +1,26 @@
+@import "../vendor/owl.carousel2";
+
+
+.owl-thumb-item{
+ overflow: hidden;
+ img{
+  width: auto;
+ }
+}//img-resize仕様
+
+.owl-carousel .owl-item img{
+ width: auto;
+}
+
+.owl-thumbs{
+ @include flex_container();
+}
+
+
+//breakpoints -------------------------------
+@include MQ(maxL) { }//breakpoints (maxL) -------------------------
+
+@include MQ(M) {}//breakpoints (M) -------------------------
+
+@include MQ(S) { }//breakpoints (S) -------------------------
+

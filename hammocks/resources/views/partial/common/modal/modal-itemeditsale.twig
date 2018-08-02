@@ -1,0 +1,96 @@
+<div class="remodal" data-remodal-id="ItemEditSale" data-remodal-options="hashTracking:false">
+
+ <button data-remodal-action="close" class="remodal-close"></button>
+
+ {% block EditSale_Contents %}
+ <section>
+  <h2>アイテムを販売する</h2>
+  <div class="madalformcontents">
+   <form method="post" id="">
+
+    <label id="img-uploader" class="button btn_size-S">画像を選択</label>
+    <input type="file" name="pict" id="file-image" accept="image/*" id="pict-file" style="display:none;">
+
+    <div id="print_img" class="comon_layout">
+     <div id="thumb-area"></div>
+     <img id="image-thumb" alt="">
+
+     <input type="hidden" value="" name="pict-data-url" id="pict-data-url">
+     <input type="hidden" value="" name="pict-mimetype" id="pict-mimetype">
+    </div><!--//print_img-->
+
+
+
+    <label class="titleblock">商品説明編集</label>
+    <textarea id="item-description" class="comon_layout" name="item_description" cols=40 rows=16></textarea>
+
+    <h3>商品状態</h3>
+    <label class="selectform">
+     <select>
+      <option value="">新品、未使用</option>
+      <option value="">ほぼ新品</option>
+      <option value="">中古うんこ</option>
+      <option value="">うんもっくす</option>
+     </select>
+    </label>
+
+   <div>
+    <h3>支払い方法</h3>
+    <input type="checkbox" id="checkbox01" name="demo" class="checkbox">
+    <label for="checkbox01">クレジットカード</label>
+
+    <input type="checkbox" id="checkbox02" name="demo" class="checkbox">
+    <label for="checkbox02">銀行振込</label>
+
+    <input type="checkbox" id="checkbox03" name="demo" class="checkbox">
+    <label for="checkbox03">代引き</label>
+
+    <input type="checkbox" id="checkbox03" name="demo" class="checkbox">
+    <label for="checkbox03">コンビニ支払い</label>
+    </div>
+
+    <div>
+     <h3>送料</h3>
+
+
+    </div>
+
+    <div>
+     <h3>発送方法</h3>
+
+
+    </div>
+
+
+    <div>
+     <h3>発送までの日数</h3>
+     <label class="selectform">
+      <select>
+       <option value="">入金を確認してから1～2日で発送</option>
+       <option value="">入金を確認してから3～5日で発送</option>
+       <option value="">入金を確認してから7～10日で発送</option>
+       <option value="">入金を確認してから1～2週間で発送</option>
+      </select>
+     </label>
+
+    </div>
+
+
+    <div>
+     <h3>海外発送</h3>
+     <input type="checkbox" id="toggledemo01" class="togglebtn" checked >
+     <label for="toggledemo01" data-on-label="On" data-off-label="Off"></label>
+
+    </div>
+
+
+   </form>
+  </div><!--//madalformcontents-->
+ </section>
+
+ <div class="modalbtn_set">
+  <button data-remodal-action="cancel" class="button btn_size-M reset_cancell-b">Cancel</button>
+  <button data-remodal-action="confirm" class="button btn_size-M">OK</button>
+ </div><!--//modalbtn_set-->
+ {% endblock %}
+</div><!-- //remodal -->

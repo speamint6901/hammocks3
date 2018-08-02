@@ -1,0 +1,125 @@
+//******************************* impoprt setting /
+@import "compass";
+@import "../core/color";
+@import "../core/variables";
+@import "../core/mixin";
+
+//******************************* impoprt partial /
+
+
+.brand {
+ //text-align: center;
+
+ .card_flex{ }//.card_flex
+
+ #masonry {
+  width:100%;
+  //margin-left: 20px;
+  overflow:auto;
+  text-align: center;
+  margin:auto;
+ }
+
+ .brand_card{
+  //max-width: 320px;
+  width:320px;
+  margin:20px;
+  border: 1px solid $text-color;
+  display:inline;
+  a{
+   color: $text-color;
+  }//a
+
+  .initial{
+   font-size: 20px;//
+   width: 40px;
+   height: 40px;
+   line-height: 40px;
+   border-radius: 50%;
+   text-align: center;
+   margin: 40px auto;
+   border: 1px solid $text-color;
+  }//initial
+
+  ul{
+   text-align: left;
+   margin: auto 80px;
+   padding-bottom: 80px;
+   li{
+    margin-bottom: 10px;
+   }
+  }//ul
+ }//brand_card
+
+ .brand_list{
+  li{
+   span{
+    color: $base-color;
+    background-color: $main-color;
+    border-radius: 20px;
+    padding: 0px 10px;
+    margin-left: 5px;
+   }
+  }
+ }//brand_list
+
+
+
+ .brand_sarch{
+  //max-width: 500px;
+  @include flex_container();
+  margin:0 auto 80px 0;
+  a,label{
+   //width: 7%;
+   @include flex_item(1);
+   font-size: 26px;
+   display: inline-block;
+   text-align: center;
+   color: $text-color;
+   cursor: pointer;
+   &:hover{color: $main-color;}
+  }
+  input[type="radio"]{
+   border: none;
+  }
+ }
+
+ //breakpoints -------------------------------
+ @include MQ(maxL) { }//breakpoints (maxL) -------------------------
+
+ @include MQ(M) { }//breakpoints (M) -------------------------
+
+ @include MQ(S) {
+  .brand_sarch{
+   display: block;
+   margin: 0 auto;
+  }//.brand_sarch
+
+
+ }//breakpoints (S) -------------------------
+
+} //item
+
+
+
+.mobile { //mobile setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //mobile end **********************************
+
+.tablet { //tablet setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //tablet end **********************************

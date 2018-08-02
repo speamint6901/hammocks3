@@ -1,0 +1,182 @@
+//******************************* impoprt setting /
+@import "compass";
+@import "../core/color";
+@import "../core/variables";
+@import "../core/mixin";
+
+//******************************* impoprt partial /
+@import "../partial/item_card";
+@import "../partial/tabmenu";
+@import "../partial/cards";
+@import "../partial/user_rating_cmment";
+@import "../partial/tabmenu";
+@import "../partial/listbox";
+@import "../partial/gear_article";
+@import "../partial/articlepreview";
+@import "../partial/gear_rating";
+
+.garage {
+
+ $profcover_Height:520px;
+
+ .contents{
+  position: relative;
+ }
+
+ .profcover{
+  text-align: center;
+  width: 100%;
+  height:$profcover_Height;
+  width: calc(100% + 160px);
+  margin-left: -80px;
+  margin-top: -80px;
+  color: $default-color;
+  margin-bottom: 60px;
+
+  a{
+   color: $default-color;
+   &.button{border-color: $default-color; cursor: pointer;}
+  }//a
+
+  .profileNav{
+   padding-top: 40px;
+   max-width: 320px;
+   margin: auto;
+   ul{
+    @include flex_container();
+    justify-content: center;
+    li{
+     @include flex_item();
+     text-align: center;
+     margin: 0 20px 60px 20px;
+     position: relative;
+     .badge{
+      top: -2px;
+      right: -2px;
+      min-width: 14px;
+      min-height: 14px;
+     }//badge
+    }
+   }//ul
+   img{
+    //max-width: 48px;//40px;
+    width: 40px;
+   }//img
+  }//publicitemNav
+
+  .profcontents{
+   padding-top: 18px;
+   position: relative;
+  }//profcontents
+
+  .usrimgfil{
+   width: 100%;
+   height:$profcover_Height;
+   background-image: url(../img/prof-imgfilter.png) !important;
+   position: absolute;
+   top: 0;
+   left: 0;
+  }
+
+  .authority_stamp{
+   margin: auto;
+   max-width: 100%;
+   display: block;
+   .user_thumb {
+    max-width: 80px;
+    display: inline-block;
+   }
+   .name{
+    max-width: 100%;
+    margin: auto;
+   }//.name
+  }//.authority_stamp
+
+  #follow_btn{
+   color: $default-color;
+   border-color: $default-color;
+   &.unfollow{
+    background-color: rgba(33, 37, 41, 0.6);
+    color: $text-color;
+    border-color: $text-color;
+   }
+  }
+
+
+ }//.profcover
+
+ .usr_description{
+  margin: 60px auto;
+ }//usr_description
+
+ svg.proficoncolor{
+  color: #fff;
+  fill: currentColor;
+  width: 40px;
+  vertical-align: middle;
+ }
+
+ .tabmenu{
+  text-align: center;
+ }
+
+
+ //pick container
+ &.pick {
+   .contents_btn{
+    right: 0;
+    //top: 560px;
+    top: 580px;
+   }//.contents_btn
+ }//.pick
+
+
+ //breakpoints -------------------------------
+ @include MQ(maxL) { }//breakpoints (maxL) -------------------------
+
+ @include MQ(M) { }//breakpoints (M) -------------------------
+
+ @include MQ(S) {
+
+  //pick container
+  &.pick {
+   .contents_btn{
+    top: 500px;
+   }//.contents_btn
+  }//.pick
+
+ }//breakpoints (S) -------------------------
+
+} //garage
+
+
+
+.mobile { //mobile setting **********************
+ .garage {
+  .contents{
+   padding-top: 0;
+  }//.contents
+  .profcover{
+   .profcontents{
+    padding-top: 60px;
+   }//.profcontents
+  }//.profcover
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+ } //garage
+} //mobile end **********************************
+
+.tablet { //tablet setting **********************
+
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+
+} //tablet end **********************************

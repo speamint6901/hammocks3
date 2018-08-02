@@ -1,0 +1,64 @@
+{% extends "templates/common/sale_register.twig" %}
+
+{% block Body_class %}
+<body class="{{ route_class }} sale_register">
+ {% endblock Body_class %}
+
+ {% block stylesheets %}{% endblock stylesheets %}
+
+ {% block top_js %}{% endblock top_js %}
+
+ {% block contents %}
+ <h2>出品ギア情報登録</h2>
+
+ {% embed "partial/common/progressbar.twig" %}
+ {% block Step %}
+ <li class="completed">
+  <span class="bubble"></span>
+  <i class="fa fa-check-circle"></i>
+  Step 1.
+ </li>
+
+ <li class="completed">
+  <span class="bubble"></span>
+  <i class="fa fa-check-circle"></i>
+  Step 2.
+ </li>
+
+ <li class="active">
+  <span class="bubble"></span>
+  Step 3.
+ </li>
+
+ <li class="">
+  <span class="bubble"></span>
+  <i class="fa fa-check-circle"></i>
+  Step 4.
+ </li>
+ {% endblock Step %}
+ {% endembed %}
+
+ <div class="textcontents unit">
+
+  <div class="formcontents">
+   <div class="form_gr common_bottom">
+    <h3>お金のこと</h3>
+    <form id="sale_register_step3">
+    <label for="demo" class="titleblock">値段</label>
+    <input type="text" name="price" id="price" placeholder="" class="form_size-L" value="{{ post_data.price }}">
+    <div id="price_error_msg"></div>
+    <p>販売利益</p>
+    <p class="">¥1,480</p>
+
+   </div><!--//form_gr-->
+  </div><!-- /.formcontents -->
+
+  <p class="button btn_size-M disable-b" id="regist-ok">出品する</p>
+  </form>
+ </div><!--//textcontents-->
+ {% endblock contents %}
+
+
+ {% block bottom_js %}
+<script src="{{ asset('js/itemSaleRegisterStep3.js') }}"></script>
+ {% endblock bottom_js %}

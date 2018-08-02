@@ -1,0 +1,21 @@
+<div class="sort_area">
+
+ <select class="selectform form_size-M" name="filter_select" id="is_store">
+  {% block FilterItem %}
+  <option value="0">All Gear</option>
+  <option value="1">Sale Gear</option>
+  {% endblock FilterItem%}
+ </select>
+
+ <select name="" class="selectform form_size-M" name="" id="sort">
+  {% block SortItem %}
+  {% for key, s in sort_box %}
+  <option value="{{ key }}">{{ s }}</option>
+  {% endfor %}
+  {% endblock SortItem%}
+ </select>
+
+</div><!--//sort_area-->
+<div class="cleafix"></div>
+
+

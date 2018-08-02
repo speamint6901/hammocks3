@@ -1,0 +1,32 @@
+{% extends "templates/common/user_garage.twig" %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+{% block top_js %}{% endblock top_js %}
+
+{% block contents %}
+
+<h2>出品中のギア</h2>
+
+
+ {% include 'partial/common/card/saleItem.twig' %}
+
+
+
+{% endblock contents %}
+
+
+{% block bottom_js %}
+<script src="{{ asset('js/list.js') }}" ></script>
+<script src="{{ asset('js/tmpSaleItemList.js') }}" ></script>
+
+<script>
+ var list = new List("#tmp_list_1", {
+    url : getDomain() + consUrlJs.listPath[1],
+    method : "post",
+    owner_users_id : "{{ user_info.id }}",
+    is_store : 1,
+    templete_id : 1
+ });
+list.get();
+</script>
+{% endblock bottom_js %}

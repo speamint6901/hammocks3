@@ -1,0 +1,63 @@
+@import "open-color";
+
+$main-color: #4EB5A2;
+$main-color_quote: darken($main-color, 10%);
+$main_light-color: lighten( $main-color, 20% );
+$main_heigh-color: saturate( $main-color, 20% );
+$main_low-color: desaturate( $main-color, 20% );
+$main_alpha-color: transparentize( $main-color, 0.3 );
+
+$second-color: #9E9E9F;
+$second-color_quote: darken($second-color, 10%);
+$second_light-color: lighten( $second-color, 35% );
+$second_heigh-color: saturate( $second-color, 20% );
+$second_low-color: desaturate( $second-color, 20% );
+$second_alpha-color: transparentize( $second-color, 0.3 );
+
+$third-color: #FCFBF9;//linkのないタイトルなど
+$third-color_quote: darken($third-color, 10%);
+$third_light-color: lighten( $third-color, 15% );
+$third_heigh-color: saturate( $third-color, 20% );
+$third_low-color: desaturate( $third-color, 20% );
+$third_alpha-color: transparentize( $third-color, 0.3 );
+
+//--
+$base-color:$third-color; //#f5f7fa;//下地の色
+
+$text-color: #95989A;//本文とか下地に載る色
+$link-color: $main-color;
+$sublink-color: $text-color; //強調しないlinkcolor
+$line-color: #cecece;
+$ct-background:rgba(255, 255, 255, 0.88);
+$form_base_color:#dddddd;
+
+$disable-color:#c4c4c4;
+$disable-color_quote: lighten($disable-color, 90%);
+
+$default-color:#fff;
+$default-color_quote: darken($default-color, 10%);
+
+$primary-color:#337AB7;
+$primary-color_quote: darken($primary-color, 10%);
+$primary_light-color: lighten( $primary-color, 35% );
+
+$success-color:#5CB85C;
+$success-color_quote: darken($success-color, 10%);
+$success_light-color: lighten( $success-color, 35% );
+
+$info-color:#31B0D5;
+$info-color_quote: darken($info-color, 10%);
+$info_light-color: lighten( $info-color, 35% );
+
+$danger-color:#C9302C;
+$danger-color_quote: darken($danger-color, 10%);
+
+$warning-color:#ce7070;//#F0AD4E;
+$warning-color_quote: darken($warning-color, 10%);
+
+$inverse-color:#000;
+$inverse-color_quote: darken($inverse-color, 10%);
+
+$ghost-color:transparent;
+
+$loadicon-color:$form_base_color;

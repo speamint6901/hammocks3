@@ -1,0 +1,131 @@
+{% extends "templates/common/sale_register.twig" %}
+
+{% block Body_class %}
+<body class="{{ route_class }} sale_register">
+ {% endblock Body_class %}
+
+ {% block stylesheets %}
+ <link rel="stylesheet" href="{{ asset('css/vendor/owl.theme.css') }}" media="all" />
+ {% endblock stylesheets %}
+
+ {% block top_js %}{% endblock top_js %}
+
+ {% block contents %}
+ <h2>出品ギア確認</h2>
+
+ {% embed "partial/common/progressbar.twig" %}
+ {% block Step %}
+
+ <li class="completed">
+  <a href="register1">
+  <span class="bubble"></span>
+  </a>
+  <i class="fa fa-check-circle"></i>
+  Step 1.
+ </li>
+
+
+ <li class="completed">
+  <a href="register2">
+  <span class="bubble"></span>
+  </a>
+  <i class="fa fa-check-circle"></i>
+  Step 2.
+ </li>
+
+ <li class="completed">
+  <a href="register3">
+  <span class="bubble"></span>
+  </a>
+  <i class="fa fa-check-circle"></i>
+  Step 3.
+ </li>
+
+ <li class="active">
+  <span class="bubble"></span>
+  Step 4.
+ </li>
+ {% endblock Step %}
+ {% endembed %}
+
+
+ <div class="textcontents unit">
+
+  <div class="item_card">
+   <div class="form_gr common_bottom">
+    <p class="brand_name">Brnd Name</p><!--//brand_name-->
+    <p class="card_name">Gear Name</p><!--//card_name-->
+
+    <ul class="pic owl-carousel " data-slider-id="1">
+    {% for img in result_data.images %}
+     <li class="squarebox"><img class="img_resize" src="{{ img.data_url }}"></li>
+    {% endfor %}
+    </ul><!--//pic-->
+
+    <p class="price"><span>{{ result_data.post_data.price }}</span></p>
+
+    <div class="description common_bottom">
+     <p>
+        {{ result_data.post_data.item_description|nl2br }}
+     </p>
+    </div><!--//description-->
+
+    <div class="item_info common_bottom">
+     <dl>
+      <dt>商品の状態</dt>
+      <dd>{{ result_data.post_data.item_condition }}</dd>
+     </dl>
+    </div><!--//item_info-->
+
+    <div class="shipping_info">
+     <dl>
+      <dt>送料</dt>
+      <dd>{{ result_data.post_data.delivery_pattern }}全国一律850円(北海道・沖縄は1,400円)</dd>
+
+      <dt>発送方法</dt>
+      <dd>{{ result_data.post_data.delivery_company }}</dd>
+
+      <dt>発送元</dt>
+      <dd>{{ result_data.post_data.prefecture }}</dd>
+
+      <dt>発送日までの日数</dt>
+      <dd>{{ result_data.post_data.delivery_day_nums }}</dd>
+     </dl>
+    </div><!--//shipping_info-->
+
+
+    <p>販売利益:¥50</p>
+
+   </div><!--//form_gr-->
+  </div><!-- /.formcontents -->
+
+  <a href="{{ url('/item/sale/confirm') }}" class="button btn_size-M">出品する</a>
+  <a href="" class="button btn_size-M">戻る</a>
+ </div><!--//textcontents-->
+ {% endblock contents %}
+
+
+ {% block bottom_js %}
+ <script src="{{ asset('js/owl.carousel.js') }}" ></script>
+ <script src="{{ asset('js/Owlcarousel2Thumbs.min.js') }}" ></script>
+ <script>
+  $(function(){
+   $(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+     autoplay: false,
+     autoplayHoverPause: true,
+     autoplayTimeout: 3000,
+     autoplaySpeed: 1000,
+     loop: false,
+     items: 1,
+     thumbs: true,
+     thumbImage: true,
+     thumbsPrerendered: true,
+     thumbContainerClass: 'owl-thumbs',
+     thumbItemClass: 'owl-thumb-item'
+    });
+   });
+
+  });
+ </script>
+ {% endblock bottom_js %}

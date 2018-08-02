@@ -1,0 +1,98 @@
+{% extends "templates/common/register_base.twig" %}
+
+ {% block stylesheets %}{% endblock stylesheets %}
+ {% block top_js %}{% endblock top_js %}
+
+
+ {% block contents %}
+<h2>ギア情報入力</h2>
+ <div class="formcontents">
+  <form method="post" id="item-register-form">
+
+   <div class="unit common_bottom">
+    <p class="set_brand">選択中のブランド：<span id="change-select-brand">{{ params.brand_name }}</span>
+   {% include 'partial/common/input/item_name-select.twig' %}
+   </div><!-- /.unit -->
+
+   <div class="form_gr common_bottom">
+    <div class="unit pictup_way comon_layout">
+     <h3>画像を登録</h3>
+     <input type="radio" id="pictselect01" class="radiobtn" name="pictup" value="www">
+     <label for="pictselect01"><img src="{{ asset('images/ico-www.svg') }}" type="image/svg+xml"></label>
+
+     <input type="radio" id="pictselect02" class="radiobtn" name="pictup" value="img">
+     <label for="pictselect02"><img src="{{ asset('images/ico-img-white.svg') }}" type="image/svg+xml"></label>
+
+     <div id="pictselect01_check" class="pictup comon_layout">
+      {% include 'partial/common/input/pict-select-url.twig' %}
+     </div>
+
+     <div id="pictselect02_check" class="pictup comon_layout">
+      {% include 'partial/common/input/pict-select.twig' %}
+     </div>
+    </div><!--//pictup_way-->
+   </div><!-- /.form_gr -->
+
+   {% if big_category %}
+   <div class="unit common_bottom">
+    {% include 'partial/common/input/category-select.twig' %}
+   </div><!-- /.unit -->
+   {% endif %}
+
+
+   <div class="common_bottom">
+    <label class="titleblock">コメント入力</label>
+    <textarea id="item-description" class="form_size-L comon_layout" name="item_description" cols=40 rows=16></textarea>
+   </div><!-- /.unit -->
+
+   <div class="unit common_bottom statuscheck">
+    <input type="radio" id="radio01" class="radiobtn" name="have_want" value="1">
+    <label for="radio01"><img src="{{ asset('images/ico-have-off.svg') }}" type="image/svg+xml"><br><span>have</span></label>
+
+    <input type="radio" id="radio02" class="radiobtn" name="have_want" value="2">
+    <label for="radio02"><img src="{{ asset('images/ico-want-off.svg') }}" type="image/svg+xml"><br><span>want</span></label>
+   </div>
+   <!-- /.unit -->
+
+
+   {{ errors.first('pict') }}
+   {{ errors.first('CategorySelect') }}
+   {{ errors.first('GenreSelect') }}
+   {{ errors.first('item_description') }}
+
+   <p class="disable-b button btn_size-S" id="regist-ok">ギアを登録する</p>
+
+  </form>
+ </div><!--//formcontents-->
+
+ {% embed "partial/common/modal/modal-pict_select_url.twig" %}
+ {# {% block ModalContents %} {% endblock ModalContents %} #}
+ {% endembed %}
+
+ {% endblock contents %}
+
+
+ {% block bottom_js %}
+ <script src="{{ asset('js/vendor/remodal.min.js') }}" ></script>
+ <script src="{{ asset('js/itemRegisterStep2.js') }}" ></script>
+ <script src="{{ asset('js/imageUploader.js') }}" ></script>
+
+ <script>
+  $(function(){
+   $('#container_choice select[name="ContainerSelect"]').change(function() {
+    if ($('select[name="ContainerSelect"] option:selected').val() == 'add_container')
+     $('#toggle-make_container').css('display','block');
+    else $('#toggle-make_container').css('display','none');
+   });
+  });
+ </script>
+
+ <script>
+  window.addEventListener("beforeunload", function (e) {
+   var confirmationMessage = "入力内容を破棄します。";
+   e.returnValue = confirmationMessage;
+   return confirmationMessage;
+  });
+ </script>
+
+ {% endblock bottom_js %}

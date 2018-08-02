@@ -1,0 +1,34 @@
+{% extends "templates/common/base.twig" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/pages/setting.css') }}" media="all" />
+{% endblock stylesheets %}
+
+
+{% block contents %}
+
+<h2>本人確認 携帯電話番号の確認</h2>
+
+<div class="textcontents unit">
+
+ <div class="formcontents">
+  <div class="form_gr common_bottom">
+ <label for="demo" class="titleblock">携帯電話の番号</label>
+   <input type="text" class="form_size-L" id="phone_num" placeholder="携帯電話の番号を入力">
+
+   <p class="common_bottom">本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。</p>
+   <a href="" class="button btn_size-M">利用規約</a>
+   <p>※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。</p>
+
+  </div><!-- /.form_gr -->
+ </div><!-- /.formcontents -->
+
+
+  <p class="button btn_size-M common_bottom" id="smsSend">SMSを送信</p>
+
+</div><!--//textcontents-->
+{% endblock contents %}
+{% block bottom_js %}
+<script src="{{ asset('js/sms.js') }}" ></script>
+<script src="{{ asset('js/smsPage.js') }}" ></script>
+{% endblock bottom_js %}

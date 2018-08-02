@@ -1,0 +1,25 @@
+table{
+ empty-cells: show;
+ //border: 1px solid #cbcbcb;
+ width: 100%;
+ text-align: center;
+}
+
+thead {
+ background-color: #e0e0e0;
+ vertical-align: bottom;
+ th{padding:10px 20px;}
+}
+
+.table-row{
+ td{padding: 6px 0;}
+}
+
+.table-row{
+ padding: 10px 0;
+ color: #888;
+}
+
+.table-row:nth-child(2n) {
+ background: #f3f3f3;//#f7f7f7;
+}

@@ -1,0 +1,35 @@
+{% extends "templates/common/admin_base.twig" %}
+{% block header %}  {% endblock header %}
+
+{% block contents %}
+<h2>管理画面 ログイン</h2>
+
+<div class="formcontents">
+<p>{{ errors.first('email') }}</p>
+<p>{{ errors.first('password') }}</p>
+
+<form method="post" action="{{ url(path_prefix~'/login') }}">
+
+
+ <div class="common_bottom">
+  <label for="email" class="titleblock">メールアドレス</label>
+  <input type="email" name="email" class="form_size-L" value="{{ old('email') }}">
+  <p class=""></p>
+ </div>
+
+ <div class="common_bottom">
+  <label for="password" class="titleblock">パスワード</label>
+  <input type="text" name="password" class="form_size-L" value="">
+  <p class=""></p>
+ </div>
+
+
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+ <input type="submit" value="ログイン" class="button btn_size-M">
+
+
+</form>
+
+
+</div><!--//formcontents-->
+{% endblock contents %}

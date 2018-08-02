@@ -1,0 +1,19 @@
+<a href="#" id="SettingMenu-btn" class="panel-btn">
+ <img src="{{ asset('images/menu.svg') }}" type="image/svg+xml" class="menu_btn" />
+</a>
+
+<div id="SettingMenu" class="panl_theme">
+ <ul>
+
+  <li>ご利用ガイド</li>
+  <li><a href="{{ url('/guide/contact') }}">お問合わせ</a></li>
+  <li><a href="{{ url('/guide/aup') }}">規約</a></li>
+  <li>禁止行為</li>
+  <li>禁止出品物</li>
+  <li><a href="{{ url('/guide/commercial_law') }}">特定商取引に関する表記</a></li>
+  <li><a href="{{ url('/guide/privacy_policy') }}">プライバシーポリシー</a></li>
+  {% if user.id == null %}
+  <li><a href="{{ url('/auth/login') }}">ログイン/新規登録</a></li>
+  {% endif %}
+ </ul>
+</div><!--//panel-->

@@ -1,0 +1,28 @@
+{% extends "templates/common/user_garage.twig" %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+{% block top_js %}{% endblock top_js %}
+
+{% block contents %}
+
+
+<h2>持っているもの一覧</h2>
+
+{% include 'partial/common/card/publicItem.twig' %}
+{% endblock contents %}
+
+
+{% block bottom_js %}
+<script src="{{ asset('js/list.js') }}" ></script>
+<script src="{{ asset('js/tmpPublicItemList.js') }}" ></script>
+<script src="{{ asset('js/counter.js') }}" ></script>
+<script>
+var list = new List("#tmp_list_0", {
+    url : getDomain() + consUrlJs.listPath[0],
+    owner_users_id : "{{ user_info.id }}",
+    item_status : 1,
+    templete_id : 0
+});
+list.get();
+</script>
+{% endblock bottom_js %}

@@ -1,0 +1,66 @@
+input.togglebtn {
+ $circle-size:26px;
+ $circle-dist:36px;
+ $btn-w:65px;
+ $btn-h:30px;
+ $on-dist-x:12px;
+ $on-dist-y:4px;
+ $off-dist-x:12px;
+
+ display: none;
+
+  &+label,
+  &+label::before,
+  &+label::after {
+   -webkit-transition: all .2s;
+   transition: all .2s;
+  }
+
+  &+label {
+   display: inline-block;
+   position: relative;
+   width: $btn-w;
+   height: $btn-h;
+   border-radius: 24px;
+   cursor: pointer;
+   background-color: #eee;
+
+
+   &:before {
+    display: block;
+    content: attr(data-off-label);
+    position: absolute;
+    top: $on-dist-y;
+    right: $off-dist-x;
+    color: #fff;
+    color: #aaa;
+   }
+
+   &:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: $circle-size;
+    height: $circle-size;
+    background-color: #fff;
+    border-radius: 50%;
+   }
+
+  }//label
+
+  &:checked+label{
+   background-color: $main-color;
+   &:before {
+   content: attr(data-on-label);
+    left: $on-dist-x;
+   right: auto;
+   color: #fff;
+  }
+   &:after {
+    left: $circle-dist;
+    background-color: #f7f7f7;
+   }
+  }//checked
+
+}//togglebtn

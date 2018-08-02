@@ -1,0 +1,33 @@
+<div class="remodal" data-remodal-id="ClipToContainer" data-remodal-options="hashTracking:false">
+
+ <button data-remodal-action="close" class="remodal-close"></button>
+
+ {% block ClipToContainer_Contents %}
+ <div>
+  <h2>コンテナに入れる</h2>
+
+
+  <div class="card_flex templete_list" id="tmp_list_3">
+  </div><!--//card_flex-->
+  <input type="hidden" id="target_article_id" value="">
+ </div>
+
+ <section>
+  <dl class="collapse">
+   <dt><p class="button btn_size-S" id="create_container">新しいコンテナを作成</p></dt>
+   <dd id="create_container_zone" style="display:none;">
+    <div class="inpu_text">
+     <input type="text" id="add_container" />
+     <label for="add_container">コンテナ名</label>
+    </div><!--//inpu_text-->
+
+    <button id="add_new_container_btn" class="button btn_size-S">作成</button>
+   </dd>
+  </dl>
+ </section>
+
+ <div class="modalbtn_set">
+  <button data-remodal-action="cancel" class="button btn_size-M reset_cancell-b">閉じる</button>
+ </div><!--//modalbtn_set-->
+ {% endblock %}
+</div><!-- //remodal -->

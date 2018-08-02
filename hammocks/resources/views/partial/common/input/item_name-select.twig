@@ -1,0 +1,6 @@
+<label for="itemname" class="titleblock required" style="margin-top: 25px;">ギア名</label>
+<input type="text" id="item_name" name="item_name" class="comon_layout form_size-L" value="{{ params.item_name }}" autocomplete="off">
+<input type="hidden" id="item_id_hidden" name="item_id" value="{{ params.item_id }}" class="form_size-L">
+<p class="error_message">{{ errors.first('item_name') }}</p>
+<div class="propose_itemlist" >
+</div><!--//propose_itemlist-->

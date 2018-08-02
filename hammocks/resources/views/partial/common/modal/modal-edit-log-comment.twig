@@ -1,0 +1,23 @@
+<div class="remodal" data-remodal-id="Edit-Log-Comment" data-remodal-options="hashTracking:false">
+
+ <button data-remodal-action="close" class="remodal-close"></button>
+
+ {% block ItemEditcomt_Contents %}
+ <section>
+  <h2>コメントを編集する</h2>
+
+  <div class="madalformcontents">
+
+   <textarea id="item-description" class="comon_layout" name="item_description" cols=40 rows=16></textarea>
+
+  </div><!--//madalformcontents-->
+
+ </section>
+
+ <div class="modalbtn_set">
+  <button data-remodal-action="cancel" class="button btn_size-M reset_cancell-b">閉じる</button>
+  <button data-remodal-action="confirm" class="button btn_size-M" id="logEditSendBtn">更新</button>
+ </div><!--//modalbtn_set-->
+
+ {% endblock %}
+</div><!-- //remodal -->

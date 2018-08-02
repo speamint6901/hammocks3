@@ -1,0 +1,415 @@
+//******************************* Prefix /
+@mixin prefix($property, $value) {
+     @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+          #{$prefix}#{$property}: $value;
+     }
+}
+
+//******************************* breakpoints
+@mixin MQ($canvas) {
+ @if $canvas == S {
+  @media only screen and (max-width: $S) { @content; }
+ }
+ @else if $canvas == M {
+  @media only screen and (max-width: $M) { @content; }
+ }
+ @else if $canvas == L {
+  @media only screen and (max-width: $L) { @content; }
+ }
+ @else if $canvas == maxL {
+  @media only screen and (min-width: $maxL) { @content; }
+ }
+}
+
+
+//******************************* common /
+@mixin common_radius {  border-radius: 4px; }
+
+//******************************* Font /
+@mixin fontsize($size: 10) {
+  font-size: $size + px;
+  font-size: ($size / 10) * 1rem;
+}
+//ex. @include fontsize(12);
+
+@mixin lineheight($lheight: 10) {
+  line-height: $lheight + px;
+  line-height: ($lheight / 10) * 1rem;
+}
+//ex. @include lineheight(12);
+
+
+//******************************* Liquid Size /
+@mixin liquidsize {
+ width:100%;
+ height:auto;
+ margin:0 auto;
+}
+
+//******************************* Layout /
+//==================== 天地の中央に配置
+@mixin vertical-align {
+ position: relative;
+ top: 50%;
+ -webkit-transform: translateY(-50%);
+ -ms-transform: translateY(-50%);
+ transform: translateY(-50%);
+}
+//ex. @include vertical-align();
+
+//side と contentsを揃える時になんか使って
+@mixin pittari_box{
+ padding-bottom: 32768px;
+ margin-bottom: -32768px;
+}
+
+
+@mixin windowfit($top_num: 10px, $bottom_num: 10px, $leftright_num: 100%) {
+ width: 100%;
+ float: left;
+ padding: $top_num $leftright_num $bottom_num $leftright_num;
+ margin:  0 (-$leftright_num);
+ box-sizing: initial;
+}
+//ex.  @include windowfit(5%,20px,100%);
+
+
+@mixin flex_container{
+ display: -webkit-box;//* Android4.3以前ブラウザ用 */
+ display: -webkit-flex;//* iOS8以前Safari用 */
+ display: flex;
+
+ //* 以下、デフォルト指定 しないとこの値が使用  */
+ //flex-direction: row; //アイテムをどの方向に並べるか 水平・垂直
+ //flex-wrap: nowrap; //アイテムを1行or複数行にするか
+ //justify-content: flex-start; //directionに沿ったアイテムの水平の揃え方
+ //align-items: stretch; //directionに沿ったアイテムの垂直の揃え方
+ //align-content: stretch; //アイテムの行ごとの揃え方 複数行あり、親との間に隙間がある場合に有効
+}
+//ex. @include flex_container();
+
+
+@mixin flex_item($flex:none){
+ -webkit-box-flex: $flex;//* Android4.3以前ブラウザ用 */
+ -webkit-flex: $flex;//* iOS8以前Safari用 */
+ flex: $flex;
+
+ //* 以下、デフォルト 指定しないとこの値が使用 */
+ //order: 0; //アイテムの順番を指定する
+ //flex-grow: 0; //アイテムの伸びる倍率を指定する
+ //flex-shrink: 0; //アイテムの縮む倍率を指定する
+ //flex-basis: auto; //アイテムの幅・高さを指定する 幅か、高さかはdirectionによる
+ //align-self: auto; //コンテナのalign-itemsより優先する
+}
+//ex. @include flex_item();
+
+//******************************* Decorate /
+//==================== FontAwsomeを使ったアイコン表示（前付け）
+@mixin fa-icon($fa-content: "\f08a", $f-size:14, $l-size:28, $fa-color:$text-color, $fa-pd-r :20px) {
+  &:before{
+   content:$fa-content;
+   font-family:"FontAwesome";
+   @include fontsize($f-size);
+   @include lineheight($l-size);
+   color:$fa-color;
+   padding-right: $fa-pd-r;
+ }
+} //ex. @include fa-icon("\F095", 14, 18, $base-color, 10px);
+
+//==================== FontAwsomeを使ったアイコン表示（後付け）
+@mixin fa-icon-af($fa-content: "\f08a", $f-size:14, $l-size:28, $fa-color:$text-color, $fa-pd-r :20px) {
+  &:after{
+   content:$fa-content;
+   font-family:"FontAwesome";
+   @include fontsize($f-size);
+   @include lineheight($l-size);
+   color:$fa-color;
+   padding-right: $fa-pd-r;
+   right: 0;
+   position: absolute;
+ }
+} //ex. @include fa-icon-af("\F095", 14, 18, $base-color, 10px);
+
+//==================== グラデ上下に明→暗
+@mixin gradient-top-lighten($color:$main-color, $lighten:10){
+  background-color: $color;
+ @include filter-gradient(lighten($color, $lighten), $color, vertical);//IE
+  @include background-image(linear-gradient(lighten($color, $lighten) 0%, $color 100%));
+}
+
+//==================== グラデ上下に暗→明
+@mixin gradient-top-darken($color:$main-color, $darken:10){
+  background-color: $color;
+ @include filter-gradient(lighten($color, $darken), $color, vertical);//IE
+  @include background-image(linear-gradient(darken($color, $darken) 0%, $color 100%));
+}
+
+//==================== グラデ　線形（水平・垂直）と円形
+@mixin gradient($start-color, $end-color, $orientation)
+{
+ background: $start-color;
+ @if $orientation == vertical
+ {
+  // vertical
+  background: -moz-linear-gradient(top,  $start-color 0%, $end-color 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start-color), color-stop(100%,$end-color));
+  background: -webkit-linear-gradient(top,  $start-color 0%,$end-color 100%);
+  background: -o-linear-gradient(top,  $start-color 0%,$end-color 100%);
+  background: -ms-linear-gradient(top,  $start-color 0%,$end-color 100%);
+  background: linear-gradient(to bottom,  $start-color 0%,$end-color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=0 );
+ }
+ @else if $orientation == horizontal
+ {
+  // horizontal
+  background: -moz-linear-gradient(left,  $start-color 0%, $end-color 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,$start-color), color-stop(100%,$end-color));
+  background: -webkit-linear-gradient(left,  $start-color 0%,$end-color 100%);
+  background: -o-linear-gradient(left,  $start-color 0%,$end-color 100%);
+  background: -ms-linear-gradient(left,  $start-color 0%,$end-color 100%);
+  background: linear-gradient(to right,  $start-color 0%,$end-color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 );
+ }
+ @else
+ {
+  // radial
+  background: -moz-radial-gradient(center, ellipse cover,  $start-color 0%, $end-color 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$start-color), color-stop(100%,$end-color));
+  background: -webkit-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+  background: -o-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+  background: -ms-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+  background: radial-gradient(ellipse at center,  $start-color 0%,$end-color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 );
+ }
+}
+//ex.@include gradient(#ff00ff, #ff00cc, vertical);
+
+//==================== グラデ
+@mixin linear-gradient($direction, $color-stops...) {
+ background: nth(nth($color-stops, 1), 1);
+ background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+ background: linear-gradient($direction, $color-stops);
+}
+//@include linear-gradient(hotpink, tomato);
+
+//==================== 斜線パターン
+@mixin diagonal($stripe-color1, $stripe-color2, $stripe-size) {
+ background:  -webkit-gradient(
+  linear, left top, right bottom,
+  from ($stripe-color1),
+  color-stop(0.25, $stripe-color1),
+  color-stop(0.25, $stripe-color2),
+  color-stop(0.5, $stripe-color2),
+  color-stop(0.5, $stripe-color1),
+  color-stop(0.75, $stripe-color1),
+  color-stop(0.75, $stripe-color2),
+  to($stripe-color2)
+ );
+ background: -moz-linear-gradient(
+  -45deg,
+  $stripe-color1 25%,
+  $stripe-color2 25%,
+  $stripe-color2 50%,
+  $stripe-color1 50%,
+  $stripe-color1 75%,
+  $stripe-color2 75%,
+  $stripe-color2
+ );
+ background: linear-gradient(
+  -45deg,
+  $stripe-color1 25%,
+  $stripe-color2 25%,
+  $stripe-color2 50%,
+  $stripe-color1 50%,
+  $stripe-color1 75%,
+  $stripe-color2 75%,
+  $stripe-color2
+ );
+
+ background-size: $stripe-size $stripe-size;
+}
+//ex.@include diagonal(#ddd, #fff, 2px);
+
+//==================== グラデ super-gradient
+@function contains($colors,$var) {
+ $contains: false;
+ @each $item in $colors { @if $item == $var { $contains: true; } }
+ @return $contains;
+}
+
+@function orientation-string($type, $from, $w3c:false) {
+ $string: '';
+
+ @if $w3c {
+
+  @if $type == 'linear' {
+   @if $from == 'top' or $from == 'bottom' { $string: 'to bottom, '; }
+   @else if $from == 'left' or $from == 'right' { $string: 'to right, '; }
+   @else if $from == (left top) or $from == (top left) or $from == (right bottom) or $from == (bottom right) { $string: '135deg, '; }
+   @else { $string: '45deg, '; }
+
+  } @else if $type == 'radial' { $string: 'ellipse at ' + $from + ', '; }
+
+ } @else { // new webkit, moz, ms, o
+
+  @if $type == 'linear' {
+   @if $from == 'top' or $from == 'bottom' { $string: 'top, '; }
+   @else if $from == 'left' or $from == 'right' { $string: 'left, '; }
+   @else if $from == (left top) or $from == (top left) or $from == (right bottom) or $from == (bottom right) { $string: '-45deg, '; }
+   @else { $string: '45deg, '; }
+
+  } @else if $type == 'radial' { $string: $from + ', ellipse cover, '; }
+
+ }
+
+ @return $string;
+}
+
+@function color-substring($colors) {
+ $i: 1;
+ $substring: '';
+ $string: '';
+
+ @while $i < length($colors) {
+
+  $substring: nth($colors, $i) + ' ' + nth($colors, $i+1);
+  $string: $string + $substring;
+  $i: $i + 1;
+
+ }
+
+ @return $string;
+}
+
+@function color-string($colors) {
+ $i: 1;
+ $spacer: ', ';
+ $substring: '';
+ $string: '';
+
+ @while $i <= length($colors) {
+  @if $i == length($colors) { $spacer: ''; }
+
+  $substring: color-substring(nth($colors, $i)) + $spacer;
+  $string: $string + $substring;
+  $i: $i + 1;
+
+ }
+
+ @return $string;
+}
+
+@function ie-gradient-type($direction) {
+ @if $first-color { @return nth(nth($colors, 1), 1) }
+ @else { @return nth(nth($colors, length($colors)), 1) }
+}
+
+@function ie-colors($colors, $first-color:true) {
+ @if $first-color { @return nth(nth($colors, 1), 1) }
+ @else { @return nth(nth($colors, length($colors)), 1) }
+}
+
+@mixin sgradient($type:'linear', $from:'top', $colors:((rgba(42,179,221,1), 0%),(rgba(183,80,80,1), 100%))) {
+
+ $orientation-string: orientation-string($type, $from);
+ $orientation-string-w3c: orientation-string($type, $from, $w3c:true);
+
+ $color-string: #{color-string($colors)};
+
+ $css-string: gradient(#{$orientation-string}#{$color-string});
+$css-string-w3c: gradient(#{$orientation-string-w3c}#{$color-string});
+
+$ie-gradient-type: 0;
+@if $type != 'vertical' { $ie-gradient-type: 1 }
+
+background-color: #{ie-colors($colors, false)};
+background: -webkit-#{$type}-#{$css-string};
+background:    -moz-#{$type}-#{$css-string};
+background:     -ms-#{$type}-#{$css-string};
+background:      -o-#{$type}-#{$css-string};
+background:         #{$type}-#{$css-string-w3c};
+filter: progid:DXImageTransform.Microsoft.gradient(GradientType=#{$ie-gradient-type}, StartColorStr='#{ie-colors($colors)}', EndColorStr='#{ie-colors($colors, false)}');
+}
+
+//ex.2色を使った垂直方向のグラデーション
+// @include sgradient($colors:(
+// (#31B7D7, 0%),
+// (#EDAC7D, 100%)
+// ));
+
+//ex.3色を使った水平方向のグラデーション
+// @include sgradient( $from: left, $colors: (
+// (#E47D7D, 0%),
+// (#C195D3, 50%),
+// (#4FB4E8, 100%)
+// ));
+
+//ex.4色を使った斜め方向のグラデーション
+// @include sgradient( $from: top left, $colors: (
+// (#B58234, 0%),
+// (#D2B545, 50%),
+// (#D7C04D, 50.01%),
+// (#FFFFFF, 100%)
+// ));
+
+//ex.2色を使った放射状のグラデーション
+// @include sgradient( $type: radial, $colors: (
+// (#8ABB5D, 0%),
+// (#42736F, 100%)
+// ));
+
+//ex.3色を使った放射状のグラデーション
+// @include sgradient( $type: radial, $from: top right, $colors: (
+// (#C5492C, 0%),
+// (#EAA14E, 50%),
+// (#F0EB7F, 100%)
+// ));
+
+//==================== opacity（不透明度）IE対策
+@mixin opacity($opacity) {
+ opacity: $opacity;
+ filter: alpha(opacity=($opacity * 100));
+}
+//ex. @include opacity(0.5);
+
+//==================== ボックスシャドウ
+@mixin box-shadow( $h: 10px , $v: 10px , $b: 0px , $s: 0px , $c: #000000 ) {
+ -webkit-box-shadow: $h $v $b $s $c;
+ -moz-box-shadow: $h $v $b $s $c;
+ box-shadow: $h $v $b $s $c;
+}
+//ex. @include box-shadow(8px, 8px);
+
+@mixin module-triangle($size: 16px, $color: #000, $side: top, $position: 50%, $direction: regular) {
+ &:before {
+  content: "";
+  display: inline-block;
+  border: $size solid transparent;
+  border-left-color: $color;
+  position: absolute;
+  left: -33px;
+  //top: 50%;
+  bottom:4px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+ }
+ &:after {
+  content: "";
+  display: inline-block;
+  border: $size solid transparent;
+  border-left-color: $color;
+  position: absolute;
+  left: -32px;
+  //top: 50%;
+  bottom:4px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+ }
+}
+
+
+//横幅を px → % へ変換して指定する
+@mixin widtnPercent( $parentPxWidth, $pxWidth ){
+ width: floor((( $pxWidth / $parentPxWidth ) * 10000% )) / 100;
+}
+//ex.@include widtnPercent(960, 300);

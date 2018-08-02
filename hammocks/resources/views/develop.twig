@@ -1,0 +1,554 @@
+{% extends "templates/common/base.twig" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/pages/index.css') }}" media="all" />
+<link rel="stylesheet" href="{{ asset('css/pages/item_sale.css') }}" media="all" />
+<link rel="stylesheet" href="{{ asset('css/pages/article.css') }}" media="all" />
+<link rel="stylesheet" href="{{ asset('css/pages/transaction.css') }}" media="all" />
+<link rel="stylesheet" href="{{ asset('css/pages/order_status.css') }}" media="all" />
+<link rel="stylesheet" href="{{ asset('css/pages/id_check.css') }}" media="all" />
+<link rel="stylesheet" href="{{ asset('css/pages/develop.css') }}" media="all" />
+{% endblock stylesheets %}
+
+{% block top_js %}
+{% endblock top_js %}
+
+
+{% block contents %}
+
+<a href="{{ url('develop/send_mail') }}">メール送信</a>
+
+{% embed "templates/common/form_parts.twig" %}
+{% endembed %}
+
+<div class="card_flex">
+ {% include 'partial/common/develop/card/publicItem.twig' %}
+ {% include 'partial/common/develop/card/saleItem.twig' %}
+ {% include 'partial/common/card/articlecard.twig' %}
+ {% include 'partial/common/card/useritem.twig' %}
+ {% include 'partial/common/card/containercard.twig' %}
+
+ {% include 'partial/common/card/publicItem_line.twig' %}
+</div><!--//card_flex-->
+
+{% include 'pages/error_sell.twig' %}
+{% include 'pages/sms_confirmation.twig' %}
+{% include 'pages/id_confirmation.twig' %}
+
+{% include 'pages/transaction_page-test.twig' %}
+
+{% include 'pages/usersetting_acount.twig' %}
+
+{% include 'pages/article_input.twig' %}
+{% include 'pages/sale_input.twig' %}
+
+{% include 'pages/select_barands.twig' %}
+
+
+
+{% include 'pages/manual_icon.twig' %}
+
+{% include 'pages/manual_item_register.twig' %}
+{% include 'pages/manual_sale_register.twig' %}
+
+{% include 'pages/manual_usergarage.twig' %}
+{% include 'pages/manual_setting.twig' %}
+
+
+{% include 'pages/manual_saleItem.twig' %}
+
+
+
+
+<!--//log_card （元article）-->
+<div class="card_flex">
+<section class="card articlecard">
+ <div class="del_btn"></div>
+ <a href="{{url('user/item/1')}}" data-remodal-target="ArticlePreview">
+  <div class="pic squarebox">
+   <img class="img_resize" src="http://placehold.it/500x500">
+  </div><!--//pic-->
+   </a>
+
+ <div class="card_infomation">
+  <p class="brand_name">Brnd Name</p><!--//brand_name-->
+  <h1 class="card_name">Item Name</h1><!--//card_name-->
+
+  <div class="authority_stamp">
+   <div class="user_thumb">
+    <a data-remodal-target="modal">
+     <img src="{{ asset('images/user_default.png') }}">
+    </a>
+   </div><!--//user_thumb-->
+   <p class="name">User_NameUser_NameUser_NameUser_NameUser_NameUser_NameUser_Name</p>
+  </div><!--//authority_stamp-->
+
+ </div><!--//infomation-->
+</section><!--//card-->
+
+</div><!--//card_flex-->
+
+
+
+
+<!--//モーダルブランドリスト-->
+<section>
+ <h1>BRAND</h1>
+
+
+ <select id="BrandSelect" class="selectform form_size-S" name='alphabet'>
+  <option value="All">All</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+ </select>
+
+
+ <ol id="modal_brand_list">
+ <li class="standby  select_A ">A
+  <ul>
+   <li data-remodal-action="close" class="brand_li" id="brands-278">A Vontade<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-2">A＆F<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-3">adidas<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-4">ADIRONDACK<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-5">Adirondack<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-6">AIGLE<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-7">AIRMONTE<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-8">ALDIES<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-9">ALITE<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-10">Amok Equipment<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-11">and wander<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-12">ANEVAY<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-13">ANONYM CRAFTSMAN DESIGN<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-14">antigravitygear<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-15">ARC’TERYX<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-16">asimocrafts<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-17">asobito<span>(1)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-18">atelierBluebottle<span>(0)</span></li>
+  </ul>
+ </li>
+  <li class="standby  select_B">B
+  <ul>
+   <li data-remodal-action="close" class="brand_li" id="brands-19">Back Channel<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-20">BALLISTICS<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-21">BAREBONES<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-22">BARIGO<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-23">BELLWOODMADE<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-24">BIG AGNES<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-25">BioLite<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-26">BlueRidgeChairWorks<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-27">BORED<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-28">Brooks Range<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-29">BrownBrown<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-30">BULLET<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-31">BUNDOK<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-32">BURTON<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-33">BYER of Maine<span>(0)</span></li>
+  </ul>
+ </li>
+  <li class="standby  select_C">C
+  <ul>
+   <li data-remodal-action="close" class="brand_li" id="brands-34">C&amp;C.P.H.EQUIPEMENT<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-35">California Patio<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-36">Camerons Products<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-37">CAMP MANIA products<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-38">CANDY DESIGN&amp;WORKS<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-39">CAPTAIN STAG<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-40">Chinook TECHICAL OUTDOOR<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-41">CHUMS<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-42">Ciel Bleu<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-43">City to Summit<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-44">CLIF<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-45">Cocoon<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-46">COGHLAN'S<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-47">Coleman<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-48">Coleman x Monro Indigo Label<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-49">Columbia<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-50">Crazy Creek<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-51">CUCUCHI<span>(0)</span></li>
+  </ul>
+ </li>
+  <li class="standby  select_D">D
+  <ul>
+   <li data-remodal-action="close" class="brand_li" id="brands-52">D.O.D<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-53">DAC<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-54">DAIS<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-55">DAIWA<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-56">Dana Design<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-57">DD Hammocks<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-58">DECEMBER<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-59">DETAIL inc<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-60">Deuter<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-61">Direct Designs<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-62">Drifter<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-63">DUCKSDAY<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-64">DUG<span>(0)</span></li>
+   <li data-remodal-action="close" class="brand_li" id="brands-65">DUNLOP<span>(0)</span></li>
+  </ul>
+ </li>
+</ol>
+
+</section>
+
+
+
+
+<div class="remodal articlepreview" data-remodal-id="ArticlePreview" data-remodal-options="hashTracking:false">
+ <button data-remodal-action="close" class="remodal-close"></button>
+
+ <div class="articleclip_recta"></div>
+ <div class="articleclip">
+  <img src="{{ asset('images/ico-clip-off.svg') }}" type="image/svg+xml">
+ </div>
+
+
+ <article class="gear_artilce">
+   <div class="article-header">
+
+    <div class="gear_name">
+     <p class="brand_name">{{ user_item_info.brand_name }}</p><!--//brand_name-->
+     <h1 class="card_name"><a href="{{ url('public/item/comment/' ~ user_item_info.item_id) }}">{{ user_item_info.item_name }}</a></h1><!--//card_name-->
+     <input type="hidden" id="items_id" value="{{ user_item_info.item_id }}">
+     {% if user_item_info.is_store == 0 %}
+     <p class="sale_flag button btn_size-S">sale</p>
+     {% endif %}
+    </div><!-- /.giear_name -->
+
+   </div><!-- /.article-header -->
+
+   <div class="paragraph">
+    <div class="article_img">
+     <img src="http://placehold.it/1280x960" alt="">
+    </div><!--//article_img-->
+    <p>
+     STAR WARS EPISODE IV A NEW HOPE<br>
+     <b>段落登録順に上から表示</b><br>
+     遠い昔、はるか彼方の銀河系で…<br>
+    </p>
+   </div><!-- /.paragraph -->
+   <div class="paragraph-footer">
+    <div class="tagarea common_bottom">
+     <div class="tag_nav">
+      <i><img src="{{ asset('images/icon_tag.svg') }}" type="image/svg+xml"></i>
+      <ul id="user_item_tag_list">
+       <li>tag01</li>
+       <li>タグ1</li>
+       <li>廻り目平キャンプ場</li>
+       <li>犬を連れてキャンプ</li>
+      </ul>
+     </div><!--//tag_nav-->
+    </div><!--//tagarea-->
+    <div class="clearfix"></div>
+    <div class="status_icon set_5p common_bottom">
+
+     <div>
+      <a data-remodal-target="ClipToContainer">
+       <img src="{{ asset('images/ico-clip-off.svg') }}" type="image/svg+xml">
+      </a>
+      <span class="count">100K</span>
+     </div>
+
+     <div>
+      <img src="{{ asset('images/ico-share-off.svg') }}" type="image/svg+xml">
+      <span class="count"></span>
+     </div>
+
+     <div data-remodal-target="Ban">
+      <img src="{{ asset('images/ico-ban-off.svg') }}" type="image/svg+xml">
+     </div>
+    </div><!--//status_icon-->
+   </div><!-- /.paragraph-footer -->
+
+
+   <footer class="article-footer">
+    <div class="authority_stamp common_bottom">
+     <div class="user_thumb">
+      <a data-remodal-target="modal">
+       {% if user.avater_img_url %}
+       <img src="{{ user.avater_img_url }}">
+       {% else %}
+       <img src="{{ asset('images/user_default.png') }}">
+       {% endif %}
+      </a>
+     </div><!--//user_thumb-->
+     <p class="name">{{ user.name }}</p>
+    </div><!--//authority_stamp-->
+
+    <div class="card_infomation common_bottom">
+
+     <p class="brand_name"><a>{{ user_item_info.brand_name }}</a></p><!--//brand_name-->
+     <h1 class="card_name">
+      <a href="{{ url('public/item/comment/' ~ user_item_info.item_id) }}">{{ user_item_info.item_name }}</a>
+     </h1><!--//card_name-->
+
+     {% if user_item_info.is_store == 0 %}
+     <p class="sale_flag button btn_size-S">sale</p>
+     {% endif %}
+
+     <div class="card_status">
+
+      <div class="ratingarea common_bottom">
+       {% include 'partial/common/rating_user.twig' %}
+       {% if is_myitem %}
+       <div class="button btn_size-S"  data-remodal-target="ItemEdit-rate">評価編集</div>
+       {% endif %}
+      </div><!--//ratingarea-->
+
+      <div class="category_nav common_bottom">
+       <ul>
+        <li><a>{{ user_item_info.category_name }}</a></li>
+        {% if user_item_info.genre_name %}
+        <li><a>{{ user_item_info.genre_name }}</a></li>
+        {% endif %}
+        {% if user_item_info.genre_second_name %}
+        <li><a>{{ user_item_info.genre_second_name }}</a></li>
+        {% endif %}
+       </ul>
+      </div><!--//category_nav-->
+
+     </div><!--//card_status-->
+    </div><!--//card_infomation-->
+   </footer>
+ </article><!--//gear_artilce-->
+
+ <div class="modalbtn_set">
+  <button data-remodal-action="cancel" class="button btn_size-M reset_cancell-b">閉じる</button>
+  <button data-remodal-action="confirm" class="button btn_size-M">OK</button>
+ </div><!--//modalbtn_set-->
+
+</div><!-- //remodal -->
+
+
+
+{% embed "partial/common/modal/modal-edit-article.twig" %}
+{% endembed %}
+
+
+<!--//////////////////listbox-->
+{% include 'partial/common/list-gear.twig' %}
+{% include 'partial/common/list-gear_rating.twig' %}
+{% include 'partial/common/list-user.twig' %}
+{% include 'partial/common/list-user_rating.twig' %}
+
+
+
+
+
+{% embed "partial/common/modal/modal-acount-password.twig" %}
+{% endembed %}
+
+
+
+
+
+<a class="button btn_size-M" data-remodal-target="CommentList">メッセージ</a>
+{% embed "partial/common/modal/modal-comment.twig" %}
+{% endembed %}
+
+
+
+<a class="button btn_size-M" data-remodal-target="SNS_Share">SNS</a>
+{% embed "partial/common/modal/modal-share.twig" %}
+{% endembed %}
+
+
+<a class="button btn_size-M" data-remodal-target="Edit-Log">Log Edit</a>
+{% embed "partial/common/modal/modal-edit-log.twig" %}
+{% endembed %}
+{% embed "partial/common/modal/modal-edit-log-comment.twig" %}
+{% endembed %}
+
+
+
+<section class="profcover">
+ <p>anystretch</p>w
+</section><!--//profcover-->
+
+
+{% endblock contents %}
+
+
+{% block bottom_js %}
+<script src="{{ asset('js/vendor/remodal.min.js') }}" ></script>
+<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+<script src="{{ asset('js/tag-it.min.js') }}" ></script>
+
+
+
+<script>
+ $(window).load(function() {
+  console.log('[img_resize]');
+  $('.img_resize').resize();
+ });
+</script>
+
+<link href="{{ asset('css/vendor/dropzone.css') }}" rel="stylesheet" type="text/css">
+<script src="{{ asset('js/dropzone.js') }}"></script>
+<script src="{{ asset('js/imageUploader.js') }}"></script>
+
+<script>
+$(function(){
+ $('#tab-menu li').on('click', function(){
+  if($(this).not('active')){
+   // タブメニュー
+   $(this).addClass('active').siblings('li').removeClass('active');
+   // タブの中身
+   var index = $('#tab-menu li').index(this);
+   $('#tab-box .tab_content').eq(index).addClass('active').siblings('.tab_content').removeClass('active');
+  }
+ });
+});
+</script>
+
+<script src="{{ asset('js/masonry.pkgd.js') }}" ></script>
+<script src="{{ asset('js/vendor/multipleFilterMasonry.js') }}" ></script>
+<script>
+ // Params
+ var j$ = jQuery,
+     $mContainer = j$("#masonry"),
+     $filterButton = j$(".msnybutton"),
+//     $loadingMessage = j$("#loading_msg");
+ $params = {
+  columnWidth: 373,
+  fitWidth:true,
+  itemSelector: ".item",
+  filtersGroupSelector:".filters"
+ };
+
+ j$(window).load(function() {
+  $mContainer.multipleFilterMasonry($params);
+  $mContainer.find(".item").animate({
+   "opacity":1
+  }, 1200);
+
+ // $loadingMessage.fadeOut();
+
+
+  $filterButton.find('input').change(function(){
+  j$(this).parent().toggleClass("active");
+  });
+
+ });
+
+</script>
+
+<style>
+ .standby{ }
+ .all{  display: block; }
+</style>
+
+<script>
+ //selectで選択されたものだけ表示
+ $('#BrandSelect').change(function() {
+  // 選択されているvalue属性値を取り出す
+  var selectVal = $("#BrandSelect option:selected").val();
+  console.log(selectVal);
+  alert(selectVal);
+
+  if (selectVal == 'All'){
+   $('.standby').addClass('all');
+  }else{
+   $('.standby').removeClass('all');
+   $('.standby').addClass();
+  }
+ });
+</script>
+
+
+
+
+<style>
+ .autotext{
+  min-height: 38px !important;
+ }
+</style>
+
+<script src="{{ asset('js/vendor/jquery.autoexpand.js') }}" ></script>
+<script>
+ $(function(){
+  $('.autotext').autoExpand(
+   {
+    //animationTime: 0,
+    //windowPadding: 100
+   }
+  );
+ });
+</script>
+
+
+
+<!--//SNS-->
+<script>
+
+ // SNSの各種カウントを実装するためのjavascript。
+ // jqueryとgoogleアナリティクスのロード完了が前提のコードなので注意。
+ /**
+ * SNSシェアボタンを指定された要素の下に埋め込む
+ * @param shareUrl シェアするUrl。og:shareUrlの値と一緒にすることをオススメ
+ * @param description ツイート本文などに埋め込む文言
+ */
+ function setSnsShare(shareUrl, description) {
+  // 都合に合わせてセレクタは変えてね！
+  setTwitterLink(".twitter_back a", shareUrl,description);
+  setFacebookLink(".facebook_back a", shareUrl, description);
+  setGooglePlusLink(".google_back a", shareUrl, description);
+
+ }
+
+
+ function setTwitterLink(shareSelector, shareUrl, description) {
+  $(shareSelector).attr("href", "https://twitter.com/share?shareUrl=" + shareUrl + "&text=" + encodeURIComponent(description));
+  setShareEvent(shareSelector, 'Twitter', shareUrl);
+ }
+
+ function setFacebookLink(shareSelector, shareUrl, description) {
+  $(shareSelector).attr("href", "https://www.facebook.com/sharer/sharer.php?u=" + shareUrl + "&t=" + encodeURIComponent(description));
+  setShareEvent(shareSelector, 'Facebook', shareUrl);
+ }
+
+ function setGooglePlusLink(shareSelector, shareUrl, description) {
+  $(shareSelector).attr("href", "https://plus.google.com/share?shareUrl=" + shareUrl);
+  setShareEvent(shareSelector, 'Google+', shareUrl);
+ }
+
+
+ /**
+ *  シェアボタン押下時にGoogleアナリティクスへイベントを送信する
+ *  @param selector イベントを付与するセレクタ
+ *  @param snsName SNSの名前（Googleアナリティクス上の表示に使われる）
+ *  @param shareUrl シェア対象のURL（Googleアナリティクス上の表示に使われる）
+ */
+ function setShareEvent(selector, snsName, shareUrl) {
+  $(selector).on('click', function(e){
+   var current = this;
+   //　*** Googleアナリティクスにイベント送らないなら、以下のコードは不要 ***
+   // 'share'の文字列は任意に変えてもよい（Googleアナリティクス上の表示文字列として使われる）
+   // 'nonInteraction' : 1にしないと、直帰率がおかしくなる（イベント発行したユーザーは直帰扱いでなくなる）ので注意
+   ga('send', 'social', snsName, 'share', shareUrl, {
+    'nonInteraction': 1
+   });
+   // *** Googleアナリティクス送信ここまで ****
+
+   // このあたりは適当に書き換えて下さい
+   window.open(current.href, '_blank', 'width=600, height=600, menubar=no, toolbar=no, scrollbars=yes');
+   e.preventDefault();
+  });
+ }
+</script>
+
+
+<script src="{{ asset('js/jquery.anystretch.js') }}" ></script>
+<script>
+ console.log('[anystretch]');
+ {% if user_info.avater_background_url %}
+ $('.profcover').anystretch("{{ storage_url }}{{ user_info.avater_background_url }}");
+  {% else %}
+  $('.profcover').anystretch("{{ url('/images/user_cover.jpg') }}");
+   {% endif %}
+</script>
+
+{% endblock bottom_js %}

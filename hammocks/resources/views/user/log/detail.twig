@@ -1,0 +1,160 @@
+{% extends "templates/common/guide_base.twig" %}
+
+{% block title %}
+{{ user_item_info.brand_name }} {{ user_item_info.item_name }}の投稿記事 {{ log_info.created_at }}
+{% endblock %}
+
+{% block metadescription %}
+<meta name="description" content="{{ user_item_info.brand_name }} {{ user_item_info.item_name }}:{{ log_info.article_text }}">
+{% endblock %}
+
+{% block ogp %}
+<meta property="og:title" content="hammocks|{{ user_item_info.brand_name }} {{ user_item_info.item_name }}の投稿記事 {{ log_info.created_at }}"/>
+<meta property="og:description" content="{{ user_item_info.brand_name }} {{ user_item_info.item_name }}:{{ log_info.article_text }}" />
+<meta property="og:image" content="{{ storage_url }}{{ log_info.img_url }}" />
+<meta property="og:url" content="http://dev.thehammocks.camp/" />
+{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/pages/item.css') }}" media="all" />
+{% endblock stylesheets %}
+
+{% block top_js %}{% endblock top_js %}
+
+
+{% block contents %}
+
+
+ <div class="gear_article">
+
+  <div class="article-header">
+   <div class="gear_name">
+    <p class="brand_name">{{ user_item_info.brand_name }}</p>
+    <!--//brand_name-->
+    <h1 class="card_name"><a href="{{ url('/item/master/' ~ user_item_info.item_id) }}">{{ user_item_info.item_name }}</a></h1>
+    <!--//card_name-->
+    <input type="hidden" id="items_id" value="{{ user_item_info.item_id }}">
+   </div>
+   <!-- /.giear_name -->
+  </div><!-- /.article-header -->
+
+  <div>
+   <input type="hidden" id="user_items_id" name="user_items_id" value="{{ user_item_info.user_item_id }}">
+   <article id="timeline_warp_2">
+    <header>
+     <h2 class="title"><time>{{ log_info.created_at }}</time></h2>
+    </header>
+
+    <div class="paragraph">
+     <div class="article_img"><img src="{{ storage_url }}{{ log_info.img_url }}"></div>
+     <!--//article_img-->
+     <p id="article_text_2">{{ log_info.article_text }}</p>
+    </div>
+    <!-- /.paragraph -->
+
+    <div class="paragraph-footer">
+     <div class="tagarea common_bottom">
+      <div class="tag_nav"><i><img src="{{ url('/images/icon_tag.svg') }}" type="image/svg+xml"></i>
+       <ul id="user_item_tag_list">
+        {% for tags in log_info.article2tags %}
+        <a href="{{ url('/search/tag/' ~ tags.tags.id) }}">
+         <li>{{ tags.tags.tag_text }}</li>
+        </a>
+        {% endfor %}
+       </ul>
+      </div>
+      <!--//tag_nav-->
+
+     </div>
+     <!--//tagarea-->
+
+     <div class="clearfix"></div>
+    </div>
+    <!-- /.paragraph-footer -->
+
+   </article>
+
+  </div>
+  <!--//card_flex-->
+
+  <footer class="article-footer">
+   <div class="authority_stamp common_bottom">
+    <div class="user_thumb">
+     {% if user_item_info.user_avater_img_url %}
+     <a data-remodal-target="modal"><img src="{{ user_item_info.user_avater_img_url }}"></a>
+     {% else %}
+     <a data-remodal-target="modal"><img src="{{ url('images/user_default.png') }}"></a>
+     {% endif %}
+    </div>
+    <!--//user_thumb-->
+    <p class="name">{{ user_item_info.user_name }}</p>
+   </div>
+   <!--//authority_stamp-->
+   <div class="card_infomation common_bottom">
+    <p class="brand_name"><a>{{ user_item_info.brand_name }}</a></p>
+    <!--//brand_name-->
+    <h1 class="card_name"><a href="{{ url('master/item/' ~ user_item_info.item_id) }}">{{ user_item_info.item_name }}</a></h1>
+    <!--//card_name-->
+    <div class="card_status">
+     <div class="ratingarea common_bottom">
+      {% include 'partial/common/rating_user.twig' %}
+      <!--//rating-->
+     </div>
+     <!--//ratingarea-->
+
+     {% embed "partial/common/category_nav.twig" %}
+     {# {% block %} {% endblock %} #}
+     {% endembed %}
+
+    </div>
+    <!--//card_status-->
+
+    <a href="{{ url('item/article/register/' ~ user_item_info.item_id) }}" class="button btn_size-S">このギアの記事を書く</a></div>
+   <!--//card_infomation-->
+  </footer>
+
+</div><!--//.gear_article-->
+
+
+
+{% embed "partial/common/modal/modal-cliptocontainer.twig" %}
+{# {% block ClipToContainer_Contents %}{% endblock ClipToContainer_Contents %} #}
+{% endembed %}
+
+<!--//違反報告-->
+{% embed "partial/common/modal/modal-ban.twig" %}
+{% endembed %}
+
+<!--//ギア評価-->
+{% embed "partial/common/modal/modal-itemedit-rate.twig" %}
+{% endembed %}
+
+<!--//SNSshare-->
+{% embed "partial/common/modal/modal-share.twig" %}
+{% endembed %}
+
+<!--//Log編集-->
+{% embed "partial/common/modal/modal-edit-log.twig" %}
+{% endembed %}
+{% embed "partial/common/modal/modal-edit-log-comment.twig" %}
+{% endembed %}
+
+{% endblock contents %}
+
+
+{% block bottom_js %}
+<script>
+ function getUserItemId() {
+  return "{{ user_item_info.user_item_id }}";
+ }
+ function getOwnerUserId() {
+  return "{{ user_item_info.user_id }}";
+ }
+ function getLoginUserId() {
+  return "{{ user.id }}";
+ }
+</script>
+<script src="{{ asset('js/vendor/remodal.min.js') }}" ></script>
+<script src="{{ asset('js/img-resize.js') }}" ></script>
+{% endblock bottom_js %}

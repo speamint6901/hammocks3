@@ -1,0 +1,28 @@
+<div class="status_icon set_5p common_bottom">
+
+ <div>
+  {% if item_info.have_want_status == 1 %}
+  <img id="have_1_{{ item_info.items_id }}" class="icon-button" src="{{ asset('images/ico-have-on.svg') }}" type="image/svg+xml">
+  {% else %}
+  <img id="have_1_{{ item_info.items_id }}" class="icon-button" src="{{ asset('images/ico-have-off.svg') }}" type="image/svg+xml">
+  {% endif %}
+  <span class="count">{{ item_info.have_count }}</span>
+ </div>
+
+ <div>
+  {% if item_info.have_want_status == 2 %}
+  <img id="want_2_{{ item_info.items_id }}" class="icon-button" src="{{ asset('images/ico-want-on.svg') }}" type="image/svg+xml">
+  {% else %}
+  <img id="want_2_{{ item_info.items_id }}" class="icon-button" src="{{ asset('images/ico-want-off.svg') }}" type="image/svg+xml">
+  {% endif %}
+  <span class="count">{{ item_info.want_count }}</span>
+ </div>
+
+ <div>
+  <a data-remodal-target="SNS_Share">
+   <img src="{{ asset('images/ico-share-off.svg') }}" type="image/svg+xml">
+  </a>
+  <span class="count"></span>
+ </div>
+
+</div><!--//status_icon-->

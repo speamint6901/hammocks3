@@ -1,0 +1,12 @@
+<p class="titleblock">カテゴリを選択</p>
+
+<div class="flex_container">
+<select name="CategorySelect" id="categoryselect" class="selectform comon_layout">
+ <option value="">-- 選択 --</option>
+{% for key,category in big_category %}
+    <option value="{{ key }}">{{ category }}</option>
+{% endfor %}
+</select><!--//CategorySelect-->
+</div><!--//flex_container-->
+<p class="error_message">{{ errors.first('CategorySelect') }}</p>
+<p class="error_message">{{ errors.first('GenreSelect') }}</p>

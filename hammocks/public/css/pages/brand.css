@@ -1,0 +1,70 @@
+.brand #masonry {
+  width: 100%;
+  overflow: auto;
+  text-align: center;
+  margin: auto;
+}
+.brand .brand_card {
+  width: 320px;
+  margin: 20px;
+  border: 1px solid #95989A;
+  display: inline;
+}
+.brand .brand_card a {
+  color: #95989A;
+}
+.brand .brand_card .initial {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  margin: 40px auto;
+  border: 1px solid #95989A;
+}
+.brand .brand_card ul {
+  text-align: left;
+  margin: auto 80px;
+  padding-bottom: 80px;
+}
+.brand .brand_card ul li {
+  margin-bottom: 10px;
+}
+.brand .brand_list li span {
+  color: #FCFBF9;
+  background-color: #4EB5A2;
+  border-radius: 20px;
+  padding: 0px 10px;
+  margin-left: 5px;
+}
+.brand .brand_sarch {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin: 0 auto 80px 0;
+}
+.brand .brand_sarch a, .brand .brand_sarch label {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: 26px;
+  display: inline-block;
+  text-align: center;
+  color: #95989A;
+  cursor: pointer;
+}
+.brand .brand_sarch a:hover, .brand .brand_sarch label:hover {
+  color: #4EB5A2;
+}
+.brand .brand_sarch input[type="radio"] {
+  border: none;
+}
+@media only screen and (max-width: 480px) {
+  .brand .brand_sarch {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/*# sourceMappingURL=brand.css.map */

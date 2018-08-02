@@ -1,0 +1,38 @@
+{% extends "templates/common/transaction_base.twig" %}
+
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+
+{% block status1st %}
+お支払い
+{% endblock %}
+
+{% block status2nd %}
+お支払をお願いします
+{% endblock %}
+
+{% block gear_detail %}
+<div class="left_area">
+ <a href="{{url('user/item/1')}}">
+  <div class="pic squarebox">
+   <img class="img_resize" src="http://placehold.it/400x600">
+  </div><!--//pic-->
+ </a>
+</div><!--//left_area-->
+
+<div class="right_area card_infomation">
+ <p class="brand_name">ANONYM CRAFTSMAN DESIGN</p><!--//brand_name-->
+ <h1 class="card_name">胸ポケTシャツ　タイガーカモ　黒</h1><!--//card_name-->
+</div><!--/.card_infomation-->
+{% endblock %}
+
+{% block announce %}
+<p>合計金額<span class="price">¥20,600</span></p>
+<p class="limit">支払期限9月14日</p>
+<a href="/payment/customer/2" class="button btn_size-M">支払い完了</a>
+{% endblock %}
+
+
+{% block bottom_js %}
+{% endblock bottom_js %}

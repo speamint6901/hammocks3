@@ -1,0 +1,116 @@
+.header {
+ //@include site-size;
+ @include liquidsize;
+ //overflow: hidden;
+ //@include windowfit(0,0px,100%);
+background-color: $default-color;
+ height: $header_height;
+ position: fixed;
+ top: 0;
+
+
+ .header_wrap{
+  max-width: $SiteSize;
+  margin:0 auto;
+  height: $header_height;
+  //display: flex;//*
+  @include flex_container();
+  //align-items: baseline;
+  align-items: center;
+ }//header_wrap
+
+ .level-item{
+  @include flex_container();
+  //align-items: baseline;
+  justify-content: flex-end;
+  -webkit-align-items: center; /* Safari */
+  align-items:         center;
+ }//level-item
+
+ .menu_btn{
+  //position: absolute;
+  //right: 45px;
+  //top:10px;
+ }
+
+ .user_thumb{
+//position: absolute;
+  //right: 0;
+  //top:10px;
+ }
+
+ .searchbar{
+  @include flex_item();
+  input{margin: 0 0 0 0;}
+ }
+
+ .fixed_menu{
+  @include flex_item();
+  width: 36px;
+  height: 36px;
+ }
+
+ @include MQ(L) {
+  .header_wrap{
+   padding: 0 25px;
+  }//header_wrap
+ }//breakpoints (maxL) -------------------------
+
+} //header
+
+
+@import "../gloval_nav";
+@import "../fixed_menu";
+@import "../searchbar";
+
+
+
+
+.mobile { //mobile setting **********************
+
+ .header {
+  $menuiconsize:36px;
+  $menuicon_position:20px;
+  $searchbar_length:$menuiconsize + $menuicon_position + $menuicon_position;
+
+  background-color:rgba(255, 255, 255, 0.9);//$default-color;
+
+  form{
+   width: calc(100% - #{$searchbar_length});
+  }
+
+  .settingmenu{
+   position: absolute;
+   right:$menuicon_position;
+   top: 12px;
+   img{
+    width: $menuiconsize;
+    height: $menuiconsize;
+   }
+  }//.settingmenu
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+ } //header
+} //mobile end **********************************
+
+
+
+.tablet { //tablet setting **********************
+ .header {
+
+ .header_wrap{
+  padding: 0 25px;
+ }//header_wrap
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+} //header
+} //tablet end **********************************
+

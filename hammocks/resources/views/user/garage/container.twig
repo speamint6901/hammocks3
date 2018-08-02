@@ -1,0 +1,65 @@
+{% extends "templates/common/user_garage.twig" %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+{% block top_js %}{% endblock top_js %}
+
+{% block contents %}
+<h2>{{ article_container.name }}</h2>
+{% if self_flag %}
+<a data-remodal-target="ContainerEdit" class="contents_btn">edit</a>
+{% endif %}
+
+<!--//log_card （元article）-->
+{% include 'partial/common/card/articlecard.twig' %}
+<input type="hidden" id="container_id" value="{{ article_container.id }}">
+<input type="hidden" id="owner_users_id" value="{{ user_info.id }}">
+
+{% embed "partial/common/modal/modal-containeredit.twig" %}
+{% endembed %}
+
+{% embed "partial/common/modal/modal-articlepreview.twig" %}
+{% endembed %}
+
+ {% embed "partial/common/modal/modal-cliptocontainer.twig" %}
+{# {% block ClipToContainer_Contents %}{% endblock ClipToContainer_Contents %} #}
+ {% endembed %}
+
+{% endblock contents %}
+
+
+{% block bottom_js %}
+<script src="{{ asset('js/vendor/remodal.min.js') }}" ></script>
+<script src="{{ asset('js/jquery.anystretch.js') }}" ></script>
+<script src="{{ asset('js/list.js') }}" ></script>
+<script src="{{ asset('js/modalDetail.js') }}" ></script>
+<script src="{{ asset('js/tmpArticleList.js') }}" ></script>
+<script src="{{ asset('js/tmpArticleDetail.js') }}" ></script>
+<script src="{{ asset('js/tmpContainerList.js') }}" ></script>
+<script src="{{ asset('js/pick.js') }}" ></script>
+<script>
+ console.log('[anystretch]');
+ $('.profcover').anystretch("http://hanmmocks.com/images/user_cover.jpg");
+function isSelfUser() {
+    return "{{ self_flag }}";
+}
+function getContainerId() {
+    return "{{ article_container.id }}";
+}
+var list = new List("#tmp_list_2", {
+    url : getDomain() + consUrlJs.listPath[2],
+    templete_id : 2,
+    owner_users_id : "{{ user_info.id }}",
+    container_id : "{{ article_container.id }}",
+    is_selfuser : "{{ self_flag }}"
+});
+list.get();
+var modalDetail = new ModalDetail("#tmp_modal_0", {
+    url : getDomain() + consUrlJs.modalDetailPath[0],
+    templete_id : 0,
+    eventElement : ".articleModalBtn",
+    eventType : "click",
+    dataParamKey : "article_id",
+    dataElement : "data-article-id"
+});
+</script>
+{% endblock bottom_js %}

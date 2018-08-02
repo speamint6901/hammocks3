@@ -1,0 +1,44 @@
+<footer class="article-footer">
+ <div class="authority_stamp common_bottom">
+  <div class="user_thumb">
+   <a data-remodal-target="modal">
+    {% if user_item_info.user_avater_img_url %}
+    <img src="{{ user_item_info.user_avater_img_url }}">
+    {% else %}
+    <img src="{{ asset('images/user_default.png') }}">
+    {% endif %}
+   </a>
+  </div><!--//user_thumb-->
+  <p class="name">{{ user_item_info.user_name }}</p>
+ </div><!--//authority_stamp-->
+
+ <div class="card_infomation common_bottom">
+
+  <p class="brand_name"><a>{{ user_item_info.brand_name }}</a></p><!--//brand_name-->
+  <h1 class="card_name">
+   <a href="{{ url('master/item/' ~ user_item_info.item_id) }}">{{ user_item_info.item_name }}</a>
+  </h1><!--//card_name-->
+
+  {% if user_item_info.is_store %}
+  <p class="sale_flag button btn_size-S">sale</p>
+  {% endif %}
+
+  <div class="card_status">
+
+   <div class="ratingarea common_bottom">
+    {% include 'partial/common/rating_user.twig' %}
+    {% if is_myitem %}
+    <div class="button btn_size-S"  data-remodal-target="ItemEdit-rate">評価編集</div>
+    {% endif %}
+   </div><!--//ratingarea-->
+
+   {% embed "partial/common/category_nav.twig" %}
+   {# {% block %} {% endblock %} #}
+   {% endembed %}
+
+  </div><!--//card_status-->
+
+  <a href="{{ url('item/article/register/' ~ user_item_info.item_id) }}" class="button btn_size-S">このギアの記事を書く</a>
+
+ </div><!--//card_infomation-->
+</footer>

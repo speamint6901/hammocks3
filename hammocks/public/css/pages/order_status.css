@@ -1,0 +1,123 @@
+.listbox {
+  width: 100%;
+  border: 1px solid #cecece;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin: auto;
+  margin-bottom: 25px;
+  position: relative;
+  max-width: 540px;
+}
+.listbox .user_thumb {
+  max-width: 60px;
+  margin: auto;
+}
+.listbox .left_area {
+  width: 20%;
+  text-align: center;
+}
+.listbox .right_area {
+  margin-left: 20px;
+}
+.listbox .right_area .card_name {
+  margin: auto;
+}
+.listbox .badge {
+  min-width: 24px;
+  min-height: 24px;
+  right: -8px;
+  top: -8px;
+}
+.listbox.list-user {
+  justify-content: center;
+  height: 100px;
+}
+.listbox.list-user .right_area {
+  margin-left: 60px;
+}
+.listbox.list-user .right_area .name {
+  padding-right: 60px;
+}
+.listbox.list-user_rating {
+  max-width: 768px;
+}
+.listbox.list-user_rating .right_area .upper_area {
+  display: flex;
+  justify-content: space-between;
+}
+.listbox.list-user_rating .label_mark {
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.listbox.list-user_rating .label_mark.label_purchase {
+  background-color: #4EB5A2;
+  color: #FCFBF9;
+}
+.listbox.list-user_rating .label_mark.label_sale {
+  color: #4EB5A2;
+  border: 1px solid #4EB5A2;
+}
+.listbox.list-user_rating time {
+  color: #4EB5A2;
+}
+@media only screen and (max-width: 768px) {
+  .listbox.list-user_rating .left_area {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .listbox.list-user_rating .left_area {
+    width: 100%;
+  }
+}
+.listbox.list-gear {
+  max-width: 480px;
+}
+.listbox.list-gear .left_area {
+  width: auto;
+}
+.listbox.list-gear .card_infomation {
+  margin-left: 20px;
+  text-align: left;
+}
+.listbox.list-gear .card_infomation .card_name {
+  margin: auto;
+}
+.listbox.list-gear .card_infomation .status {
+  text-align: center;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 0 10px;
+  color: #4EB5A2;
+}
+.listbox.list-gear .card_infomation .btn_icon {
+  cursor: pointer;
+  position: absolute;
+  right: 25px;
+  top: calc(50% - 15px);
+}
+.listbox.list-gear_rating {
+  justify-content: space-around;
+}
+.listbox.list-gear_rating .right_area {
+  margin-left: 0;
+}
+.listbox.list-gear_rating .rate_result {
+  width: 145px;
+}
+
+.list-gear .btn_icon {
+  display: none;
+}
+.list-gear .price {
+  display: none;
+}
+
+.order_status .tabmenu {
+  max-width: 768px;
+  width: 100%;
+  margin: auto;
+}
+
+/*# sourceMappingURL=order_status.css.map */

@@ -1,0 +1,99 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+ %head
+  %meta{:content => "width=device-width", :name => "viewport"}/
+  %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %title HTMLメールサンプル
+  %link{:href => "../../../../public/css/email.css", :rel => "stylesheet", :type => "text/css"}/
+
+ %body{:bgcolor => "#FFFFFF"}
+  %table.head-wrap
+   %tr
+    %td{:bgcolor => "#FCFBF9", :height => "20px"}
+
+   %tr
+    %td.header{:align => "center", :cellpadding => "20"}
+     %img{:alt => "hammocks", :src => "../../../../public/images/mail/brand.png", :width => "100px"}/
+  / //HEADER
+
+
+  / BODY//
+  %table.body-wrap
+   %td
+   %td.container{:bgcolor => "#FFFFFF"}
+    .content
+     %table
+      %tr
+       %td
+        %h2 hammocks ユーザー登録確認
+        %p
+        ようこそ、
+        %span.important
+        さん
+        %br/
+        %p
+        ユーザー登録を完了する為に
+        %br/
+        下の写真をクリックしてhammocksに"camp in"してください。
+      %td
+  / //BODY
+
+
+
+
+
+
+  <!-- NOTE -->
+  <table class="common_content-wrap" bgcolor="#FFFFFF">
+  %tr
+  %td
+  %td.container
+.content
+  %table
+  %tr
+  %td
+  %p.note
+  このメールは、アウトドアギアフィールド「hammocks」にご登録いただいた方にお送りしております。万が一「hammocks」のご利用についてお心当たりがない場合は、直ちに「%a{:href => "#"}> hammocksサポートセンター」までご連絡いただいたのち、こちらのメールは破棄していただきますようお願いいたします。
+  / /content
+  %td
+</table>
+
+
+
+  / FOOTER//
+  %table.footer-wrap{:bgcolor => "#EFEDE2"}
+
+   %tr{:align => "center"}
+    %a{:href => ""}
+     %img{:alt => "hammocks CAMP IN", :src => "../../../../public/images/mail/campin.jpg"}/
+    %tr{:bgcolor => "#FFFFFF"}
+         %td
+          %tr
+           %td
+           %td.container
+            .content
+             %table
+              %tr
+               %td.footerbrand{:align => "center"}
+                %img{:alt => "hammocks", :src => "../../../../public/images/mail/brand.png", :width => "124px"}/
+              %tr
+               %td.snsicon{:align => "center"}
+                %a{:href => ""}
+                 %img{:alt => "", :src => "../../../../public/images/mail/ico-facebook-8.png", :width => "42"}/
+                %a{:href => ""}
+                 %img{:alt => "", :src => "../../../../public/images/mail/ico-twitter-8.png", :width => "42"}/
+                %a{:href => ""}
+                 %img{:alt => "", :src => "../../../../public/images/mail/ico-insta-8.png", :width => "42"}/
+                %a{:href => ""}
+                 %img{:alt => "", :src => "../../../../public/images/mail/ico-google-p-8.png", :width => "42"}/
+                %a{:href => ""}
+                 %img{:alt => "", :src => "../../../../public/images/mail/ico-pinterest-8.png", :width => "42"}/
+              %tr
+               %td{:align => "center"}
+                %p.footermenu
+                 %a{:href => "#"} 利用規約
+                 %a{:href => "#"} プライバシーポリシー
+                 %a{:href => "#"} お問い合わせ
+               %td
+  / //FOOTER
+

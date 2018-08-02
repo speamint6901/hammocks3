@@ -1,0 +1,219 @@
+//******************************* impoprt setting /
+@import "compass";
+@import "../core/color";
+@import "../core/variables";
+@import "../core/mixin";
+
+//******************************* impoprt partial /
+//@import "../partial/item_card";
+
+@import "../partial/gear_rating";
+@import "../partial/rating-edit";
+@import "../partial/form/pictselect";
+@import "../partial/tagit";
+@import "../partial/form/dropzone";
+
+
+//.article{
+
+
+ .gear_artilce{
+  max-width: $textcontents;
+ margin: auto;
+
+  .sale_flag{
+   background-color: $main-color;
+   color:$base-color;
+  }
+
+  .article-header,.article-footer{
+  text-align: center;
+  margin: 80px auto;
+  padding-top: 80px;
+  border-top: 1px solid $line-color;
+
+  .brand_name,.card_name{ margin: 0 auto; }
+   .user_thumb{  max-width: 60px; margin-left: 25px;}
+  .authority_stamp{
+   margin: auto;
+   .name{
+    margin-left: 30px;
+   }//name
+  }//authority_stamp
+  .card_status{margin-top: 20px;}
+   .status_icon,.gear_rating{
+   margin: 20px auto;
+   }
+
+  .tag_nav{
+   i{
+    float: none;
+    display: inline-block;
+   }
+   ul{display: inline-block;}
+  }
+
+ }//article-footer
+
+  .article-header{
+   padding-top: 0;
+   margin-top: 60px;
+   border: none;
+   .gear_name{
+    width: 60%;
+    margin: auto;
+    text-align: left;
+    position: relative;
+    .sale_flag{
+     position: absolute;
+     right: 0;
+     top:0;
+    }
+   }
+  }//article-header
+
+  section{
+   margin-bottom: 120px;
+   header{
+    text-align: center;
+   }
+   .title{
+    margin: 20px auto;
+    max-width: 100%;
+   }
+   time{
+    @include fontsize(18);
+   }
+
+   .paragraph{
+    text-align: left;
+    margin-bottom: $common_mr-bt *2;
+   }//paragraph
+
+   .article_img{
+    width: 80%;
+    margin: 20px auto;
+    display: block;
+    img{
+     width: auto;
+     max-width: 100%;
+     margin: auto;
+     display: block;
+    }//v
+   }//article_img
+
+   p{
+    img{width: auto;}
+   }
+
+  }//section
+
+  .paragraph-footer{
+   .tagarea{overflow: hidden;}
+   .tag_nav{
+    ul{
+     display: inline-block;
+     text-align: left;
+     margin-left: 15px;
+     float: left;
+     width: calc(100% - 42px);//iのサイズとマージンの和
+    }
+   }//tag_nav
+  }//paragraph-footer
+
+ //breakpoints -------------------------------
+ @include MQ(maxL) {}//breakpoints (maxL) -------------------------
+ @include MQ(M) {
+  width: 100%;
+  .article_img{   width: 100%;  }
+ }//breakpoints (M) -------------------------
+ @include MQ(S) {
+  .article-header{
+   .gear_name{ width: 100%; }
+   .title{ text-align: left }
+   time{}
+  }//article-header
+
+  .article-footer{
+  .tagarea{
+   overflow: hidden;
+   text-align: left;
+   }//tagarea
+
+   .tag_nav{
+    i{float: left;}
+    ul{    float: left; width: Calc(100% - 27px);}
+   }
+  }//article-footer
+ }//breakpoints (S) -------------------------
+
+
+ }//.gear_artilce
+
+
+//######記事入力
+ .article_register{
+  .paragraph_input{
+   //border: 1px solid $line-color;
+  }//paragraph_input
+
+  .gear_rating{
+   margin:auto auto $common_mr-bt auto;
+  }
+ }//article_register
+
+
+//########################################3
+
+
+ //以下partial化したほうがいい
+ .public_comment{
+  //max-width: 900px;
+  margin: 100px auto 0 auto;
+  .user_comment{
+   width: 100%;
+   border: 1px solid $text-color;
+   padding: 10px 40px;
+   margin-bottom: 40px;
+  }//user_comment
+  .upperinfo{
+   display: flex;
+   //justify-content: center;
+  }//upperinfo
+  .user_thumb {
+   max-width: 40px;
+   margin-right: 20px;
+  }//user_thumb
+  .comment{
+   max-width: 800px;
+  }//comment
+  .footerinfo{
+   display: flex;
+   justify-content: flex-end;
+   align-items: baseline;
+   .putcontainer{margin-right: 40px;}
+   .gear_rating{
+    max-width: 180px;
+    i {
+     margin-right: -10px;
+    }
+   }//rating
+  }//footerinfo
+ }//public_comment
+
+//}//.article
+
+
+.mobile { //mobile setting **********************
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+} //mobile end **********************************
+
+.tablet { //tablet setting **********************
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+} //tablet end **********************************

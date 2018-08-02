@@ -1,0 +1,45 @@
+.selectform {
+ position: relative;
+ display: inline-block;
+ width: 100%;
+ //background: #fff;
+ @include common_radius;
+ border: 1px solid $line-color;
+ margin-bottom: $common_mr-bt;
+
+ &:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  display: block;
+  width: 0;
+  height: 0;
+  margin: -2px 0 0 0;
+  border: 5px solid transparent;
+  border-top: 7px solid $main-color;
+ }
+}//selectform
+
+
+select {
+ cursor: pointer;
+ position: relative;
+ -webkit-appearance: none;
+ appearance: none;
+ display: block;
+ width: 200px;
+ padding: 0.5em 1em;
+ color: $text-color;
+ border: none;
+ //border-radius: 5px;
+ background: transparent;
+ &:disabled{
+  cursor: not-allowed;
+  background-color:$disable-color;
+ }
+}
+
+::-ms-expand {
+ display: none;
+}

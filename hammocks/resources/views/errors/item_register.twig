@@ -1,0 +1,29 @@
+{% extends "templates/common/error_base.twig" %}
+
+{% block Body_class %}
+<body class="error">
+ {% endblock Body_class %}
+
+ {% block stylesheets %}
+ <link rel="stylesheet" href="{{ asset('css/pages/error.css') }}" media="all" />
+ {% endblock stylesheets %}
+
+ {% block top_js %}
+ {% endblock top_js %}
+
+ {% block contents %}
+ <h2>登録エラー</h2>
+
+ <div class="textcontents center unit">
+  <p class="common_bottom">
+   エラーにより登録が完了していない可能性があります。<br>
+   申し訳ございませんが、もう一度登録をお願いいたします。
+  </p>
+
+  <a href="/item/register"><p class="button btn_size-S">登録する</p></a>
+ </div>
+ {% endblock contents %}
+
+
+ {% block bottom_js %}
+ {% endblock bottom_js %}

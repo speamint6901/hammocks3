@@ -1,0 +1,89 @@
+.rating-edit{
+ position: relative;
+ @include flex_container();
+ -webkit-flex-direction: row-reverse;
+ flex-direction: row-reverse;
+ width: 240px;
+ margin: auto;
+
+ input:last {
+  position: relative;
+  padding-top:10px;
+  clear:both;
+ }
+
+ input {
+  @include flex_item(1);
+  position:relative;
+  width: 48px;
+  border: none;
+  visibility: collapse;//FireFox対策
+
+  &:focus{background-color: $default-color;}
+  &:checked {
+   transition: 0.15s;
+   -webkit-transition:0.5s;
+   &+label::after { color: $main-color; }
+   &~input+label::after{ color: $main-color; }
+   &+label+span { opacity: 1; }
+  }//checked
+
+  &+label{
+   cursor: pointer;
+
+   &:hover::after {
+    opacity: 0.8;
+   }
+
+   &::after {
+    font-family: 'hammocks_font';
+    opacity:1.0;
+    font-size:48px;
+    position:relative;
+    content: "\1f323";
+    color: gray;
+    transition: 0.5s;
+    -webkit-transition:0.5s;
+   }//after
+
+   &+span {
+    position: absolute;
+    right: -100px;
+    opacity: 0;
+    transition: 0.5s;
+    -webkit-transition:0.5s;
+   }
+  }//span
+ }//input
+
+ @include MQ(maxL) {
+ }//breakpoints (maxL) ----------------------
+
+ @include MQ(M) {
+ }//breakpoints (M) -------------------------
+
+ @include MQ(S) {
+ }//breakpoints (S) -------------------------
+
+
+}//rating-edit
+
+.mobile { //mobile setting **********************
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { }//portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+} //mobile end **********************************
+
+
+
+.tablet { //tablet setting **********************
+
+ //Gyro setting --------------------------------
+ @media screen and (orientation: portrait) { } //portrait
+ @media screen and (orientation: landscape) { }//landscape
+ //end Gyro setting ----------------------------
+
+} //tablet end **********************************

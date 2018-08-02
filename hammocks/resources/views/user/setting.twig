@@ -1,0 +1,244 @@
+{% extends "templates/common/base.twig" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/vendor/dropzone.css') }}" media="all" />
+<link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="{{ asset('css/pages/setting.css') }}" media="all" />
+{% endblock stylesheets %}
+
+{% block Body_class %}
+<body class="{{ route_class }} setting">
+ {% endblock Body_class %}
+
+{% block contents %}
+
+<h2>アカウント設定</h2>
+
+
+
+<div class="tabmenu" id="tab-menu">
+ <ul>
+  <li class="active"><em>ユーザー設定</em></li>
+  <li><em>基本情報設定</em></li>
+  <li><em>購入者設定</em></li>
+  <li><em>出品者設定</em></li>
+ </ul>
+
+ <!-- タブの中身 -->
+ <div id="tab-box">
+
+  <div class="tab_content user_account_setting active">
+   <div class="textcontents unit">
+
+    <div class="formcontents">
+
+     <div class="form_gr common_bottom">
+
+      <div class="common_bottom">
+       <p class="titleblock">ユーザーアイコン</p>
+       <div class="pictselect usericon_set">
+
+        <div class="spotwrap">
+        <div id="my-awesome-dropzone" class="dropzone">
+         <span>
+          <i class="fa fa-image"></i>
+         </span>
+        </div><!--//my-awesome-dropzone-->
+        </div>
+
+        <div class="spotwrap">
+        <div id="my-preview-dropzone" class="dropzone"></div>
+        <input type="hidden" value="0" name="pict-ok" id="pict-ok">
+        </div>
+
+       </div><!--//pictselect-->
+      </div><!--//common_bottom-->
+
+      <div class="common_bottom">
+       <div class="pictselect">
+        <p class="titleblock">GRAGe背景画像</p>
+        <div id="my-awesome-dropzone2" class="dropzone">
+         <span>
+          <i class="fa fa-image"></i>
+         </span>
+        </div><!--//my-awesome-dropzone-->
+
+        <div id="my-preview-dropzone2" class="dropzone"></div>
+        <input type="hidden" value="0" name="pict-ok" id="pict-ok">
+       </div><!--//pictselect-->
+      </div>
+
+      <div class="common_bottom">
+       <div class="common_bottom">
+        <a data-remodal-target="Acount-password" class="button btn_size-M">パスワードを変更する</a>
+       </div><!--//common_bottom-->
+      </div><!--//common_bottom-->
+     </div><!-- /.form_gr -->
+
+    </div><!-- /.formcontents -->
+   </div><!--//textcontents-->
+
+   <div class="common_bottom">
+    <a class="button btn_size-M disable-b" id="setting_tab_avater">アバター更新</a>
+    <a class="button btn_size-M disable-b" id="setting_tab_background">背景更新</a>
+   </div><!--//common_bottom-->
+
+  </div><!--//tab_content-->
+
+  <div class="tab_content basic_account_setting">
+   <div class="formcontents common_bottom">
+
+    <div class="form_gr common_bottom">
+     <div class="common_bottom">
+      <label for="Name" id="profile_name_label" class="titleblock">氏名</label>
+      <input type="text" id="profile_name" class="form_size-L setting_tab1" name="name" autocomplete="name" placeholder="碇矢 長一" value="{{ user_info.secret_profile.name }}">
+      <div class="error" id="profile_name_error"></div>
+
+      <label for="furigana" id="profile_name_kana_label" class="titleblock">フリガナ</label>
+      <input type="text" id="profile_name_kana" class="form_size-L setting_tab1" placeholder="イカリヤ　チョウイチ" value="{{ user_info.secret_profile.name_kana }}">
+      <div class="error" id="profile_name_kana_error"></div>
+      <label for="demo" id="birth_label" class="titleblock">生年月日</label>
+      {% if user_agent == "pc" %}
+      <input type="text" class="flatpickr form_size-L setting_tab1" id="birth" value="{{ user_info.secret_profile.birth_year}}-{{ user_info.secret_profile.birth_mon }}-{{ user_info.secret_profile.birth_day }}">
+      {% else %}
+      <input type="date" name="date" class="form_size-L setting_tab1" id="birth" value="{{ user_info.secret_profile.birth_year}}-{{ user_info.secret_profile.birth_mon }}-{{ user_info.secret_profile.birth_day }}">
+      {% endif %}
+      <div class="error" id="birth_error"></div>
+     </div><!--//common_bottom-->
+    </div><!-- /.form_gr -->
+
+    <div class="form_gr common_bottom">
+     <div class="common_bottom">
+      {% include 'partial/common/input/address-input.twig' %}
+     </div><!-- /.common_bottom -->
+    </div><!-- /.form_gr -->
+
+   </div><!-- /.formcontents -->
+   <div class="common_bottom">
+     <a class="button btn_size-M" id="setting_tab1_btn">更新する</a>
+   </div><!--//common_bottom-->
+  </div><!--//tab_content-->
+
+
+  <div class="tab_content buyer_setting">
+   <div class="formcontents common_bottom">
+
+    <div class="form_gr common_bottom">
+     {% include 'partial/common/input/sms-input.twig' %}
+    </div><!-- /.form_gr -->
+
+    <div class="form_gr common_bottom">
+     {% include 'partial/common/input/creditcard-input.twig' %}
+     <div class="common_bottom">
+      <a class="button btn_size-M">クレジットカード登録</a>
+     </div><!--//common_bottom-->
+    </div><!-- /.form_gr -->
+
+   </div><!-- /.formcontents -->
+
+
+   <div class="common_bottom">
+    <a class="button btn_size-M">更新する</a>
+   </div><!--//common_bottom-->
+
+  </div><!--//tab_content-->
+
+
+  <div class="tab_content exhibitor_setting">
+
+   <div class="textcontents unit">
+    <div class="formcontents common_bottom">
+
+     <div class="form_gr common_bottom">
+      {% include 'partial/common/input/bank-input.twig' %}
+     </div><!-- /.form_gr -->
+
+     <div class="form_gr common_bottom">
+      {% if user_info.secret_profile.is_certificate_auth %}
+      <p class="button btn_size-M disable-b">本人確認済</p>
+      {% else %}
+      <a href="" class="button btn_size-M">本人確認書類の提出</a>
+      {% endif %}
+     </div><!-- /.form_gr -->
+
+    </div><!-- /.formcontents -->
+   </div><!--//textcontents-->
+
+   <div class="common_bottom">
+    <a class="button btn_size-M">更新する</a>
+   </div><!--//common_bottom-->
+
+  </div><!--//tab_content-->
+
+
+
+ </div><!--//tab-box-->
+</div><!-- /.tab-menu -->
+
+
+
+ {% embed "partial/common/modal/modal-acount-password.twig" %}
+ {% endembed %}
+
+{% endblock contents %}
+
+{% block bottom_js %}
+ <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+ <script src="{{ asset('js/vendor/remodal.min.js') }}" ></script>
+ <script src="{{ asset('js/vendor/card.js') }}" ></script>
+ <script src="{{ asset('js/dropzone.js') }}"></script>
+ <script src="{{ asset('js/imageUploader.js') }}" ></script>
+<script src="{{ asset('js/validation.js') }}" ></script>
+<script src="{{ asset('js/userSetting.js') }}" ></script>
+
+<script>
+ $(function(){
+
+  $('#tab-menu li').on('click', function(){
+   if($(this).not('active')){
+    // タブメニュー
+    $(this).addClass('active').siblings('li').removeClass('active');
+    // タブの中身
+    var index = $('#tab-menu li').index(this);
+    $('#tab-box .tab_content').eq(index).addClass('active').siblings('.tab_content').removeClass('active');
+   }
+  });
+
+
+  window.addEventListener("beforeunload", function (e) {
+   var confirmationMessage = "入力内容を破棄します。";
+   e.returnValue = confirmationMessage;
+   return confirmationMessage;
+  });
+
+
+   new Card({
+    form: document.querySelector('#card_info'),
+   container: '.card-wrapper',
+
+    formSelectors: {
+    numberInput: 'input#cardnumber', // optional — default input[name="number"]
+    expiryInput: 'input#expiry', // optional — default input[name="expiry"]
+    cvcInput: 'input#cvc', // optional — default input[name="cvc"]
+    nameInput: 'input#cardname' // optional - defaults input[name="name"]
+   },
+
+  });
+
+
+ });
+</script>
+
+<style>
+
+ </style>
+
+
+ <script src="{{ asset('js/flatpickr.js') }}" ></script>
+ <script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
+ <script>
+  flatpickr(".flatpickr", {
+   "locale": "ja"
+  });
+ </script>
+{% endblock bottom_js %}

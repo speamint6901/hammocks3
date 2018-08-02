@@ -1,0 +1,120 @@
+{% extends "templates/common/master_item_base.twig" %}
+{% block title %}アウトドアギア{{ item_info.brand_name }}:{{ item_info.name }}の基本情報{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/pages/master_item.css') }}" media="all" />
+{% endblock stylesheets %}
+
+{% block contents %}
+
+
+
+{% embed "partial/common/masteritemNav.twig" %} {% endembed %}
+
+
+<section class="item_card">
+
+ <div class="card_visual common_bottom">
+
+ <div class="pic squarebox">
+  <img class="img_resize" src="{{ storage_url }}{{ item_info.public_img }}">
+ </div><!--//pic-->
+  {% if item_info.img_site_url %}
+  <a class="quotes text-overflow" href="{{ item_info.img_site_url }}" target="_blank"><span>画像引用元:</span>{{ item_info.img_site_url }}</a>
+  {% endif %}
+ </div><!--//card_visual-->
+
+
+
+ <div class="master_infomation">
+  <p class="brand_name"><a href="{{ url('search/brand/select/' ~ item_info.brands_id) }}">{{ item_info.brand_name }}</a></p><!--//brand_name-->
+  <h1 class="card_name">{{ item_info.name }}</h1><!--//card_name-->
+  <div class="card_status">
+
+   {% include 'partial/common/card/status_icon-publicItem.twig' %}
+
+   <div class="ratingarea common_bottom">
+    <div class="gear_rating">
+     <i class="rate_result">
+      {% if item_info.evaluation_average_path %}
+      <img id="thunder_img_icon" src="{{ asset('images/rate/thunder_5set-' ~ item_info.evaluation_average_path ~ '.svg') }}" type="image/svg+xml">
+      {% else %}
+      <img id="thunder_img_icon" src="{{ asset('images/rate/thunder_5set-0-0.svg') }}" type="image/svg+xml">
+      {% endif %}
+     </i>
+     <p id="rate_disp_area">{{ item_info.average }}<span>THUNDER</span></p>
+    </div><!--//rating-->
+
+   </div><!--//ratingarea-->
+
+   <div class="description common_bottom">
+    <p>
+     {{ item_info.description|nl2br }}
+    </p>
+   </div><!--//description-->
+
+
+   {% embed "partial/common/category_nav.twig" %}
+   {% block CateList %}
+
+   <li>
+    <a href="{{ url('search/select/category/' ~ item_info.category_id) }}">{{ item_info.category_name }}</a>
+   </li>
+   <li>
+    <a href="{{ url('search/select/genre/' ~ item_info.genre_id) }}">{{ item_info.genre_name }}</a>
+   </li>
+
+   {% if item_info.genre_second_name is not null %}
+   <li>
+    <a href="{{ url('search/select/genre_second/' ~ item_info.genre_second_id) }}">{{ item_info.genre_second_name }}</a>
+   </li>
+   {% endif %}
+
+   {% endblock CateList %}
+   {% endembed %}
+
+
+  </div><!--//card_status-->
+ </div><!--//master_infomation-->
+
+<div class="clearfix"></div>
+
+ <div class="publish_btn">
+  <a href="{{ url('item/sale/register1/'~item_info.items_id )}}" class="button btn_size-M">このギアを出品する</a>
+  <a href="{{ url('item/article/register/' ~ item_info.items_id) }}" class="button btn_size-M">このギアの記事を書く</a>
+ </div>
+
+</section><!--//item_card-->
+
+{% embed "partial/common/intermission.twig" %} {% endembed %}
+{% include 'partial/common/card/useritem.twig' %}
+
+<!--//SNSshare-->
+{% embed "partial/common/modal/modal-share.twig" %}
+{% block SNS_Title %}
+<h1>このギアを共有する</h1>
+{% endblock SNS_Title %}
+{% endembed %}
+
+{% endblock contents%}
+
+
+{% block bottom_js %}
+<script src="{{ asset('js/vendor/remodal.min.js') }}" ></script>
+<script src="{{ asset('js/list.js') }}" ></script>
+<script src="{{ asset('js/tmpUserItemList.js') }}" ></script>
+<script src="{{ asset('js/counter.js') }}" ></script>
+<script type="text/javascript">
+ function getItemsId() {
+  return {{ item_info.items_id }};
+ }
+ $(".squarebox").enable_onload_for_images();
+var list = new List("#tmp_list_6", {
+    url : getDomain() + consUrlJs.listPath[6],
+    method : "post",
+    templete_id : 6,
+    items_id : "{{ item_info.items_id }}"
+});
+list.get();
+</script>
+{% endblock bottom_js %}

@@ -1,0 +1,65 @@
+{% spaceless %}
+{% include 'templates/const.twig' %}
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>hammocks|{% block title %}アウトドアギア{% endblock %}</title>
+
+  {% include 'templates/common/lib/meta.twig' %}
+  {% block metadescription %}
+  <meta name="description" content="hammocksは自分の持っているキャンプ、アウトドアのギアを管理して、いらなくなったギアは欲しい人に販売！！自分の欲しいものを見つけたら購入できるサービスです。">
+  {% endblock %}
+
+  {% include 'templates/common/lib/ogp.twig' %}
+  {% block ogp %}
+  <meta property="og:title" content="ogpのタイトル. <title>と文章も文字数も同じにする。"/>
+  <meta property="og:description" content="hammocksは自分の持っているキャンプ、アウトドアのギアを管理して、いらなくなったギアは欲しい人に販売！！自分の欲しいものを見つけたら購入できるサービスです。" />
+  <meta property="og:image" content="http://ogimage.tsmallfield.com/img/ogp_1200x630.png" />
+  <meta property="og:url" content="http://dev.thehammocks.camp/" />
+  {% endblock %}
+
+
+  {% include 'templates/common/lib/link.twig' %}
+  {% block link %}{% endblock %}
+
+  {% include 'templates/common/lib/css.twig' %}
+  {% block stylesheets %}{% endblock %}
+
+  {% include 'templates/common/lib/analyticstracking.twig' %}
+
+  {% block top_js %}{% endblock %}
+ </head>
+
+
+ {% block Body_class %}
+ <body class="{{ route_class }}">
+ {% endblock Body_class %}
+
+    <div class="fakeloader"></div>
+  <article class="container" id="container">
+
+   {% include 'partial/'~user_agent~'/header.twig' %}
+
+   <div class="contents">
+    {% block contents %} {% endblock %}
+   </div><!--//contents-->
+
+   {% include 'partial/'~user_agent~'/footer.twig' %}
+
+
+  </article><!--//container-->
+
+
+  {% if user_agent == "sp" %}
+  {% include 'templates/sp/base_modal.twig' %}
+  {% endif %}
+
+
+  {% include 'templates/common/lib/js.twig' %}
+  {% block bottom_js %}{% endblock %}
+
+ </body>
+</html>
+{% endspaceless %}
