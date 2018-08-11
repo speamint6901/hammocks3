@@ -119,7 +119,7 @@ Route::group(array('prefix' => 'ajax', 'middleware' => 'api'), function($router)
 });
 
 // web 同期通信
-Route::group(array('prefix' => '/'), function($router) {
+Route::group(array('prefix' => '/', 'middleware' => 'web'), function($router) {
 
     // ログインユーザーのみアクセス出来るルーティング
     Route::group(array("middleware" => "users"), function($route) { 

@@ -14,7 +14,7 @@ use App\Service\Base as Logic;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
+    use /*AuthorizesRequests, AuthorizesResources*/ DispatchesJobs, ValidatesRequests;
 
     protected $data = [];
 
@@ -53,7 +53,7 @@ class Controller extends BaseController
         }
 
         // viewでクラス切り替え
-        $currentRouteUri = $currentRoute->getUri();
+        $currentRouteUri = $currentRoute->uri();
         $currentRouteArray = explode("/", $currentRouteUri);
         $res_route = null;
         foreach ($currentRouteArray as $route) {
@@ -80,7 +80,7 @@ class Controller extends BaseController
                     $currentRouteUri = preg_replace("/\{". $paramName . "\}/", $parameter, $currentRouteUri);
                 }
             }
-            $request->session()->put("url_referer", $currentRouteUri);
+            session()->put("url_referer", $currentRouteUri);
         }
         $this->data['route_class'] = $res_route;
 
