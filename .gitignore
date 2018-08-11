@@ -1,0 +1,8 @@
+laradock/.idea
+laradock/logs
+laradock/data
+laradock/.env
+laradock/.project
+laradock/.docker-sync
+laradock/jenkins/jenkins_home
+laradock/.laradock/*
