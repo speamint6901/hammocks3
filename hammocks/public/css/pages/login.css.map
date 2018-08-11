@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAWE,mBAAC;EACA,QAAQ,EAAE,QAAQ;;AAClB,qBAAC;EAIA,SAAS,EAFC,IAAI;EAGd,MAAM,EAAE,SAAS;EACjB,aAAa,EAAE,IAAI;EACnB,KAAK,EANC,IAAI;EAOV,MAAM,EAPA,IAAI;EAQV,WAAW,EARL,IAAI;EASV,YAAY,EAAC,GAAa;EAC1B,QAAQ,EAAE,QAAQ;EAClB,IAAI,EAAE,GAAG;;AAMZ,oBAAa;EACZ,MAAM,EAAE,SAAS",
-"sources": ["file:///Users/IS_Dev.suganuma/vagrant_server/project/hammocks/project/hammocks/resources/assets/sass/pages/login.scss"],
-"names": [],
-"file": "login.css"
-}
