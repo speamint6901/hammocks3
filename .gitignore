@@ -6,3 +6,17 @@ laradock/.project
 laradock/.docker-sync
 laradock/jenkins/jenkins_home
 laradock/.laradock/*
+hammocks/vendor
+hammocks/node_modules
+hammocks/public/storage
+hammocks/public/assets
+hammocks/public/js
+hammocks/storage
+hammocks/Homestead.yaml
+hammocks/Homestead.json
+hammocks/.env
+hammocks/.cfg
+hammocks/prepros.cfg
+hammocks/.buildpath
+hammocks/.project
+hammocks/.settings
